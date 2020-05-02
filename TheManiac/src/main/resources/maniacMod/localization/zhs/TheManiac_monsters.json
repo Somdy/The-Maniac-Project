@@ -1,0 +1,274 @@
+{
+  "maniac:femaleGremlin": {
+    "NAME": "持盾地精",
+    "DIALOG": [
+      "盾击",
+      "保护",
+      "庇护"
+    ],
+    "MOVES": [
+      "给予 #b",
+      " 点 #y格挡",
+      "造成 #b",
+      " 点伤害",
+      "给予 #b",
+      " 层 #y多层护甲"
+    ]
+  },
+
+  "maniac:fatGremlin": {
+    "MOVES": [
+      "造成 #b",
+      " 点伤害",
+      " 点伤害并施加 #b",
+      " 层 #y虚弱"
+    ],
+    "NAME": "胖地精",
+    "DIALOG": [
+      "粉碎",
+      "钝打"
+    ]
+  },
+
+  "maniac:angryGremlin": {
+    "MOVES": [
+      "造成 #b",
+      " 点伤害",
+      "获得 #b ",
+      " 层 #y愤怒",
+      " 点伤害并施加 #b",
+      " 层 #y出血"
+    ],
+    "NAME": "火大地精",
+    "DIALOG": [
+      "爪挠",
+      "生气",
+      "乱抓"
+    ]
+  },
+
+
+  "maniac:mutatedLouse": {
+    "MOVES": [
+      "生长",
+      "突变"
+    ],
+    "NAME": "变异虱虫",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:variantLouse": {
+    "MOVES": [
+      "吐网",
+      "突变"
+    ],
+    "NAME": "变异虱虫",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:jawFlesh": {
+    "MOVES": [
+      "咆哮",
+      "抽打",
+      "牙咬"
+    ],
+    "NAME": "肉颚虫",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:thornShellParasite": {
+    "MOVES": [
+      "汲取"
+    ],
+    "NAME": "荆壳寄生怪",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:Kaleidoscrimson": {
+    "MOVES": [
+      "强化"
+    ],
+    "NAME": "彩球行者",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:Biryd": {
+    "MOVES": [
+      "扇翅"
+    ],
+    "NAME": "怪鸟",
+    "DIALOG": [
+      "@嘎！@ NL @哑！@"
+    ]
+  },
+
+  "maniac:Planzarre": {
+    "MOVES": [
+      "虚弱孢子",
+      "撕咬",
+      "光合作用"
+    ],
+    "NAME": "异花",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:Lagavurple": {
+    "MOVES": [
+      "虹吸",
+      "抓"
+    ],
+    "NAME": "乐加维罗",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:Lagavulred": {
+    "MOVES": [
+      "虹吸",
+      "刮"
+    ],
+    "NAME": "乐加维斯",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:wanderingGhost": {
+    "MOVES": [
+      "割裂",
+      "高热",
+      "枯焦",
+      "地狱烈焰"
+    ],
+    "NAME": "游荡鬼魂",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:wanderingGhostBody": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:wanderingGhostOrb": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:torchGhost": {
+    "MOVES": [
+      "分裂灵魂"
+    ],
+    "NAME": "灵魂头",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:Sneckouette": {
+    "MOVES": [
+      "幻影",
+      "迷惑凝视",
+      "进化",
+      "撕咬",
+      "毒牙",
+      "嘶嘶~",
+      "实体化",
+      "硬化表皮",
+      ""
+    ],
+    "NAME": "幻蛇",
+    "DIALOG": [
+      "睨薧齾~",
+      "感嶹靡惑閁？"
+    ]
+  },
+
+  "maniac:Mawelling": {
+    "MOVES": [
+      "吞噬",
+      "胃泥",
+      "垂涎",
+      "舔舐",
+      "唾液",
+      "咀嚼",
+      "狂宴",
+      "反刍",
+      "饕餮",
+      ""
+    ],
+    "NAME": "臃肿巨口",
+    "DIALOG": [
+      "#r多么美味 ~",
+      "#b鲜美~~~可口！",
+      "#y美味的食物！！！",
+      "……",
+      "还没……吃——饱~！",
+      "食食食~物物物！",
+      "非常——饥饿！！！",
+      "……越来越…… #r饿了 ！！！",
+      ""
+    ]
+  },
+
+  "maniac:Corruardian": {
+    "MOVES": [
+      "激活",
+      "削弱",
+      "升级",
+      "驱逐",
+      "消灭",
+      "重启",
+      "摧毁",
+      "最后通牒",
+      "抹除",
+      "自毁",
+      ""
+    ],
+    "NAME": "腐化守卫",
+    "DIALOG": [
+      "#r监测到闯入者！！！",
+      "#r监测到非法入侵！！！",
+      "#r警告：非法入侵！！！",
+      "#r警告： 命令失效！！！",
+      "#r错误： 非法符号！！！",
+      "#r终止： 未知影响！！！",
+      ""
+    ]
+  },
+
+  "maniac:Destroyer": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "破坏机",
+    "DIALOG": [
+      ""
+    ]
+  }
+
+}

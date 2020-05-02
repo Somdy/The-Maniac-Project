@@ -1,0 +1,274 @@
+{
+  "maniac:femaleGremlin": {
+    "NAME": "Shield Gremlin",
+    "DIALOG": [
+      "Shield Bash",
+      "Protect",
+      "Ward"
+    ],
+    "MOVES": [
+      "Gives #b",
+      " #yBlock",
+      "Deal #b",
+      " damage",
+      "Gives #b",
+      " #yPlated #yArmor"
+    ]
+  },
+
+  "maniac:fatGremlin": {
+    "MOVES": [
+      "Deal #b",
+      " damage",
+      " damage and apply #b",
+      " #yWeak"
+    ],
+    "NAME": "Fat Gremlin",
+    "DIALOG": [
+      "Smash",
+      "Blunt"
+    ]
+  },
+
+  "maniac:angryGremlin": {
+    "MOVES": [
+      "Deal #b",
+      " damage",
+      "Gain #b ",
+      " #yAnger",
+      " damage and apply #b",
+      " #yBleeding"
+    ],
+    "NAME": "Mad Gremlin",
+    "DIALOG": [
+      "Claw",
+      "Enrage",
+      "Scratch"
+    ]
+  },
+
+
+  "maniac:mutatedLouse": {
+    "MOVES": [
+      "Grow",
+      "Mutate"
+    ],
+    "NAME": "Mutated Louse",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:variantLouse": {
+    "MOVES": [
+      "Spit Web",
+      "Mutate"
+    ],
+    "NAME": "Mutated Louse",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:jawFlesh": {
+    "MOVES": [
+      "Bellow",
+      "Thrash",
+      "Chomp"
+    ],
+    "NAME": "Jaw Flesh",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:thornShellParasite": {
+    "MOVES": [
+      "Suck"
+    ],
+    "NAME": "Thorny Shelled Parasite",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:Kaleidoscrimson": {
+    "MOVES": [
+      "Strength Up"
+    ],
+    "NAME": "Kaleidoscrimson",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:Biryd": {
+    "MOVES": [
+      "Fan Wings"
+    ],
+    "NAME": "Biryd",
+    "DIALOG": [
+      "@CAW!@ NL @CAAAW@"
+    ]
+  },
+
+  "maniac:Planzarre": {
+    "MOVES": [
+      "Enfeebling Spores",
+      "Bite",
+      "Photosynthesis"
+    ],
+    "NAME": "Bizarre Plant",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:Lagavurple": {
+    "MOVES": [
+      "Siphon",
+      "Scratch"
+    ],
+    "NAME": "Lagavurple",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:Lagavulred": {
+    "MOVES": [
+      "Siphon",
+      "Claw"
+    ],
+    "NAME": "Lagavulred",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:wanderingGhost": {
+    "MOVES": [
+      "Divide Soul",
+      "Inflame",
+      "Sear Soul",
+      "HELLFIRE"
+    ],
+    "NAME": "Wandering Ghost",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:wanderingGhostBody": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:wanderingGhostOrb": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:torchGhost": {
+    "MOVES": [
+      "Separate Soul"
+    ],
+    "NAME": "Ghost Head",
+    "DIALOG": [
+      ""
+    ]
+  },
+
+  "maniac:Sneckouette": {
+    "MOVES": [
+      "Simulacrum",
+      "Perplexing Glare",
+      "Evolve",
+      "Bite",
+      "Fang",
+      "HISSSS",
+      "Substantialize",
+      "Harden Skin",
+      ""
+    ],
+    "NAME": "Sneckouette",
+    "DIALOG": [
+      "I-IEliO 4a~",
+      "FeElling PaRsZledd?"
+    ]
+  },
+
+  "maniac:Mawelling": {
+    "MOVES": [
+      "Devour",
+      "Maw Mud",
+      "Drool",
+      "Lick",
+      "Spittle",
+      "Chew Up",
+      "Feast",
+      "Ruminate",
+      "Gobble and Vomit",
+      ""
+    ],
+    "NAME": "The Mawelling",
+    "DIALOG": [
+      "#rDELICOUSSSS ~",
+      "#bYyyyuuu...mmyyy!",
+      "#yTASYIEEEEE !!!",
+      "... ...",
+      "FEEEED~MEEEE~",
+      "SUCHHH~FOOOOD~",
+      "STILL HUNGRY!!!",
+      "...@ONLY...@HUNGERRRR!!!",
+      ""
+    ]
+  },
+
+  "maniac:Corruardian": {
+    "MOVES": [
+      "ACTIVATE",
+      "NERF",
+      "UPGRADE",
+      "EXPEL",
+      "EXTERMINATE",
+      "REBOOT",
+      "DESTROY",
+      "ULTIMATUM",
+      "OBLITERATE",
+      "SELF-DESTRUCTION",
+      ""
+    ],
+    "NAME": "The Corruardian",
+    "DIALOG": [
+      "#rTHE #rUNBIDDEN #rDETECTED!!!",
+      "#rDETECTED #rTHE #rINVASION!!!",
+      "#rWARNING: #rUNBIDDEN #rINVASION!!!",
+      "#rWARNING: NO ORDERS SET!!!",
+      "#rERROR: CAN NOT SOLVE THE SYMBOL!!!",
+      "#rINTERRUPTED: UNKNOWN ISSUES!!!",
+      ""
+    ]
+  },
+
+  "maniac:Destroyer": {
+    "MOVES": [
+      ""
+    ],
+    "NAME": "Destroyer",
+    "DIALOG": [
+      ""
+    ]
+  }
+
+}

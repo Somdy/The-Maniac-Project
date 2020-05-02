@@ -1,0 +1,428 @@
+{
+    "maniac:GremlinLeaderPower": {
+        "NAME": "？",
+        "DESCRIPTIONS": [
+            "What this is?"
+        ]
+    },
+
+    "maniac:GremlinLeaderUpgradePower": {
+        "NAME": "Gremlin Power",
+        "DESCRIPTIONS": [
+            "Your abilities have slightly promoted."
+        ]
+    },
+    
+    "maniac:BurnBloodPower": {
+        "NAME": "Blood Burnt",
+        "DESCRIPTIONS": [
+            "The next #y",
+            " card(s) you play this turn costs 0."
+        ]
+    },
+
+    "maniac:ShiftingShadowsPower": {
+        "NAME": "Shifting Shadows",
+        "DESCRIPTIONS": [
+            "Take #b50% less damage for #y",
+            " turn(s)."
+        ]
+    },
+
+    "maniac:TimeFormPower": {
+        "NAME": "Time Form",
+        "DESCRIPTIONS": [
+            "Play another #y",
+            " cards to take an extra turn.",
+            "You now can take an extra turn."
+        ]
+    },
+
+    "maniac:TimeWarperPower": {
+        "NAME": "Time Warper",
+        "DESCRIPTIONS": [
+            "Take an extra turn after this turn."
+        ]
+    },
+
+    "maniac:WeaknessPower": {
+        "NAME": "Weakness",
+        "DESCRIPTIONS": [
+            "Take #b",
+            "% more damage from #yAttacks ."
+        ]
+    },
+
+    "maniac:UnseenTerrorPower": {
+        "NAME": "Unseen Terror",
+        "DESCRIPTIONS": [
+            "After you play a card this turn, apply #b",
+            " #yWeakness to a random enemy."
+        ]
+    },
+
+    "maniac:WickedInstinctsPower": {
+        "NAME": "Wicked Instincts",
+        "DESCRIPTIONS": [
+            "At the start of your turn, if the top card of your draw pile is an #yAttack , play top #b",
+            " cards of draw pile. If it is a #ySkill , draw #b",
+            " card(s)."
+        ]
+    },
+
+    "maniac:TwistedEddiesPower": {
+        "NAME": "Twisted Eddies",
+        "DESCRIPTIONS": [
+            "Reduce ALL damage from enemies to #b0 in #b",
+            " turns."
+        ]
+    },
+
+    "maniac:RewindPower": {
+        "NAME": "Rewind",
+        "DESCRIPTIONS": [
+            "Prevent all HP loss from enemies. At the start of your turn, heal HP equal to the loss during last turn."
+        ]
+    },
+
+    "maniac:BleedingPower": {
+        "NAME": "Bleeding",
+        "DESCRIPTIONS": [
+            "Lose #b",
+            " HP upon being attacked and then #yBleeding is reduced by #b1."
+        ]
+    },
+
+    "maniac:FrightenedPower": {
+        "NAME": "Frightened",
+        "DESCRIPTIONS": [
+            "Deal #b",
+            "% less damage and receive #b",
+            "% more damage."
+        ]
+    },
+
+    "maniac:SorceryHourPower": {
+        "NAME": "Sorcery Hour",
+        "DESCRIPTIONS": [
+            "Gain #b",
+            " [E] after you play a card this turn."
+        ]
+    },
+
+    "maniac:InhibitionPower": {
+        "NAME": "Inhibition",
+        "DESCRIPTIONS": [
+            "This turn, heal #b",
+            " HP whenever you play a #ySkill ."
+        ]
+    },
+
+    "maniac:RecollectPower": {
+        "NAME": "Recollect",
+        "DESCRIPTIONS": [
+            "At the start of your turn, add #b",
+            " random #yexhausted card to your hand.",
+            " random #yexhausted cards to your hand."
+        ]
+    },
+
+    "maniac:RecollectUpgradedPower": {
+        "NAME": "Recollect",
+        "DESCRIPTIONS": [
+            "At the start of your turn, add #b",
+            " random #yexhausted card to your hand. It costs 0 this combat.",
+            " random #yexhausted cards to your hand. It costs 0 this combat."
+        ]
+    },
+
+    "maniac:DeadEndPower": {
+        "NAME": "Dead End",
+        "DESCRIPTIONS": [
+            "At the start of your turn, gain #b",
+            " [E] if you're in #yLimbo ."
+        ]
+    },
+
+    "maniac:NoAttackPower": {
+        "NAME": "Lack of Ammo",
+        "DESCRIPTIONS": [
+            "You can't play any #yAttack in #b",
+            " turn.",
+            " turns."
+        ]
+    },
+
+    "maniac:RetrospectPower": {
+        "NAME": "Retrospect",
+        "DESCRIPTIONS": [
+            "#yExhaust another #b",
+            " cards to #yTrack #b",
+            " cards in your exhaust pile."
+        ]
+    },
+
+    "maniac:RallyPower": {
+        "NAME": "Rally",
+        "DESCRIPTIONS": [
+            "Whenever you play a card that costs #b0, draw #b",
+            " card.",
+            " cards."
+        ]
+    },
+
+    "maniac:ShadowContactPower": {
+        "NAME": "Shadow Contact",
+        "DESCRIPTIONS": [
+            "At the start of your turn, add #b",
+            " copy of a random card in your draw pile to your hand.",
+            " copies of random cards in your draw pile to your hand."
+        ]
+    },
+
+    "maniac:PrecisionPower": {
+        "NAME": "Precision",
+        "DESCRIPTIONS": [
+            "Your #yBlades deals #b",
+            " additional damage."
+        ]
+    },
+
+    "maniac:BladeArtistPower": {
+        "NAME": "Blade Artist",
+        "DESCRIPTIONS": [
+            "Your #yBlades deals damage #b",
+            " more times."
+        ]
+    },
+
+    "maniac:TrapPower": {
+        "NAME": "Trap",
+        "DESCRIPTIONS": [
+            "Upon being attacked, apply #b",
+            " #yBleeding back."
+        ]
+    },
+
+    "maniac:ExitManiacPower": {
+        "NAME": "Sheltering Edge",
+        "DESCRIPTIONS": [
+            "At the end of your turn, exit #yLimbo."
+        ]
+    },
+
+    "maniac:BladesInCloakPower": {
+        "NAME": "Blades In Cloak",
+        "DESCRIPTIONS": [
+            "At the end of your turn, add #b",
+            " #yBlades to your hand."
+        ]
+    },
+    
+
+    "maniac:AntiquityPower": {
+        "NAME": "Antiquity",
+        "DESCRIPTIONS": [
+            "Increases the effectiveness of #yAncient #Spheres by #b",
+            "Decreases the effectiveness of #yAncient #Spheres by #b",
+            "."
+        ]
+    },
+
+    "maniac:BigSwordPower": {
+        "NAME": "Big Sword",
+        "DESCRIPTIONS": [
+            "Cards containing \"Strike\" deal #b",
+            " additional damage.",
+            " additional damage. Whenever you play an #yAttack, gain #b",
+            " #yStrength this turn."
+        ]
+    },
+
+    "maniac:BitingDaggerPower": {
+        "NAME": "Biting Dagger",
+        "DESCRIPTIONS": [
+            "Whenever you deal unblocked attack damage, apply #b",
+            " #yWeakness.",
+            " #yWeakness and #yBleeding."
+        ]
+    },
+
+    "maniac:BurglaryPower": {
+        "NAME": "Burglary",
+        "DESCRIPTIONS": [
+            "Whenever you deal unblocked attack damage, gain #b",
+            " #ycoins."
+        ]
+    },
+
+    "maniac:CursedInfernoPower": {
+        "NAME": "Cursed Inferno",
+        "DESCRIPTIONS": [
+            "Whenever you play a #ySkill, deal #b",
+            " damage to ALL enemies.",
+            " damage to ALL enemies. If this deals unblocked damage to an enemy, apply #b",
+            " #yInferno #yFlame to it."
+        ]
+    },
+
+    "maniac:InfernoFlamePower": {
+        "NAME": "Inferno Flame",
+        "DESCRIPTIONS": [
+            "At the end of the turn, lose #b",
+            " HP."
+        ]
+    },
+
+    "maniac:DoomScythePower": {
+        "NAME": "Doom Scythe",
+        "DESCRIPTIONS": [
+            "Whenever you play an #yAttack at a single enemy, creat and play a #yScythe that deals #b",
+            " damage and applies #b",
+            " #yFrightened.",
+            " #yFrightened and #yDoom."
+        ]
+    },
+
+    "maniac:DoomPower": {
+        "NAME": "Doom",
+        "DESCRIPTIONS": [
+            "Upon being attacked, lose HP equal to #b",
+            "% of max HP."
+        ]
+    },
+
+    "maniac:DualMachetesPower": {
+        "NAME": "Dual Machetes",
+        "DESCRIPTIONS": [
+            "Whenever you play a card containing \"Strike\", create and play a #yStrike that deals #b",
+            "Whenever you play a card containing \"Strike\", create and play two #yStrikes that deal #b",
+            " additional damage and applies #b",
+            " additional damage and apply #b",
+            " #yVulnerable."
+        ]
+    },
+
+    "maniac:SkullBashPower": {
+        "NAME": "Skull Bash",
+        "DESCRIPTIONS": [
+            "Your #yAttacks deal #b",
+            " additional damage and apply #b",
+            " #yVulnerable.",
+            " #yVulnerable and #yAgonal."
+        ]
+    },
+
+    "maniac:AgonalPower": {
+        "NAME": "Agonal",
+        "DESCRIPTIONS": [
+            "Upon receiving damage, receive additional damage equal to #b",
+            "% of lost HP."
+        ]
+    },
+
+    "maniac:ScorchingSpearPower": {
+        "NAME": "Scorching Spear",
+        "DESCRIPTIONS": [
+            "Whenever you deal unblocked attack damage, deal #b",
+            " damage to ALL enemies",
+            " and apply #b ",
+            " random debuffs."
+        ]
+    },
+
+
+    "maniac:CurlUpPower": {
+        "NAME": "Curl Up",
+        "DESCRIPTIONS": [
+            "On receiving attack damage, rolls up and gains #b",
+            " #yBlock and #b",
+            " #yPlated #yArmor. (Once per combat)"
+        ]
+    },
+
+    "maniac:BloodsuckingPower": {
+        "NAME": "Bloodsucking",
+        "DESCRIPTIONS": [
+            "Upon attacking, #y",
+            " heals #b",
+            " HP."
+        ]
+    },
+
+    "maniac:HoveringPower": {
+        "NAME": "Hovering",
+        "DESCRIPTIONS": [
+            "Takes #b",
+            "% less damage."
+        ]
+    },
+
+    "maniac:PetrifyPower": {
+        "NAME": "Petrify",
+        "DESCRIPTIONS": [
+            "After taking #b",
+            " damage, becomes defensive."
+        ]
+    },
+
+    "maniac:GhostImmunePower": {
+        "NAME": "Immune",
+        "DESCRIPTIONS": [
+            "If there's at least a #yGhost #yHead, reduce all damage to #b0."
+        ]
+    },
+
+    "maniac:SilhouettePower": {
+        "NAME": "Silhouette",
+        "DESCRIPTIONS": [
+            "Deals #50% less damage.",
+            "In #b",
+            " turns, #y",
+            " will come into reality."
+        ]
+    },
+
+    "maniac:ExoticPoisonPower": {
+        "NAME": "Exotic Poison",
+        "DESCRIPTIONS": [
+            "At the end of each turn, take #b",
+            " damage.",
+            "At the end of each turn, lose #b",
+            " HP."
+        ]
+    },
+
+    "maniac:PuzzledPower": {
+        "NAME": "Puzzled",
+        "DESCRIPTIONS": [
+            "Whenever you draw a card, increase or reduce its costs by #b1"
+        ]
+    },
+
+    "maniac:SwellingPower": {
+        "NAME": "Swelling",
+        "DESCRIPTIONS": [
+            "Upon receiving unblocked #yAttack damage, #y",
+            " loses #ySwelling instead of HP."
+        ]
+    },
+
+    "maniac:SalivaPower": {
+        "NAME": "Saliva",
+        "DESCRIPTIONS": [
+            "Whenever you attack #y",
+            " , take #b",
+            " damage and this is reduced by #b1."
+        ]
+    },
+
+    "maniac:DigestPower": {
+        "NAME": "Digest",
+        "DESCRIPTIONS": [
+            "#y",
+            " has digested #b",
+            " #yThe #yUndigested."
+        ]
+    }
+}

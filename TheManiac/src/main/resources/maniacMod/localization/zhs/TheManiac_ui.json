@@ -1,0 +1,37 @@
+{
+   "maniac:TrackAction": {
+     "TEXT": [
+          "选择任意张置入手牌。如果选择了卡牌，未被选择的卡牌会被消耗。",
+          "选择任意张置入手牌。"
+     ]
+   },
+
+   "maniac:HastenAction": {
+     "TEXT": [
+        "选择一张牌丢弃。获得等同于其耗能的能量。",
+        "选择一张牌丢弃。获得双倍于其耗能的能量。"
+     ]
+   },
+
+  "maniac:DiscoverWeaponAction": {
+    "TEXT": [
+      "选择一件武器。",
+      "选择",
+      "件武器。"
+    ]
+  },
+
+  "maniac:SimulacrumAction": {
+    "TEXT": [
+      "选择一张牌。将其一张临时复制置入你的手牌",
+      "该复制在本次战斗中耗能为0."
+    ]
+  },
+
+  "maniac:TheDilapidated": {
+    "TEXT": [
+      "荒芜",
+      "未邀之地"
+    ]
+  }
+}

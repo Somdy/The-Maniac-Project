@@ -1,0 +1,129 @@
+{
+    "maniac:Limbo": {
+        "PROPER_NAME": "癫狂",
+        "NAMES": [
+            "癫狂",
+            "癫狂:"
+        ],
+        "DESCRIPTION": "处于癫狂时，受到 #b25% 额外伤害。 NL 进入癫狂时，获得 [E] 。 NL 在你的回合开始时，如果你的生命值大于一半则退出癫狂。"
+    },
+
+    "maniac:Weakness": {
+        "PROPER_NAME": "弱点",
+        "NAMES": [
+            "弱点"
+        ],
+        "DESCRIPTION": "具有弱点的生物会受到额外的伤害。"
+    },
+
+    "maniac:Unreal": {
+        "PROPER_NAME": "虚幻",
+        "NAMES": [
+            "虚幻"
+        ],
+        "DESCRIPTION": "带有虚幻的卡一旦被消耗就无法再次找回。"
+    },
+
+    "maniac:Bleeding": {
+        "PROPER_NAME": "出血",
+        "NAMES": [
+            "出血"
+        ],
+        "DESCRIPTION": "出血的生物在受到攻击时失去额外的生命值。"
+    },
+
+    "maniac:Frightened": {
+        "PROPER_NAME": "害怕",
+        "NAMES": [
+            "害怕"
+        ],
+        "DESCRIPTION": "害怕的生物造成的伤害减少，受到的伤害增加。"
+    },
+
+    "maniac:Slow": {
+        "PROPER_NAME": "缓慢",
+        "NAMES": [
+            "缓慢"
+        ],
+        "DESCRIPTION": "你每在一个回合内打出一张牌，缓慢的生物就会受到更多的伤害。"
+    },
+
+    "maniac:Track": {
+        "PROPER_NAME": "追踪",
+        "NAMES": [
+            "追踪"
+        ],
+        "DESCRIPTION": "查看任一牌堆顶端的X张牌, 你可以选择其中几张置入手牌，其余的卡会被消耗。"
+    },
+
+    "maniac:Tracked": {
+        "PROPER_NAME": "被追踪",
+        "NAMES": [
+            "被追踪"
+        ],
+        "DESCRIPTION": "在你追踪牌堆后，如果这张牌仍在被追踪的牌堆里时触发。"
+    },
+
+    "maniac:Weapon": {
+        "PROPER_NAME": "武器",
+        "NAMES": [
+            "武器",
+            "武器"
+        ],
+        "DESCRIPTION": "武器是 #b0 耗能的牌，在特定的情况下给予特殊的效果。"
+    },
+
+    "maniac:Enchant": {
+        "PROPER_NAME": "强化",
+        "NAMES": [
+            "强化",
+            "强化"
+        ],
+        "DESCRIPTION": "每次强化会使武器的属性值在本次游戏中永久提升 #b1 点。强化只影响武器库中的武器。"
+    },
+
+    "maniac:Gremlin": {
+        "PROPER_NAME": "地精",
+        "NAMES": [
+            "地精",
+            "地精"
+        ],
+        "DESCRIPTION": "地精是你友好的伙伴，他们会为你而战并提供不同的协助。"
+    },
+
+    "maniac:Enhance": {
+        "PROPER_NAME": "增强",
+        "NAMES": [
+            "增强",
+            "增强的"
+        ],
+        "DESCRIPTION": "随机提高地精的能力，可能在 #b0 至 #b2 点间。"
+    },
+    
+
+    "maniac:Antiquity": {
+        "PROPER_NAME": "先古精华",
+        "NAMES": [
+            "先古精华"
+        ],
+        "DESCRIPTION": "先古精华会强化 #y先古球体 的效果。"
+    },
+
+    "maniac:Inferno": {
+        "PROPER_NAME": "地狱烈焰",
+        "NAMES": [
+            "地狱烈焰"
+        ],
+        "DESCRIPTION": "具有 #y地狱烈焰 的生物在回合结束时失去生命值。"
+    },
+
+    "maniac:Doom": {
+        "PROPER_NAME": "厄运",
+        "NAMES": [
+            "厄运",
+            "厄运"
+        ],
+        "DESCRIPTION": "具有厄运的生物在被攻击时失去等同于其一定百分比的最大生命值的生命值。"
+    }
+    
+}

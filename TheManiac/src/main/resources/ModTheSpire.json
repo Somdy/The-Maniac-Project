@@ -1,0 +1,10 @@
+{
+    "modid": "TheManiac",
+    "name": "The Maniac",
+    "author_list": ["Somdy"],
+    "description": "A custom character mod with unique cards and relics.",
+    "version": "1.1.0",
+    "sts_version": "03-05-2020",
+    "mts_version": "3.16.0",
+    "dependencies": ["basemod", "stslib", "Friendly_Minions_0987678", "actlikeit"]
+  }

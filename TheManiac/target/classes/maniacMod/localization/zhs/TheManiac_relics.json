@@ -1,0 +1,49 @@
+{
+    "maniac:DamagedAnvil": {
+        "NAME": "破损的铁砧",
+        "FLAVOR": "一件破损的战利品……前任主人肯定用它修过很多次钻石镐。",
+        "DESCRIPTIONS": [
+            "在每场战斗开始时， #y升级 你手牌中随机一张牌。"
+        ]
+    },
+
+    "maniac:EnchantedAnvil": {
+        "NAME": "附魔的铁砧",
+        "FLAVOR": "人们相信，一个被附魔的铁砧应该用一个被被附魔的铁砧附魔的铁砧附魔，那个被附魔的铁砧应该是被被附魔的铁砧……",
+        "DESCRIPTIONS": [
+            "替换 #r破损的铁砧 。在每场战斗结束时，永久 #y升级 你卡组中随机一张牌。"
+        ]
+    },
+
+    "maniac:BrokenHorn": {
+        "NAME": "断角",
+        "FLAVOR": "一个断了的地精的角。但是哪个地精的呢？",
+        "DESCRIPTIONS": [
+            "目前仅仅是个断角。"
+        ]
+    },
+
+    "maniac:BetterBrokenHorn": {
+        "NAME": "力量号角",
+        "FLAVOR": "地精的号角布满了战斗的痕迹，充满了力量。谁会是下一个呢？",
+        "DESCRIPTIONS": [
+            "现在不仅仅是个断角。"
+        ]
+    },
+
+    "maniac:MarkerPen": {
+        "NAME": "马克笔",
+        "FLAVOR": "仅限于签名使用。 注意：异常锋利！",
+        "DESCRIPTIONS": [
+            "每一层 #ymaniac:弱点 会使具有弱点的生物受到 #b10% 额外伤害而不是 #b5% 。"
+        ]
+    },
+
+    "maniac:VisionEye": {
+        "NAME": "真视之眼",
+        "FLAVOR": "它一直在看着我们看不见的地方。",
+        "DESCRIPTIONS": [
+            "允许你重新获得具有 #ymaniac:虚幻 的牌。"
+        ]
+    }
+}

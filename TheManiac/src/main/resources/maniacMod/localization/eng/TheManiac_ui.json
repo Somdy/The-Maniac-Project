@@ -1,0 +1,37 @@
+{
+   "maniac:TrackAction": {
+      "TEXT": [
+          "Choose any number of cards to obtain. If you do, the rest will be exhausted.",
+          "Choose any number of cards to obtain."
+      ]
+   },
+
+   "maniac:HastenAction": {
+      "TEXT": [
+        "Choose a card to discard. Gain energy equal to its costs.",
+        "Choose a card to discard. Gain energy double to its costs."
+      ]
+   },
+
+  "maniac:DiscoverWeaponAction": {
+    "TEXT": [
+      "Choose a weapon to obtain.",
+      "Choose ",
+      " weapons to obtain."
+    ]
+  },
+
+  "maniac:SimulacrumAction": {
+    "TEXT": [
+      "Choose a card. Add a temp copy of that to your hand.",
+      "The copy costs 0 this combat."
+    ]
+  },
+
+  "maniac:TheDilapidated": {
+    "TEXT": [
+      "The Dilapidated",
+      "Place of the Unbidden"
+    ]
+  }
+}

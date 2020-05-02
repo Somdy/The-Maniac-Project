@@ -1,0 +1,428 @@
+{
+    "maniac:GremlinLeaderPower": {
+        "NAME": "？",
+        "DESCRIPTIONS": [
+            "这是什么？"
+        ]
+    },
+
+    "maniac:GremlinLeaderUpgradePower": {
+        "NAME": "地精之力",
+        "DESCRIPTIONS": [
+            "你的各项属性稍微提升了。"
+        ]
+    },
+    
+    "maniac:BurnBloodPower": {
+        "NAME": "燃血",
+        "DESCRIPTIONS": [
+            "本回合你打出的下 #y",
+            " 张牌消耗为0."
+        ]
+    },
+
+    "maniac:ShiftingShadowsPower": {
+        "NAME": "移形换影",
+        "DESCRIPTIONS": [
+            "受到的伤害减少 #b50% ，持续 #y",
+            " 个回合。"
+        ]
+    },
+
+    "maniac:TimeFormPower": {
+        "NAME": "扭曲形态",
+        "DESCRIPTIONS": [
+            "再打出 #y",
+            " 张牌会获得一个额外的回合。",
+            "你已经获得了一个额外的回合。"
+        ]
+    },
+
+    "maniac:TimeWarperPower": {
+        "NAME": "时间扭曲者",
+        "DESCRIPTIONS": [
+            "本回合结束后获得一个额外的回合。"
+        ]
+    },
+
+    "maniac:WeaknessPower": {
+        "NAME": "弱点",
+        "DESCRIPTIONS": [
+            "受到 #b",
+            "% 额外 #y攻击 伤害。"
+        ]
+    },
+
+    "maniac:UnseenTerrorPower": {
+        "NAME": "潜影恐惧",
+        "DESCRIPTIONS": [
+            "本回合，在你打出一张牌后, 给予对一名随机敌人 #b",
+            " 层 #y弱点 。"
+        ]
+    },
+
+    "maniac:WickedInstinctsPower": {
+        "NAME": "第六感",
+        "DESCRIPTIONS": [
+            "在你的回合开始时，如果抽牌堆顶端是 #y攻击牌 , 打出抽牌堆顶端的 #b",
+            " 张牌。 如果是 #y技能牌 , 抽 #b",
+            " 张牌。"
+        ]
+    },
+
+    "maniac:TwistedEddiesPower": {
+        "NAME": "时流扰乱",
+        "DESCRIPTIONS": [
+            "在接下来的 #b",
+            " 个回合内, 所有来自敌人的伤害将为 #b0 点。"
+        ]
+    },
+
+    "maniac:RewindPower": {
+        "NAME": "回溯",
+        "DESCRIPTIONS": [
+            "阻止所有敌人可能的生命损失。在你的回合开始时，恢复到上一回合的血量。"
+        ]
+    },
+
+    "maniac:BleedingPower": {
+        "NAME": "出血",
+        "DESCRIPTIONS": [
+            "受到攻击时，失去 #b",
+            " 点生命值，然后 #y出血 减少 #b1 ."
+        ]
+    },
+
+    "maniac:FrightenedPower": {
+        "NAME": "害怕",
+        "DESCRIPTIONS": [
+            "造成的伤害减少 #b",
+            "% ， 受到的伤害增加 #b",
+            "% 。"
+        ]
+    },
+
+    "maniac:SorceryHourPower": {
+        "NAME": "奇迹时刻",
+        "DESCRIPTIONS": [
+            "本回合，在你打出一张牌后，获得 #b",
+            " [E] 。"
+        ]
+    },
+
+    "maniac:InhibitionPower": {
+        "NAME": "克制",
+        "DESCRIPTIONS": [
+            "本回合, 你每打出一张 #y技能牌 ，就治疗 #b",
+            " 点生命值。"
+        ]
+    },
+
+    "maniac:RecollectPower": {
+        "NAME": "收集残骸",
+        "DESCRIPTIONS": [
+            "在你的回合开始时，将 #b",
+            " 张随机的被 #y消耗 的牌置入你的手牌。",
+            " 张随机的被 #y消耗 的牌置入你的手牌。"
+        ]
+    },
+
+    "maniac:RecollectUpgradedPower": {
+        "NAME": "收集残骸",
+        "DESCRIPTIONS": [
+            "在你的回合开始时，将 #b",
+            " 张随机的被 #y消耗 的牌置入你的手牌。该牌在本场战斗中的耗能为0.",
+            " 张随机的被 #y消耗 的牌置入你的手牌。"
+        ]
+    },
+
+    "maniac:DeadEndPower": {
+        "NAME": "末路",
+        "DESCRIPTIONS": [
+            "在你的回合开始时, 如果处于 #y癫狂 ，获得 #b",
+            " [E] 。"
+        ]
+    },
+
+    "maniac:NoAttackPower": {
+        "NAME": "弹药不足",
+        "DESCRIPTIONS": [
+            "在接下来的 #b",
+            " 个回合里，你不能打出攻击牌。",
+            " 个回合里，你不能打出攻击牌。"
+        ]
+    },
+
+    "maniac:RetrospectPower": {
+        "NAME": "回顾",
+        "DESCRIPTIONS": [
+            "再 #y消耗 #b",
+            " 张牌会 #y追踪 你消耗堆中的 #b",
+            " 张牌。"
+        ]
+    },
+
+    "maniac:RallyPower": {
+        "NAME": "集结",
+        "DESCRIPTIONS": [
+            "每当你打出一张耗能为 #b0 的牌， 抽 #b",
+            " 张牌。",
+            " 张牌。"
+        ]
+    },
+
+    "maniac:ShadowContactPower": {
+        "NAME": "暗言之触",
+        "DESCRIPTIONS": [
+            "在回合开始时，将抽牌堆中 #b",
+            " 张随机牌的复制置入你的手牌。",
+            " 张随机牌的复制置入你的手牌。"
+        ]
+    },
+
+    "maniac:PrecisionPower": {
+        "NAME": "精准",
+        "DESCRIPTIONS": [
+            "你的 #y刀刃雨 造成 #b",
+            " 点额外伤害。"
+        ]
+    },
+
+    "maniac:BladeArtistPower": {
+        "NAME": "刀刃艺术",
+        "DESCRIPTIONS": [
+            "你的 #y刀刃雨 额外造成 #b",
+            " 次伤害。"
+        ]
+    },
+
+    "maniac:TrapPower": {
+        "NAME": "致命陷阱",
+        "DESCRIPTIONS": [
+            "受到攻击时， 给予 #b",
+            " 层 #y出血 。"
+        ]
+    },
+
+    "maniac:ExitManiacPower": {
+        "NAME": "暂避锋芒",
+        "DESCRIPTIONS": [
+            "回合结束时，退出 #y癫狂 。"
+        ]
+    },
+
+    "maniac:BladesInCloakPower": {
+        "NAME": "Blades In Cloak",
+        "DESCRIPTIONS": [
+            "At the end of your turn, add #b",
+            " #yBlades to your hand."
+        ]
+    },
+    
+
+    "maniac:AntiquityPower": {
+        "NAME": "先古精华",
+        "DESCRIPTIONS": [
+            "所有 #y先古球体 的效果增加 #b",
+            "所有 #y先古球体 的效果减少 #b",
+            " 点。"
+        ]
+    },
+
+    "maniac:BigSwordPower": {
+        "NAME": "大宝剑",
+        "DESCRIPTIONS": [
+            "名字中有“打击”的卡牌造成 #b",
+            " 点额外伤害",
+            " 点额外伤害。每当你打出一张 #y攻击牌 时，本回合内获得 #b",
+            " 点 #y力量 。"
+        ]
+    },
+
+    "maniac:BitingDaggerPower": {
+        "NAME": "尖锐匕首",
+        "DESCRIPTIONS": [
+            "每当你造成未被格挡的 #y攻击 伤害，给予 #b",
+            " #y弱点 。",
+            " #y弱点 和 #y出血 。"
+        ]
+    },
+
+    "maniac:BurglaryPower": {
+        "NAME": "行窃",
+        "DESCRIPTIONS": [
+            "每当你造成未被格挡的 #y攻击 伤害，获得 #b",
+            " #y金币 。"
+        ]
+    },
+
+    "maniac:CursedInfernoPower": {
+        "NAME": "诅咒地狱",
+        "DESCRIPTIONS": [
+            "每当你打出一张 #y技能牌，对所有敌人造成 #b",
+            " 点伤害。",
+            " 点伤害。 如果诅咒地狱对一名敌人造成了未被格挡的伤害，则给予其 #b",
+            " 层 #y地狱烈焰 。"
+        ]
+    },
+
+    "maniac:InfernoFlamePower": {
+        "NAME": "地狱烈焰",
+        "DESCRIPTIONS": [
+            "回合结束时, 失去 #b",
+            " 点生命值。"
+        ]
+    },
+
+    "maniac:DoomScythePower": {
+        "NAME": "厄运镰刀",
+        "DESCRIPTIONS": [
+            "每当你对一名敌人打出一张 #y攻击牌， 生成并打出一张造成 #b",
+            " 点伤害并给予 #b",
+            " 层 #y害怕 的 #y厄运镰刀 。",
+            " 层 #y害怕 和 #y厄运 的 #y厄运镰刀 。"
+        ]
+    },
+
+    "maniac:DoomPower": {
+        "NAME": "厄运",
+        "DESCRIPTIONS": [
+            "受到攻击时，失去等同于 #b",
+            "% 最大生命值的生命值。"
+        ]
+    },
+
+    "maniac:DualMachetesPower": {
+        "NAME": "双持弯刀",
+        "DESCRIPTIONS": [
+            "每当你打出一张名字中有“打击”的卡牌， 生成并打出一张造成 #b",
+            "每当你打出一张名字中有“打击”的卡牌， 生成并打出两张造成 #b",
+            " 点额外伤害并施加 #b",
+            " 点额外伤害并施加 #b",
+            " 层 #y易伤的 #打击 。对目标敌人打出。"
+        ]
+    },
+
+    "maniac:SkullBashPower": {
+        "NAME": "颅骨重击",
+        "DESCRIPTIONS": [
+            "你的 #y攻击牌 造成 #b",
+            " 点额外伤害并给予 #b",
+            " 层 #y易伤 。",
+            " 层 #y易伤 和 #y濒死 。"
+        ]
+    },
+
+    "maniac:AgonalPower": {
+        "NAME": "濒死",
+        "DESCRIPTIONS": [
+            "受到伤害时，受到相当于已损失的生命值的 #b",
+            "% 点额外伤害。"
+        ]
+    },
+
+    "maniac:ScorchingSpearPower": {
+        "NAME": "灼热之矛",
+        "DESCRIPTIONS": [
+            "每当你造成未被格挡的 #y攻击 伤害，对所有敌人造成 #b",
+            " 点伤害",
+            " 并给予 #b ",
+            " 随机负面效果。"
+        ]
+    },
+
+
+    "maniac:CurlUp": {
+        "NAME": "蜷身",
+        "DESCRIPTIONS": [
+            "当受到 #y攻击 伤害时，蜷起身子并获得 #b",
+            " 点 #y格挡 和 #b",
+            " 层 #y多层护甲 。 (每场战斗一次)"
+        ]
+    },
+
+    "maniac:BloodsuckingPower": {
+        "NAME": "嗜血",
+        "DESCRIPTIONS": [
+            "攻击时， #y",
+            "治疗 #b",
+            " 点生命值。"
+        ]
+    },
+
+    "maniac:HoveringPower": {
+        "NAME": "盘旋",
+        "DESCRIPTIONS": [
+            "受到的伤害减少 #b",
+            "% ."
+        ]
+    },
+
+    "maniac:PetrifyPower": {
+        "NAME": "石化",
+        "DESCRIPTIONS": [
+            "再受到 #b",
+            " 点伤害后，转变成防御形态。"
+        ]
+    },
+
+    "maniac:GhostImmunePower": {
+        "NAME": "免疫",
+        "DESCRIPTIONS": [
+            "如果场上至少有一个 #y灵魂头 存活，受到的任何伤害变为 #b0 。"
+        ]
+    },
+
+    "maniac:SilhouettePower": {
+        "NAME": "残影",
+        "DESCRIPTIONS": [
+            "造成的伤害减少 #b50% 。",
+            "在 #b",
+            " 个回合后， #y",
+            " 会变成实体。"
+        ]
+    },
+
+    "maniac:ExoticPoisonPower": {
+        "NAME": "异毒",
+        "DESCRIPTIONS": [
+            "回合结束时，受到 #b",
+            " 点伤害。",
+            "回合结束时，失去 #b",
+            " 点生命值。"
+        ]
+    },
+
+    "maniac:PuzzledPower": {
+        "NAME": "迷惑",
+        "DESCRIPTIONS": [
+            "每当你抽到一张牌时，将其耗能提高或者降低 #b1 点。"
+        ]
+    },
+
+    "maniac:SwellingPower": {
+        "NAME": "肿胀",
+        "DESCRIPTIONS": [
+            "受到未被格挡的 #y攻击 伤害时， #y",
+            " 失去相应的 #y肿胀 层数而不是生命值。"
+        ]
+    },
+
+    "maniac:SalivaPower": {
+        "NAME": "唾液",
+        "DESCRIPTIONS": [
+            "每当你攻击 #y",
+            " 时，受到 #b",
+            " 点伤害然后唾液减少 #b1 点。"
+        ]
+    },
+
+    "maniac:DigestPower": {
+        "NAME": "消化",
+        "DESCRIPTIONS": [
+            "#y",
+            " 已经消化了 #b",
+            " 张 #y残渣 。"
+        ]
+    }
+}

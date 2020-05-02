@@ -1,0 +1,549 @@
+{
+    "maniac:Strike": {
+        "NAME": "Strike",
+        "DESCRIPTION": "Deal !D! damage.",
+        "EXTENDED_DESCRIPTION": [
+            " NL Apply !M! Vulnerable.",
+            " NL Apply !ExtraNumber! maniac:Weakness."
+        ]
+    },
+
+    "maniac:Defend": {
+        "NAME": "Defend",
+        "DESCRIPTION": "Gain !B! Block.",
+        "EXTENDED_DESCRIPTION": [
+            " NL Gain !M! *Plated *Armor."
+        ]
+    },
+
+    "maniac:BurnBlood": {
+        "NAME": "Burn Blood",
+        "DESCRIPTION": "Lose !M! HP. NL Next card you play this turn costs 0.",
+        "UPGRADE_DESCRIPTION": "Next card you play this turn costs 0."
+    },
+
+    "maniac:AbyssShackle": {
+        "NAME": "Abyss Shackle",
+        "DESCRIPTION": "Enter maniac:Limbo. NL Apply !M! Vulnerable. NL Deal !D! damage."
+    },
+
+    "maniac:ListenToNone": {
+        "NAME": "Listen To None",
+        "DESCRIPTION": "Gain !B! Block if there's no Attack in your hand. NL maniac:Limbo: Gain !ExtraNumber! additional Block."
+    },
+
+    "maniac:UndyingDesire": {
+        "NAME": "Undying Desire",
+        "DESCRIPTION": "Lose !M! HP. NL Draw !ExtraNumber! card. NL Gain [E] [E] for each that costs 1 or more."
+    },
+
+    "maniac:SpectralKnives": {
+        "NAME": "Spectral Knives",
+        "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL maniac:Limbo: Increase the damage by !ExtraNumber!. NL Exhaust."
+    },
+
+    "maniac:PanickyParry": {
+        "NAME": "Panicky Parry",
+        "DESCRIPTION": "Gain !B! Block for each enemy."
+    },
+
+    "maniac:Intimidate": {
+        "NAME": "Intimidate",
+        "DESCRIPTION": "Appl !M! maniac:Frightened to ALL enemies. NL maniac:Limbo: Apply maniac:Slow in addition. NL Exhaust."
+    },
+
+    "maniac:MeleeStrike": {
+        "NAME": "Melee Strike",
+        "DESCRIPTION": "Can be played only when it's the only card in hand. NL Deal !D! damage twice. NL Exhaust.",
+        "EXTENDED_DESCRIPTION": [
+            "It's not the only card in my hand."
+        ]
+    },
+
+    "maniac:FindAShortcut": {
+        "NAME": "Find a Shortcut",
+        "DESCRIPTION": "maniac:Track !M! cards in your draw pile. NL maniac:Limbo: maniac:Track twice. NL Exhaust."
+    },
+
+    "maniac:GremlinCompanion": {
+        "NAME": "Gremlin Companion",
+        "DESCRIPTION": "Summon a random maniac:Gremlin. NL Exhaust.",
+        "UPGRADE_DESCRIPTION": "Summon a random maniac:enhanced maniac:Gremlin. NL Exhaust."
+    },
+
+    "maniac:DashForward": {
+        "NAME": "Dash Forward",
+        "DESCRIPTION": "Enter maniac:Limbo. NL Deal !D! damage and apply !M! Vulnerable to ALL enemies."
+    },
+
+    "maniac:BackupWeapon": {
+        "NAME": "Backup Weapon",
+        "DESCRIPTION": "Add a random maniac:weapon to your hand. NL maniac:Limbo: maniac:Enchant your weapons once first. NL Exhaust."
+    },
+
+    "maniac:BladeShoot": {
+        "NAME": "Blade Shoot",
+        "DESCRIPTION": "Deal !D! damage. Add a *Blades to your hand. NL maniac:Limbo: Add an upgraded *Blades instead. Exit maniac:Limbo."
+    },
+
+    "maniac:ShelteringEdge": {
+        "NAME": "Sheltering Edge",
+        "DESCRIPTION": "Enter maniac:Limbo. NL Gain !B! Block. NL At the end of your turn, exit maniac:Limbo."
+    },
+
+    "maniac:BladesInCloak": {
+        "NAME": "Blades in Cloak",
+        "DESCRIPTION": "At the start of your turn, add a *Blades to your hand."
+    },
+
+    "maniac:UntravelledPath": {
+        "NAME": "Untravelled Path",
+        "DESCRIPTION": "maniac:Track !M! cards in your exhaust pile. NL maniac:Limbo: Draw a card."
+    },
+
+    "maniac:WardAndDefend": {
+        "NAME": "Ward And Defend",
+        "DESCRIPTION": "Gain !B! Block. NL Add a temp *Defend that gives !M! *Plated *Armor to your hand."
+    },
+
+    "maniac:Confront": {
+        "NAME": "Confront",
+        "DESCRIPTION": "Deal !D! damage. NL Add a temp *Strike that applies !M! maniac:Weakness to your hand."
+    },
+
+
+    "maniac:ShiftingShadows": {
+        "NAME": "Shifting Shadows",
+        "DESCRIPTION": "Until next turn, the damage you receive will be reduced by half. NL Exhaust."
+    },
+
+    "maniac:WitnessTrueSorcery": {
+        "NAME": "Witness True Sorcery",
+        "DESCRIPTION": "Choose !M! of !ExtraNumber! cards to obtain. It costs 0 this turn. NL maniac:Limbo: !OtherNumber! additional cards in choices. NL Exhaust. maniac:Unreal.",
+        "UPGRADE_DESCRIPTION": "Choose !M! of !ExtraNumber! cards to obtain. It costs 0 this combat. NL maniac:Limbo: !OtherNumber! additional cards in choices. NL Exhaust. maniac:Unreal."
+    },
+
+    "maniac:ColdHeart": {
+        "NAME": "Cold Heart",
+        "DESCRIPTION": "Gain !B! Block and draw !ExtraNumber! card. NL maniac:Limbo: Draw !OtherNumber! additional cards and exit maniac:Limbo."
+    },
+
+    "maniac:ManipulatedFaith": {
+        "NAME": "Manipulated Faith",
+        "DESCRIPTION": "Discard !M! card. NL Draw !ExtraNumber! cards. NL Enter maniac:Limbo."
+    },
+
+    "maniac:ImpaleFlesh": {
+        "NAME": "Impale Flesh",
+        "DESCRIPTION": "Deal !D! damage. NL Lose HP half to the unblocked damage."
+    },
+
+    "maniac:Whirlscythe": {
+        "NAME": "Whirlscythe",
+        "DESCRIPTION": "Random enemies lose X HP X times. NL maniac:Limbo: Enemies lose HP once more for each Strength you have.",
+        "UPGRADE_DESCRIPTION": "Random enemies lose X+1 HP X+1 times. NL maniac:Limbo: Enemies lose HP more times equal to your Strength."
+    },
+
+    "maniac:GlassScratch": {
+        "NAME": "Glass Scratch",
+        "DESCRIPTION": "Deal !D! damage and apply !M! maniac:Bleeding twice. maniac:Limbo: Apply !ExtraNumber! additional maniac:Bleeding."
+    },
+
+    "maniac:SorceryHour": {
+        "NAME": "Sorcery Hour",
+        "DESCRIPTION": "Enter maniac:Limbo. NL This turn, gain [E] after you play a card. NL Exhaust. maniac:Unreal."
+    },
+
+    "maniac:Recollect": {
+        "NAME": "Recollect",
+        "DESCRIPTION": "Ethereal. NL At the start of your turn, add a random exhausted card to your hand.",
+        "UPGRADE_DESCRIPTION": "Ethereal. NL At the start of your turn, add a random exhausted card to your hand. It costs 0 this combat."
+    },
+
+    "maniac:Feint": {
+        "NAME": "Feint",
+        "DESCRIPTION": "Deal !D! damage. If the enemy intends to attack, apply !M! maniac:Weakness. If not, draw a card. NL When maniac:Tracked, gain !ExtraNumber! Strength."
+    },
+
+    "maniac:AllOutAttack": {
+        "NAME": "All-Out Attack",
+        "DESCRIPTION": "Discard your hand. Deal !D! damage to ALL enemies for each card discarded. maniac:Limbo: Deal !M! additional damage. NL Exhaust."
+    },
+
+    "maniac:SecretBackups": {
+        "NAME": "Secret Backups",
+        "DESCRIPTION": "Unplayable. NL When discarded from hand or maniac:Tracked, draw !M! cards.",
+        "EXTENDED_DESCRIPTION": [
+            "I can't play this card."
+        ]
+    },
+
+    "maniac:ShatteredShield": {
+        "NAME": "Shattered Shield",
+        "DESCRIPTION": "Gain Block equal to your lost HP. Every time this card is played, increases its costs by 1 this combat."
+    },
+
+    "maniac:Infuriate": {
+        "NAME": "Infuriate",
+        "DESCRIPTION": "Gain !M! Strength for every !ExtraNumber! HP you have lost. NL maniac:Limbo: Gain 1 additional Strength. NL Exhaust. maniac:Unreal.",
+        "EXTENDED_DESCRIPTION": [
+            " NL (Gain ",
+            " Strength in total)."
+        ]
+    },
+
+    "maniac:LootBarrage": {
+        "NAME": "Loot Barrage",
+        "DESCRIPTION": "Deal !D! damage for each relic you have. NL maniac:Limbo: Increase the damage by !M! .",
+        "EXTENDED_DESCRIPTION": [
+            " NL (Deal ",
+            " damage in total)."
+        ]
+    },
+
+    "maniac:PerceiveDanger": {
+        "NAME": "Perceive Danger",
+        "DESCRIPTION": "maniac:Track !M! cards in your discard pile. NL maniac:Limbo: Shuffle a *Perception into your draw pile. NL Exhaust."
+    },
+
+    "maniac:FoilArmor": {
+        "NAME": "Foil Armor",
+        "DESCRIPTION": "Gain !M! *Plated *Armor. NL maniac:Limbo: Gain !ExtraNumber! *Metallicize."
+    },
+
+    "maniac:ObscuredAttack": {
+        "NAME": "Obscured Attack",
+        "DESCRIPTION": "Enter maniac:Limbo. NL Deal !D! damage. NL maniac:Track !M! cards in your draw pile."
+    },
+
+    "maniac:Hasten": {
+        "NAME": "Hasten",
+        "DESCRIPTION": "Discard a card. NL Gain [E] equal to its costs. NL maniac:Limbo: Draw !M! card.",
+        "UPGRADE_DESCRIPTION": "Discard a card. NL Gain [E] double to its costs. NL maniac:Limbo: Draw !M! cards."
+    },
+
+    "maniac:AlleviatingSorcery": {
+        "NAME": "Alleviating Sorcery",
+        "DESCRIPTION": "Lose !M! HP. NL Remove ALL debuffs on you. NL Exhaust. maniac:Unreal."
+    },
+
+    "maniac:HammerStrike": {
+        "NAME": "Hammer Strike",
+        "DESCRIPTION": "Deal !D! damage. NL Apply !M! maniac:Weakness. NL Apply !ExtraNumber! maniac:Bleeding."
+    },
+
+    "maniac:EndOfTheRoad": {
+        "NAME": "End of the Road",
+        "DESCRIPTION": "Gain !M! maniac:Bleeding. NL At the start of your turn, gain [E] if you're in maniac:Limbo.",
+        "UPGRADE_DESCRIPTION": "Gain !M! maniac:Bleeding. NL At the start of your turn, gain [E] [E] if you're in maniac:Limbo."
+    },
+
+    "maniac:ReconstructWounds": {
+        "NAME": "Reconstruct Wounds",
+        "DESCRIPTION": "Heal !M! HP X times. NL Gain X maniac:Bleeding. NL Exhaust. maniac:Unreal."
+    },
+
+    "maniac:Lancinate": {
+        "NAME": "Lancinate",
+        "DESCRIPTION": "Deal !D! damage. NL Apply !M! maniac:Bleeding. NL If the enemy has maniac:Weakness, draw !ExtraNumber! card."
+    },
+
+    "maniac:Knockdown": {
+        "NAME": "Knockdown",
+        "DESCRIPTION": "Deal !D! damage. NL Apply !M! maniac:Weakness. NL If the enemy has maniac:Bleeding, draw !ExtraNumber! card."
+    },
+
+    "maniac:SeekerKnife": {
+        "NAME": "Seeker Knife",
+        "DESCRIPTION": "Deal !D! damage. NL When maniac:Tracked, permanently increase its damage by !M!. NL maniac:Limbo: Deal half damage to other enemies."
+    },
+
+    "maniac:Quickdraw": {
+        "NAME": "Quickdraw",
+        "DESCRIPTION": "maniac:Track !M! Attacks in your draw pile. NL maniac:Limbo: maniac:Track !M! Attacks in your discard pile in addition. NL Exhaust."
+    },
+
+    "maniac:ArmToTheTeeth": {
+        "NAME": "Arm to the Teeth",
+        "DESCRIPTION": "Choose !M! of !ExtraNumber! maniac:Weapons from your maniac:Weapon Library to obtain. NL Exhaust. maniac:Unreal."
+    },
+
+    "maniac:Reforge": {
+        "NAME": "Reforge",
+        "DESCRIPTION": "Ethereal NL maniac:Enchant your maniac:weapons in the Library !M! times. NL Exhaust."
+    },
+
+    "maniac:FanTheHammer": {
+        "NAME": "Fan the Hammer",
+        "DESCRIPTION": "Play top !M! cards in your draw pile and exhaust them. NL Exhaust. maniac:Unreal."
+    },
+
+    "maniac:Traceback": {
+        "NAME": "Traceback",
+        "DESCRIPTION": "maniac:Track !M! cards in your exhaust pile. NL maniac:Limbo: maniac:Track !ExtraNumber! additional cards."
+    },
+
+    "maniac:Blastwave": {
+        "NAME": "Blastwave",
+        "DESCRIPTION": "ALL enemies lose !M! Strength. NL Exhaust."
+    },
+
+    "maniac:FlyTheKnives": {
+        "NAME": "Fly the Knives",
+        "DESCRIPTION": "Deal !D! damage. Increase the damage by !M! for each Attack that costs 0 in your deck. NL maniac:Limbo: The damage is increased by additional !ExtraNumber!"
+    },
+
+    "maniac:Exterminator": {
+        "NAME": "Exterminator",
+        "DESCRIPTION": "Deal !D! damage for each card you have play this turn. NL maniac:Limbo: Gain [E]",
+        "EXTENDED_DESCRIPTION": [
+            " NL (Played ",
+            " cards in total)"
+        ]
+    },
+
+    "maniac:Retrospect": {
+        "NAME": "Retrospect",
+        "DESCRIPTION": "maniac:Track !M! cards in your exhaust pile for every !M! cards you exhaust and the increase this track by 1."
+    },
+
+    "maniac:SpectralFlash": {
+        "NAME": "Spectral Flash",
+        "DESCRIPTION": "Deal !D! damage. Shuffle a *Spectral *Flash that deals !M! additional damage into your draw pile. NL maniac:Limbo: Draw a card."
+    },
+
+    "maniac:RallyToMe": {
+        "NAME": "Rally To Me",
+        "DESCRIPTION": "Whenever you play a card that costs 0, draw a card.",
+        "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a card that costs 0, draw a card."
+    },
+
+    "maniac:ExpectedMoves": {
+        "NAME": "Expected Moves",
+        "DESCRIPTION": "maniac:Track !M! Skills in your draw pile. NL maniac:Limbo: maniac:Track !M! Skills in your discard pile. NL Exhaust."
+    },
+
+    "maniac:DoubleEdge": {
+        "NAME": "Double Edge",
+        "DESCRIPTION": "Deal !D! damage. NL Take !M! damage. NL maniac:Limbo: Take !ExtraNumber! less damage."
+    },
+
+    "maniac:SeeingDetails": {
+        "NAME": "Seeing Details",
+        "DESCRIPTION": "Apply !M! maniac:Weakness. NL maniac:Limbo: Apply twice."
+    },
+
+    "maniac:Precision": {
+        "NAME": "Precision",
+        "DESCRIPTION": "Your *Blades deals !M! additional damage."
+    },
+
+
+    "maniac:TimeForm": {
+        "NAME": "Time Form",
+        "DESCRIPTION": "Ethereal. NL Take an extra turn for every !M! cards you play.",
+        "UPGRADE_DESCRIPTION": "Take an extra turn for every !M! cards you play."
+    },
+
+    "maniac:UnseenTerror": {
+        "NAME": "Unseen Terror",
+        "DESCRIPTION": "Apply !M! maniac:Weakness to a random enemy after you play a card this turn."
+    },
+
+    "maniac:TorturousScreams": {
+        "NAME": "Torturous Screams",
+        "DESCRIPTION": "Deal !D! damage to ALL enemies. Shuffle a *Torture into your draw pile. NL maniac:Limbo: Shuffle that *Torture into your discard pile rather than draw pile."
+    },
+
+    "maniac:Collecting": {
+        "NAME": "Collecting",
+        "DESCRIPTION": "Deal !D! damage. If Fatal, obtain a random relic. NL maniac:Limbo: The relic will not be common. NL Exhaust. maniac:Unreal."
+    },
+
+    "maniac:WickedInstincts": {
+        "NAME": "Wicked Instincts",
+        "DESCRIPTION": "At the start of your turn, if the top card of your draw pile is an Attack, play top !M! cards of draw pile. If it is a Skill, draw !ExtraNumber! card(s)."
+    },
+
+    "maniac:TwistedEddies": {
+        "NAME": "Twisted Eddies",
+        "DESCRIPTION": "Reduce ALL damage from enemies to 0 in !M! turns. NL Exhaust. maniac:Unreal."
+    },
+
+    "maniac:Inhibition": {
+        "NAME": "Inhibition",
+        "DESCRIPTION": "maniac:Limbo: Gain !B! Block and this turn, heal 1 HP whenever you play a Skill. Exit maniac:Limbo. NL Otherwise, gain !M! Dexterity. NL Exhaust. maniac:Unreal."
+    },
+
+    "maniac:ExceedEnchantment": {
+        "NAME": "Exceed Enchantment",
+        "DESCRIPTION": "maniac:Enchant your maniac:weapons in the Library X times. NL maniac:Limbo: Double the effect. NL Exhaust. maniac:Unreal.",
+        "UPGRADE_DESCRIPTION": "maniac:Enchant your maniac:weapons in the Library X + 1 times. NL maniac:Limbo: Double the effect. NL Exhaust. maniac:Unreal."
+    },
+
+    "maniac:ShadowContact": {
+        "NAME": "Shadow Contact",
+        "DESCRIPTION": "At the start of your turn, add a temp copy of a random card in your draw pile to your hand.",
+        "UPGRADE_DESCRIPTION": "Innate. At the start of your turn, add a temp copy of a random card in your draw pile to your hand."
+    },
+
+    "maniac:ReachVictory": {
+        "NAME": "Reach Victory",
+        "DESCRIPTION": "maniac:Track !M! cards in your draw pile. NL maniac:Limbo: Gain [E] [E]",
+        "UPGRADE_DESCRIPTION": "Innate. NL maniac:Track !M! cards in your draw pile. NL maniac:Limbo: Gain [E] [E]"
+    },
+
+    "maniac:StormOfTime": {
+        "NAME": "Storm of Time",
+        "DESCRIPTION": "Deal damage to ALL enemies !D! times to the number of cards you've played this combat. NL maniac:Limbo: Apply !M! maniac:Slow at first.",
+        "EXTENDED_DESCRIPTION": [
+            " NL (You have play ",
+            " cards this combat)"
+        ]
+    },
+
+    "maniac:Simulacrum": {
+        "NAME": "Simulacrum",
+        "DESCRIPTION": "Choose a card. Add a temp copy of that card to your hand.",
+        "UPGRADE_DESCRIPTION": "Choose a card. Add a temp copy of that card to your hand. It costs 0 this combat."
+    },
+
+    "maniac:HammerDown": {
+        "NAME": "Hammer Down",
+        "DESCRIPTION": "Stun ALL enemies. NL Exhaust. maniac:Unreal."
+    },
+
+    "maniac:BladeArtist": {
+        "NAME": "Blade Artist",
+        "DESCRIPTION": "Your *Blades deals damage once more.",
+        "UPGRADE_DESCRIPTION": "Your *Blades deals damage twice more."
+    },
+
+    "maniac:Trap": {
+        "NAME": "Trap",
+        "DESCRIPTION": "Until next turn, whenever an enemy attacks you, apply !M! maniac:Bleeding back."
+    },
+
+
+    "maniac:Perception": {
+        "NAME": "Perception",
+        "DESCRIPTION": "Choose an enemy. If it's to attack, stun it. If it's to apply debuffs, gain !M! Artifact. If it's to power up, draw !ExtraNumber! card. NL Exhaust.",
+        "UPGRADE_DESCRIPTION": "Choose an enemy. If it's to attack, stun it. If it's to apply debuffs, gain !M! Artifact. If it's to power up, draw !ExtraNumber! cards. NL Exhaust."
+    },
+
+    "maniac:Blades": {
+        "NAME": "Blades",
+        "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Exhaust.",
+        "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies twice. NL Exhaust.",
+        "EXTENDED_DESCRIPTION": [
+            "Deal !D! damage to ALL enemies ",
+            " times. NL Exhaust."
+        ]
+    },
+
+
+    "maniac:AncientSphere": {
+        "NAME": "Ancient Spheres",
+        "DESCRIPTION": "Channel 3 *Ancient *Spheres."
+    },
+
+    "maniac:BigSword": {
+        "NAME": "Big Sword",
+        "DESCRIPTION": "Cards containing \"Strike\" deal additional damage.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "Cards containing \"Strike\" deal !M! additional damage.",
+            "Cards containing \"Strike\" deal !M! additional damage. NL Whenever you play an Attack in a single turn, gain !ExtraNumber! Strength that turn."
+        ]
+    },
+
+    "maniac:BitingDagger": {
+        "NAME": "Biting Dagger",
+        "DESCRIPTION": "Whenever you deal unblocked attack damage, apply maniac:Weakness.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "Whenever you deal unblocked attack damage, apply !M! maniac:Weakness.",
+            "Whenever you deal unblocked attack damage, apply !M! maniac:Weakness and maniac:Bleeding."
+        ]
+    },
+
+    "maniac:BurglaryToolkit": {
+        "NAME": "Burglary Toolkit",
+        "DESCRIPTION": "Whenever you deal unblocked attack damage, gain coins.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "Whenever you deal unblocked attack damage, gain !M! coins."
+        ]
+    },
+
+    "maniac:CursedStaff": {
+        "NAME": "Cursed Staff",
+        "DESCRIPTION": "Whenever you play a Skill, deal damage to ALL enemies.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "Whenever you play a Skill, deal !M! damage to ALL enemies.",
+            "Whenever you play a Skill, deal !M! damage to ALL enemies. NL If this deals unblocked damage to an enemy, apply !ExtraNumber! maniac:Inferno *Flame."
+        ]
+    },
+
+    "maniac:DoomScythe": {
+        "NAME": "Doom Scythe",
+        "DESCRIPTION": "Whenever you play an Attack, play a *Doom *Scythe.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "Whenever you play an Attack, play a *Doom *Scythe that deals !M! damage and applies !ExtraNumber! maniac:Frightened.",
+            "Whenever you play an Attack, play a *Doom *Scythe that deals !M! damage and applies !ExtraNumber! maniac:Frightened and maniac:Doom."
+        ]
+    },
+
+    "maniac:DoomScytheAttack": {
+        "NAME": "Doom Scythe",
+        "DESCRIPTION": "Deal damage. NL Apply maniac:Frightened.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "Deal !D! damage. NL Apply !M! maniac:Frightened.",
+            "Deal !D! damage. NL Apply !M! maniac:Frightened. NL Apply !M! maniac:Doom."
+        ]
+    },
+    
+    "maniac:DualMachetes": {
+        "NAME": "Dual Machetes",
+        "DESCRIPTION": "Whenever you play a card containing \"Strike\", play a *Strike.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "Whenever you play a card containing \"Strike\", play a *Strike that deals !M! additional damage and applies !M! Vulnerable.",
+            "Whenever you play a card containing \"Strike\", play two *Strikes that deal !M! additional damage and apply !M! Vulnerable."
+        ]
+    },
+
+    "maniac:HeavySkull": {
+        "NAME": "Heavy Skull",
+        "DESCRIPTION": "Your Attacks deal additional damage and apply Vulnerable.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "Your Attacks deal !M! additional damage and apply !ExtraNumber! Vulnerable.",
+            "Your Attacks deal !M! additional damage and apply !ExtraNumber! Vulnerable and maniac:Agonal."
+        ]
+    },
+
+    "maniac:ScorchingSpear": {
+        "NAME": "Scorching Spear",
+        "DESCRIPTION": "Whenever you deal unblocked damage, deal damage to ALL enemies.",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "Whenever you deal unblocked damage, deal !M! damage to ALL enemies.",
+            "Whenever you deal unblocked damage, deal !M! damage to ALL enemies and apply !ExtraNumber! random debuffs."
+        ]
+    },
+
+
+    "maniac:Torture": {
+        "NAME": "Torture",
+        "DESCRIPTION": "Unplayable. NL When Exhausted, Exhaust a card in hand at random."
+    },
+
+    "maniac:TheUndigested": {
+        "NAME": "The Undigested",
+        "DESCRIPTION": "The Mawelling gains !M! *Swelling and heals 4 HP. NL Lose 2 *Saliva. NL Exhaust."
+    }
+}

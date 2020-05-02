@@ -1,0 +1,76 @@
+
+thornShellParasite.png
+size: 380,258
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+leftLeg
+  rotate: false
+  xy: 296, 15
+  size: 80, 90
+  orig: 84, 94
+  offset: 2, 2
+  index: -1
+lowerBody
+  rotate: true
+  xy: 313, 107
+  size: 149, 65
+  orig: 153, 69
+  offset: 2, 2
+  index: -1
+mouth
+  rotate: false
+  xy: 163, 8
+  size: 131, 86
+  orig: 136, 90
+  offset: 2, 2
+  index: -1
+rightLeg
+  rotate: true
+  xy: 163, 96
+  size: 107, 97
+  orig: 111, 101
+  offset: 2, 2
+  index: -1
+shadow
+  rotate: false
+  xy: 2, 205
+  size: 309, 51
+  orig: 313, 55
+  offset: 2, 2
+  index: -1
+tentacleHorn1
+  rotate: true
+  xy: 262, 116
+  size: 87, 22
+  orig: 91, 26
+  offset: 2, 2
+  index: -1
+tentacleHorn2
+  rotate: false
+  xy: 296, 2
+  size: 37, 11
+  orig: 41, 15
+  offset: 2, 2
+  index: -1
+tentacleHorn3
+  rotate: true
+  xy: 2, 21
+  size: 27, 28
+  orig: 31, 32
+  offset: 2, 2
+  index: -1
+tentacleHorn4
+  rotate: true
+  xy: 262, 103
+  size: 11, 15
+  orig: 15, 19
+  offset: 2, 2
+  index: -1
+upperBody
+  rotate: false
+  xy: 2, 50
+  size: 159, 153
+  orig: 162, 157
+  offset: 2, 2
+  index: -1

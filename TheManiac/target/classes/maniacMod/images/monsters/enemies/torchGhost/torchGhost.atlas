@@ -1,0 +1,76 @@
+
+torchGhost.png
+size: 85,523
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/armleft
+  rotate: false
+  xy: 2, 31
+  size: 52, 61
+  orig: 52, 114
+  offset: 0, 31
+  index: -1
+images/armright
+  rotate: true
+  xy: 2, 2
+  size: 27, 75
+  orig: 27, 75
+  offset: 0, 0
+  index: -1
+images/halberd
+  rotate: false
+  xy: 2, 340
+  size: 54, 181
+  orig: 54, 182
+  offset: 0, 0
+  index: -1
+images/handleft
+  rotate: false
+  xy: 58, 349
+  size: 13, 16
+  orig: 13, 16
+  offset: 0, 0
+  index: -1
+images/head
+  rotate: true
+  xy: 2, 148
+  size: 84, 74
+  orig: 84, 93
+  offset: 0, 0
+  index: -1
+images/headback
+  rotate: false
+  xy: 2, 94
+  size: 73, 52
+  orig: 73, 56
+  offset: 0, 0
+  index: -1
+images/legleft
+  rotate: false
+  xy: 58, 367
+  size: 25, 46
+  orig: 25, 46
+  offset: 0, 0
+  index: -1
+images/legright
+  rotate: false
+  xy: 56, 44
+  size: 25, 48
+  orig: 25, 48
+  offset: 0, 0
+  index: -1
+images/shadow
+  rotate: true
+  xy: 58, 415
+  size: 106, 17
+  orig: 110, 19
+  offset: 3, 2
+  index: -1
+images/torso
+  rotate: false
+  xy: 2, 234
+  size: 55, 104
+  orig: 55, 106
+  offset: 0, 0
+  index: -1
