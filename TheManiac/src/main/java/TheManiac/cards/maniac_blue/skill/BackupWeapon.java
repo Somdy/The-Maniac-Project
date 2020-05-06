@@ -49,6 +49,11 @@ public class BackupWeapon extends AbstractManiacCard {
     }
 
     @Override
+    public void enchant() {
+        
+    }
+
+    @Override
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();

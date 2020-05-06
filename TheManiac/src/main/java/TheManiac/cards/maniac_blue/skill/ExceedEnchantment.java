@@ -29,6 +29,7 @@ public class ExceedEnchantment extends AbstractManiacCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
         this.isUnreal = true;
+        this.isEnchanter = true;
     }
 
     @Override
@@ -47,6 +48,11 @@ public class ExceedEnchantment extends AbstractManiacCard {
         else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }
+    }
+
+    @Override
+    public void enchant() {
+        
     }
 
     @Override

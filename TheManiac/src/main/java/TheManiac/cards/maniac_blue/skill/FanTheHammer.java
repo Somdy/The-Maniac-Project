@@ -1,6 +1,5 @@
 package TheManiac.cards.maniac_blue.skill;
 
-import TheManiac.actions.FanTheHammerAction;
 import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.character.TheManiacCharacter;
 import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
@@ -35,6 +34,11 @@ public class FanTheHammer extends AbstractManiacCard {
         for (int i = 0; i < this.magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(new PlayTopCardAction((AbstractDungeon.getCurrRoom()).monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), true));
         }
+    }
+
+    @Override
+    public void enchant() {
+        
     }
 
     @Override

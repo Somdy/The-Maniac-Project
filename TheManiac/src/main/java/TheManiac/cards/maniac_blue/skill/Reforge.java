@@ -28,6 +28,7 @@ public class Reforge extends AbstractManiacCard {
         this.magicNumber = this.baseMagicNumber = enchants;
         this.exhaust = true;
         this.isEthereal = true;
+        this.isEnchanter = true;
     }
 
     @Override
@@ -35,6 +36,11 @@ public class Reforge extends AbstractManiacCard {
         if (p instanceof TheManiacCharacter) {
             ((TheManiacCharacter) p).weaponUpgrades += this.magicNumber;
         }
+    }
+
+    @Override
+    public void enchant() {
+        
     }
 
     @Override

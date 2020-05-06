@@ -1,0 +1,97 @@
+
+Possessed.png
+size: 350,205
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm (right)
+  rotate: false
+  xy: 176, 9
+  size: 78, 52
+  orig: 82, 56
+  offset: 2, 2
+  index: -1
+detail1
+  rotate: false
+  xy: 323, 53
+  size: 15, 16
+  orig: 19, 20
+  offset: 2, 2
+  index: -1
+detail2
+  rotate: true
+  xy: 2, 6
+  size: 20, 16
+  orig: 24, 20
+  offset: 2, 2
+  index: -1
+detail3
+  rotate: false
+  xy: 256, 2
+  size: 13, 13
+  orig: 17, 17
+  offset: 2, 2
+  index: -1
+detail4
+  rotate: false
+  xy: 294, 71
+  size: 44, 26
+  orig: 48, 30
+  offset: 2, 2
+  index: -1
+glowy eye
+  rotate: false
+  xy: 20, 10
+  size: 25, 16
+  orig: 31, 27
+  offset: 3, 9
+  index: -1
+hand (left)
+  rotate: true
+  xy: 256, 17
+  size: 44, 65
+  orig: 48, 69
+  offset: 2, 2
+  index: -1
+hand (right)
+  rotate: false
+  xy: 97, 7
+  size: 77, 54
+  orig: 81, 58
+  offset: 2, 2
+  index: -1
+head
+  rotate: false
+  xy: 264, 69
+  size: 28, 28
+  orig: 32, 32
+  offset: 2, 2
+  index: -1
+hood
+  rotate: false
+  xy: 264, 99
+  size: 84, 104
+  orig: 88, 108
+  offset: 2, 2
+  index: -1
+robe
+  rotate: true
+  xy: 33, 63
+  size: 140, 229
+  orig: 144, 233
+  offset: 2, 2
+  index: -1
+shadow
+  rotate: true
+  xy: 2, 28
+  size: 175, 29
+  orig: 179, 33
+  offset: 2, 2
+  index: -1
+skin
+  rotate: false
+  xy: 47, 6
+  size: 48, 55
+  orig: 68, 79
+  offset: 18, 2
+  index: -1

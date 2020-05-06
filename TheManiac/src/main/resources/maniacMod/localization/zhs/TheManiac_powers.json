@@ -424,5 +424,29 @@
             " 已经消化了 #b",
             " 张 #y残渣 。"
         ]
+    },
+
+    "maniac:CorruardianSelfDestruction": {
+        "NAME": "暴走",
+        "DESCRIPTIONS": [
+            "#y",
+            " 出现了故障，近乎疯狂。它会尽一切可能来阻止入侵者，包括 #r自毁 。"
+        ]
+    },
+
+    "maniac:CursePower": {
+        "NAME": "诅咒",
+        "DESCRIPTIONS": [
+            "每当你打出一张非 #y技能牌 ，随机将一张特定的 #r诅咒 洗入你的抽牌堆。"
+        ]
+    },
+
+    "maniac:RestrainedPower": {
+        "NAME": "束缚",
+        "DESCRIPTIONS": [
+            "在你的回合结束时，回复 #b",
+            "在其回合结束时，回复 #b",
+            " 点 #y敏捷 。"
+        ]
     }
 }

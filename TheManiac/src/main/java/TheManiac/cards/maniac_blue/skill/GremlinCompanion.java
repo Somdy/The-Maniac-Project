@@ -34,6 +34,7 @@ public class GremlinCompanion extends AbstractManiacCard {
     public GremlinCompanion() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
+        this.isEnchanter = true;
     }
 
     @Override
@@ -99,6 +100,11 @@ public class GremlinCompanion extends AbstractManiacCard {
         }
 
         return minion;
+    }
+
+    @Override
+    public void enchant() {
+        
     }
 
     @Override

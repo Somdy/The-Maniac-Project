@@ -7,7 +7,10 @@ import TheManiac.cards.maniac_blue.skill.BurnBlood;
 import TheManiac.cards.maniac_blue.skill.Defend_Maniac;
 import TheManiac.relics.BrokenHorn;
 import TheManiac.relics.DamagedAnvil;
+import TheManiac.stances.LimboStance;
+import TheManiac.vfx.ManiacLimboEyeParticle;
 import basemod.abstracts.CustomPlayer;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -72,6 +75,7 @@ public class TheManiacCharacter extends AbstractPlayerWithMinions {
     
     public int weaponUpgrades;
     public int minionsUpgrades;
+    private float fireTimer = 0F;
 
     @Override
     public CustomCharSelectInfo getInfo() {
@@ -124,6 +128,29 @@ public class TheManiacCharacter extends AbstractPlayerWithMinions {
                 this.state.setAnimation(0, "Call", false);
                 this.state.addAnimation(0, "Idle", true, 0f);
         }
+    }
+    
+    public void updateParticles() {
+        this.fireTimer -= Gdx.graphics.getDeltaTime();
+        if (this.fireTimer < 0F) {
+            this.fireTimer = 0.1F;
+            AbstractDungeon.effectList.add(new ManiacLimboEyeParticle(this.skeleton.getX() + this.skeleton.findBone("Eye_L").getWorldX(), 
+                    this.skeleton.getY() + this.skeleton.findBone("Eye_L").getWorldY()));
+        }
+    }
+
+    @Override
+    public void updateAnimations() {
+        super.updateAnimations();
+        if (AbstractDungeon.player.stance.ID.equals(LimboStance.STANCE_ID)) {
+            this.fireTimer -= Gdx.graphics.getDeltaTime();
+            if (this.fireTimer < 0F) {
+                this.fireTimer = 0.1F;
+                AbstractDungeon.effectList.add(new ManiacLimboEyeParticle(this.skeleton.getX() + this.skeleton.findBone("Eye_L").getWorldX(),
+                        this.skeleton.getY() + this.skeleton.findBone("Eye_L").getWorldY()));
+            }
+        }
+        
     }
 
     @Override

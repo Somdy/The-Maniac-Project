@@ -102,7 +102,8 @@ public class TorchGhost extends CustomMonster {
             this.fire_time -= Gdx.graphics.getDeltaTime();
             if (this.fire_time < 0.0F) {
                 this.fire_time = 0.04F;
-                AbstractDungeon.effectList.add(new TorchGhostEffect(this.skeleton.getX() + this.skeleton.findBone("fireslot").getX() + 10.0F * Settings.scale, this.skeleton.getY() + this.skeleton.findBone("fireslot").getY() + 110.0F * Settings.scale));
+                AbstractDungeon.effectList.add(new TorchGhostEffect(this.skeleton.getX() + this.skeleton.findBone("fireslot").getX() + 10.0F * Settings.scale, 
+                        this.skeleton.getY() + this.skeleton.findBone("fireslot").getY() + 110.0F * Settings.scale));
             }
         }
     }

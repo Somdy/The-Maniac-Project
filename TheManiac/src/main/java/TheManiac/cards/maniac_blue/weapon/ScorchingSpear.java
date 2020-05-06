@@ -53,6 +53,11 @@ public class ScorchingSpear extends AbstractManiacCard {
     }
 
     @Override
+    public void enchant() {
+        
+    }
+
+    @Override
     public void upgrade() {
     }
 

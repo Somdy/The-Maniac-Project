@@ -269,6 +269,19 @@
     "DIALOG": [
       ""
     ]
+  },
+
+  "maniac:Possessed": {
+    "MOVES": [
+      "Curse",
+      "Zap",
+      "Debilitate",
+      "Frenzy"
+    ],
+    "NAME": "The Possessed",
+    "DIALOG": [
+      "@TO@ @DEATH@ ..."
+    ]
   }
 
 }

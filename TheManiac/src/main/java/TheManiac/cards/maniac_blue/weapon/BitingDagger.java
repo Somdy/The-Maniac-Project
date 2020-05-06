@@ -56,6 +56,11 @@ public class BitingDagger extends AbstractManiacCard {
     }
 
     @Override
+    public void enchant() {
+        
+    }
+
+    @Override
     public void upgrade() {
     }
 

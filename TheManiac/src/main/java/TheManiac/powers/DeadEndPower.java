@@ -1,6 +1,5 @@
 package TheManiac.powers;
 
-import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.stances.LimboStance;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;

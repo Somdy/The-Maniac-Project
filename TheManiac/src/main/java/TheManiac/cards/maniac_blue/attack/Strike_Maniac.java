@@ -2,7 +2,9 @@ package TheManiac.cards.maniac_blue.attack;
 
 import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.character.TheManiacCharacter;
+import TheManiac.powers.BleedingPower;
 import TheManiac.powers.WeaknessPower;
+import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -16,6 +18,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Strike_Maniac extends AbstractManiacCard {
     public static final String ID = "maniac:Strike";
@@ -31,14 +34,18 @@ public class Strike_Maniac extends AbstractManiacCard {
     private static final int COST = 1;
     private static final int DAMAGE = 6;
     private static final int UPGRADE_DAMAGE = 3;
+    private List<TooltipInfo> tips;
 
     public Strike_Maniac() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = 0;
         this.maniacExtraMagicNumber = this.maniacBaseExtraMagicNumber = 0;
+        this.enchantNumber = this.baseEnchantNumber = 0;
         this.tags.add(CardTags.STRIKE);
         this.tags.add(CardTags.STARTER_STRIKE);
+        this.tips = new ArrayList<>();
+        this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[4], EXTENDED_DESCRIPTION[5]));
     }
     
     public void setAdditionalValues(int amount, int powers) {
@@ -69,6 +76,36 @@ public class Strike_Maniac extends AbstractManiacCard {
         if (this.maniacExtraMagicNumber > 0) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeaknessPower(m, this.maniacExtraMagicNumber), this.maniacExtraMagicNumber));
         }
+        
+        if (enchanted) {
+            if (this.enchantment == 1) {
+                this.addToBot(new DamageAction(m, new DamageInfo(p, this.enchantNumber, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT, true));
+            } else {
+                this.addToBot(new ApplyPowerAction(m, p, new BleedingPower(m, this.enchantNumber), this.enchantNumber));
+            }
+        }
+    }
+
+    @Override
+    public void enchant() {
+        if (!enchanted) {
+            switch (this.enchantOpts(1, 2)) {
+                case 1:
+                    this.rawDescription += EXTENDED_DESCRIPTION[2];
+                    break;
+                default:
+                    this.rawDescription += EXTENDED_DESCRIPTION[3];
+            }
+            System.out.println(this.name + "gets enchantment opt: " + this.enchantment);
+        }
+        this.enchantName();
+        this.modifyEnchants(2);
+        initializeDescription();
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        return this.tips;
     }
 
     @Override

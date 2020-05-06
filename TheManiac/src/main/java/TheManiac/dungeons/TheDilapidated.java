@@ -98,6 +98,7 @@ public class TheDilapidated extends CustomDungeon {
 
     @Override
     protected void generateMonsters() {
+        
         super.generateMonsters();
     }
 }

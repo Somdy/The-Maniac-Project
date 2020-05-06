@@ -1,8 +1,0 @@
-{
-    "maniac:Limbo": {
-        "NAME": "Limbo",
-        "DESCRIPTION": [
-            "While in Limbo, take #b25% more damage. NL Upon entering Limbo, gain [E]. NL At the start of your turn, exit Limbo if your HP is above half."
-        ]
-    }
-}

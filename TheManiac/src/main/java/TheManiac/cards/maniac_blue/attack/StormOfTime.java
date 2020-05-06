@@ -68,6 +68,11 @@ public class StormOfTime extends AbstractManiacCard {
     }
 
     @Override
+    public void enchant() {
+        
+    }
+
+    @Override
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();

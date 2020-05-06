@@ -1,6 +1,5 @@
 package TheManiac.powers;
 
-import TheManiac.TheManiac;
 import TheManiac.cards.status.TheUndigested;
 import TheManiac.monsters.enemies.Mawelling;
 import basemod.interfaces.CloneablePowerInterface;

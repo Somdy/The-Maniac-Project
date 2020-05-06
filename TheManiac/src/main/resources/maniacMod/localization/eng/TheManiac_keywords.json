@@ -70,16 +70,16 @@
             "weapon",
             "weapons"
         ],
-        "DESCRIPTION": "Weapons are #b0 -cost card that gives special effects in some cases."
+        "DESCRIPTION": "Weapons are #b0 -cost card that gives special effects in specific cases."
     },
 
     "maniac:Enchant": {
         "PROPER_NAME": "Enchant",
         "NAMES": [
             "enchant",
-            "enchanted"
+            "enchants"
         ],
-        "DESCRIPTION": "Enchantment permanently increases weapons' points by #b1 in this run. Enchantments only improve the weapons in Weapon Library."
+        "DESCRIPTION": "Enchanting cards gives each a specific enchantment. Cards can be enchanted many times but the enchantment is fixed at first time."
     },
 
     "maniac:Gremlin": {

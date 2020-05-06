@@ -7,19 +7,28 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public abstract class AbstractManiacCard extends CustomCard {
+    private Logger logger = LogManager.getLogger(AbstractManiacCard.class.getName());
     public int maniacExtraMagicNumber;
     public int maniacOtherMagicNumber;
     public int maniacBaseExtraMagicNumber;
     public int maniacBaseOtherMagicNumber;
+    public int baseEnchantNumber;
+    public int enchantNumber;
+    public int timesEnchanted;
+    public int enchantment;
     public boolean upgradedManiacExtraMagicNumber;
     public boolean upgradedManiacOtherMagicNumber;
     public boolean isManiacExtraMagicNumberModified;
     public boolean isManiacOtherMagicNumberModified;
     public boolean isUnreal;
     public boolean applyAdditionalPowers;
+    public boolean enchanted;
+    public boolean isEnchantModified;
+    public boolean isEnchanter;
     public static final Color ALT_MANIAC_BLUE = Color.valueOf("#002366");
     public static final Color ALT_MANIAC_GREEN = Color.valueOf("00ff00");
 
@@ -35,33 +44,20 @@ public abstract class AbstractManiacCard extends CustomCard {
         isManiacOtherMagicNumberModified = false;
         isUnreal = false;
         applyAdditionalPowers = false;
+        enchanted = false;
+        isEnchantModified = false;
+        isEnchanter = false;
+        
+        enchantment = 0;
+        enchantNumber = baseEnchantNumber = 0;
+        this.timesEnchanted = 0;
     }
 
     public static class ManiacCardTags {
         @SpireEnum public static AbstractCard.CardTags ManiacSpell;
         @SpireEnum public static AbstractCard.CardTags ManiacWeapon;
     }
-
-    public boolean hasSpell() {
-        boolean hasAnySpell = false;
-        for (AbstractCard card : AbstractDungeon.player.hand.group) {
-            if (card.hasTag(ManiacCardTags.ManiacSpell) && card != this) {
-                hasAnySpell = true;
-            }
-        }
-        return hasAnySpell;
-    }
-
-    public boolean hasWeapon() {
-        boolean hasAnyWeapon = false;
-        for (AbstractCard card : AbstractDungeon.player.hand.group) {
-            if (card.hasTag(ManiacCardTags.ManiacWeapon) && card != this) {
-                hasAnyWeapon = true;
-            }
-        }
-        return hasAnyWeapon;
-    }
-
+    
     public boolean isInLimbo() {
         return AbstractDungeon.player.stance.ID.equals("maniac:Limbo");
     }
@@ -77,8 +73,13 @@ public abstract class AbstractManiacCard extends CustomCard {
             maniacOtherMagicNumber = maniacBaseOtherMagicNumber;
             isManiacOtherMagicNumberModified = true;
         }
+        else if (enchanted) {
+            enchantNumber = baseEnchantNumber;
+            isEnchantModified = true;
+        }
     }
 
+    /*
     @Override
     public boolean freeToPlay() {
         if (this.freeToPlayOnce) {
@@ -86,7 +87,7 @@ public abstract class AbstractManiacCard extends CustomCard {
         }
         if (AbstractDungeon.player != null && AbstractDungeon.currMapNode != null &&
                 (AbstractDungeon.getCurrRoom()).phase == AbstractRoom.RoomPhase.COMBAT &&
-                AbstractDungeon.player.hasPower("maniac:BurnBloodPower")) {
+                AbstractDungeon.player.hasPower(BurnBloodPower.POWER_ID)) {
             return true;
         }
         if (AbstractDungeon.player != null && AbstractDungeon.currMapNode != null &&
@@ -97,6 +98,7 @@ public abstract class AbstractManiacCard extends CustomCard {
 
         return false;
     }
+    */
 
     public void upgradeManiacExtraMagicNumber(int amount) {
         maniacBaseExtraMagicNumber += amount;
@@ -113,6 +115,39 @@ public abstract class AbstractManiacCard extends CustomCard {
     public void triggerOnTrack() {
 
     }
+    
+    public abstract void enchant();
+    
+    protected void modifyEnchants(int amount) {
+        this.baseEnchantNumber += amount;
+        this.enchantNumber = this.baseEnchantNumber;
+    }
+    
+    protected void enchantName() {
+        this.timesEnchanted++;
+        if (!this.enchanted) {
+            this.name = "×" + this.name;
+        }
+        this.enchanted = true;
+        this.initializeTitle();
+    }
+    
+    protected int enchantOpts(int firstOpt, int lastOpt) {
+        int opt = AbstractDungeon.cardRandomRng.random(firstOpt, lastOpt);
+        enchantment = opt;
+        logger.info("Get a maniac card enchantment opt: " + enchantment);
+        return opt;
+    }
+
+    public boolean canEnchant() {
+        if (this.type == AbstractCard.CardType.CURSE) {
+            return false;
+        } else if (this.type == AbstractCard.CardType.STATUS) {
+            return false;
+        } else {
+            return !this.isEnchanter;
+        }
+    }
 
     @Override
     public void upgrade() {
@@ -120,12 +155,28 @@ public abstract class AbstractManiacCard extends CustomCard {
     }
 
     @Override
-    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
 
     }
 
     @Override
     public AbstractCard makeCopy() {
         return null;
+    }
+
+    @Override
+    public AbstractCard makeStatEquivalentCopy() {
+        AbstractCard card = super.makeStatEquivalentCopy();
+        
+        if (card instanceof AbstractManiacCard) {
+            for (int i = 0; i < this.timesEnchanted; i++) {
+                ((AbstractManiacCard) card).enchant();
+            }
+
+            ((AbstractManiacCard) card).enchanted = this.enchanted;
+            ((AbstractManiacCard) card).timesEnchanted = this.timesEnchanted;
+        }
+        
+        return card;
     }
 }

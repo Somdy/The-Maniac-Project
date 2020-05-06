@@ -420,9 +420,33 @@
     "maniac:DigestPower": {
         "NAME": "Digest",
         "DESCRIPTIONS": [
-            "#y",
+            "This ",
             " has digested #b",
             " #yThe #yUndigested."
+        ]
+    },
+
+    "maniac:CorruardianSelfDestruction": {
+        "NAME": "Mad Mode",
+        "DESCRIPTIONS": [
+            "#y",
+            " has been set mad, it may do anything to stop the invader, including #rself-destruction."
+        ]
+    },
+
+    "maniac:CursePower": {
+        "NAME": "Curse",
+        "DESCRIPTIONS": [
+            "Whenever you play a #ynon-Skill , shuffle a random specific #rCurse into your draw pile."
+        ]
+    },
+
+    "maniac:RestrainedPower": {
+        "NAME": "Restrained",
+        "DESCRIPTIONS": [
+            "At the end of your turn, gain #b",
+            "At the end of its turn, gain #b",
+            " #yDexterity."
         ]
     }
 }

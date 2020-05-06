@@ -29,6 +29,11 @@ public class Torture extends AbstractManiacCard {
     }
 
     @Override
+    public void enchant() {
+        
+    }
+
+    @Override
     public AbstractCard makeCopy() {
         return new Torture();
     }

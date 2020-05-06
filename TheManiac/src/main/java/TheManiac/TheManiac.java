@@ -2,7 +2,7 @@ package TheManiac;
 
 import TheManiac.cards.colorless.attack.Blades;
 import TheManiac.cards.colorless.skill.Perception;
-import TheManiac.cards.curses.Torture;
+import TheManiac.cards.curses.*;
 import TheManiac.cards.maniac_blue.attack.*;
 import TheManiac.cards.maniac_blue.power.*;
 import TheManiac.cards.maniac_blue.skill.*;
@@ -10,11 +10,13 @@ import TheManiac.cards.maniac_blue.weapon.*;
 import TheManiac.character.TheManiacCharacter;
 import TheManiac.monsters.enemies.*;
 import TheManiac.relics.*;
+import TheManiac.variables.EnchantNumber;
 import TheManiac.variables.TheManiacExtraNumber;
 import TheManiac.variables.TheManiacOtherNumber;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.ReflectionHacks;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -26,6 +28,9 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.audio.Sfx;
+import com.megacrit.cardcrawl.audio.SoundMaster;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.helpers.CardHelper;
@@ -33,6 +38,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
@@ -51,6 +57,7 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
     public static final Color THE_MANIAC_BLUE = CardHelper.getColor(0,35,102);
 
     private static final String MODNAME = "The Maniac";
+    private static final String MODID = "maniac";
     private static final String AUTHOR = "Somdy";
     private static final String DESCRIPTION = "A base for Slay the Spire to start your own mod from, feat. the Default.";
     public static Properties TheManiacSettings = new Properties();
@@ -118,13 +125,14 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         BaseMod.addCard(new MeleeStrike());
         BaseMod.addCard(new FindAShortcut());
         BaseMod.addCard(new DashForward());
-        BaseMod.addCard(new BackupWeapon());
+        //BaseMod.addCard(new BackupWeapon());
         BaseMod.addCard(new BladeShoot());
         BaseMod.addCard(new ShelteringEdge());
         BaseMod.addCard(new BladesInCloak());
         BaseMod.addCard(new UntravelledPath());
         BaseMod.addCard(new WardAndDefend());
         BaseMod.addCard(new Confront());
+        BaseMod.addCard(new Refine());
         logger.info("===正在添加狂徒的罕见卡牌");
         BaseMod.addCard(new ShiftingShadows());
         BaseMod.addCard(new WitnessTrueSorcery());
@@ -200,6 +208,10 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         BaseMod.addCard(new ScorchingSpear());
         logger.info("===正在下咒");
         BaseMod.addCard(new Torture());
+        BaseMod.addCard(new Humiliation());
+        BaseMod.addCard(new Remorse());
+        BaseMod.addCard(new Guilty());
+        BaseMod.addCard(new Scruple());
         logger.info("所有新卡已添加！===");
 
         logger.info("===解锁所有新卡牌，仅供测试使用");
@@ -215,13 +227,14 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         UnlockTracker.unlockCard(MeleeStrike.ID);
         UnlockTracker.unlockCard(FindAShortcut.ID);
         UnlockTracker.unlockCard(DashForward.ID);
-        UnlockTracker.unlockCard(BackupWeapon.ID);
+        //UnlockTracker.unlockCard(BackupWeapon.ID);
         UnlockTracker.unlockCard(BladeShoot.ID);
         UnlockTracker.unlockCard(ShelteringEdge.ID);
         UnlockTracker.unlockCard(BladesInCloak.ID);
         UnlockTracker.unlockCard(UntravelledPath.ID);
         UnlockTracker.unlockCard(WardAndDefend.ID);
         UnlockTracker.unlockCard(Confront.ID);
+        UnlockTracker.unlockCard(Refine.ID);
 
         UnlockTracker.unlockCard(GremlinCompanion.ID);
         UnlockTracker.unlockCard(ShiftingShadows.ID);
@@ -302,6 +315,7 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         logger.info("===正在添加新的变量");
         BaseMod.addDynamicVariable(new TheManiacExtraNumber());
         BaseMod.addDynamicVariable(new TheManiacOtherNumber());
+        BaseMod.addDynamicVariable(new EnchantNumber());
         logger.info("已添加所有新变量！===");
     }
 
@@ -407,8 +421,10 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         settings.addUIElement(challengerModButton);
         BaseMod.registerModBadge(badge, MODNAME, AUTHOR, DESCRIPTION, settings);
         
-        logger.info("==正在清扫未邀之地==");
-        BaseMod.addMonster(MonsterEncounterList.LOUSES_ENC, MutatedLouse.NAME, () -> new MonsterGroup(new AbstractMonster[] {
+        
+        
+        logger.info("==正在清扫未邀之地");
+        /*BaseMod.addMonster(MonsterEncounterList.LOUSES_ENC, MutatedLouse.NAME, () -> new MonsterGroup(new AbstractMonster[] {
                 new MutatedLouse(-350F, -6F), new VariantLouse(-123F, 0F), new MutatedLouse(120F, 6F)
         }));
         BaseMod.addMonster(MonsterEncounterList.BIRYD_ENC, Biryd.NAME, () -> new MonsterGroup(new AbstractMonster[] {
@@ -428,6 +444,7 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         }));
         BaseMod.addMonster(MonsterEncounterList.SNEC_ENC, Sneckouette.NAME, () -> new Sneckouette(-60F, 0F, false, false, -1));
         BaseMod.addMonster(MonsterEncounterList.MAW_ENC, Mawelling.NAME, () -> new Mawelling(-55F, 0F));
+        BaseMod.addMonster(MonsterEncounterList.CORAD_ENC, Corruardian.NAME, () -> new Corruardian(-40F, 100F));
         
         BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(MonsterEncounterList.LOUSES_ENC, 6));
         BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(MonsterEncounterList.BIRYD_ENC, 6));
@@ -439,5 +456,25 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(MonsterEncounterList.GHOST_ENC, 12));
         BaseMod.addBoss(Exordium.ID, MonsterEncounterList.SNEC_ENC, "maniacMod/images/map/bossIcon/sneckouette.png", "maniacMod/images/map/bossIcon/outline/sneckouette.png");
         BaseMod.addBoss(Exordium.ID, MonsterEncounterList.MAW_ENC, "maniacMod/images/map/bossIcon/mawelling.png", "maniacMod/images/map/bossIcon/outline/mawelling.png");
+        BaseMod.addBoss(Exordium.ID, MonsterEncounterList.CORAD_ENC, "maniacMod/images/map/bossIcon/corruardian.png", "maniacMod/images/map/bossIcon/outline/corruardian.png");
+        
+        BaseMod.addMonster(MonsterEncounterList.POSED_ENC, Possessed.NAME, () -> new Possessed(10F, 0F));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(MonsterEncounterList.POSED_ENC, 15));
+        */
+        logger.info("已将懦弱的敌人赶出未邀之地==");
+        
+        addCustomSound(makeID("CorruardianReboot_01"), "maniacMod/audio/sound/CorruardianRebootActivate_01.ogg");
+        addCustomSound(makeID("CorruardianReboot_02"), "maniacMod/audio/sound/CorruardianRebootActivate_02.ogg");
+        addCustomSound(makeID("ThePossessedDeath"), "maniacMod/audio/sound/ThePossessedDeath.ogg");
+        addCustomSound(makeID("ApplyRestrainedSfx"), "maniacMod/audio/sound/RestrainedPowerApply_v1.ogg");
+    }
+    
+    public static String makeID(String ID) {
+        return MODID + ":" + ID;
+    }
+    
+    private static void addCustomSound(String ID, String path) {
+        HashMap<String, Sfx> map = (HashMap)ReflectionHacks.getPrivate(CardCrawlGame.sound, SoundMaster.class, "map");
+        map.put(ID, new Sfx(path, false));
     }
 }

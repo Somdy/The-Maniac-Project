@@ -28,6 +28,13 @@
     ]
   },
 
+  "maniac:RefineAction": {
+    "TEXT": [
+      "选择一张牌来附魔。",
+      "选择两张牌来附魔。"
+    ]
+  },
+
   "maniac:TheDilapidated": {
     "TEXT": [
       "荒芜",

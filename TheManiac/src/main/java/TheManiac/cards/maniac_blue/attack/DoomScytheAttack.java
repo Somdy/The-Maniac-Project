@@ -57,6 +57,11 @@ public class DoomScytheAttack extends AbstractManiacCard {
     }
 
     @Override
+    public void enchant() {
+        
+    }
+
+    @Override
     public void upgrade() {
     }
 

@@ -4,7 +4,11 @@
         "DESCRIPTION": "造成 !D! 点伤害。",
         "EXTENDED_DESCRIPTION": [
             " NL 给予 !M! 层 易伤 。",
-            " NL 给予 !ExtraNumber! 层 maniac:弱点 。"
+            " NL 给予 !ExtraNumber! 层 maniac:弱点 。",
+            " NL *完美: !Enchants!",
+            " NL *残忍: !Enchants!",
+            "特效:",
+            "完美：造成X点额外伤害。 NL 残忍:：给予X层出血。"
         ]
     },
 
@@ -12,57 +16,116 @@
         "NAME": "防御",
         "DESCRIPTION": "获得 !B! 点 格挡 。",
         "EXTENDED_DESCRIPTION": [
-            " NL 获得 !M! 层 *多层护甲 。"
+            " NL 获得 !M! 层 *多层护甲 。",
+            " NL *装甲: !Enchants!",
+            " NL *庇护: !Enchants!",
+            "特效:",
+            "装甲：获得X点额外格挡。 NL 庇护：获得X层多层护甲。"
         ]
     },
 
     "maniac:BurnBlood": {
         "NAME": "燃血",
         "DESCRIPTION": "失去 !M! 点生命值。 NL 本回合你打出的下一张牌耗能为0。",
-        "UPGRADE_DESCRIPTION": "本回合你打出的下一张牌耗能为0。"
+        "UPGRADE_DESCRIPTION": "本回合你打出的下一张牌耗能为0。",
+        "EXTENDED_DESCRIPTION": [
+            " NL *扭曲: !Enchants!",
+            " NL *反常: !Enchants!",
+            "特效:",
+            "扭曲：治疗X点生命值。 NL 反常：失去X点生命值以获得额外的免费打出效果。"
+        ]
     },
 
     "maniac:AbyssShackle": {
         "NAME": "深渊镣铐",
-        "DESCRIPTION": "进入 maniac:癫狂 。 NL 给予 !M! 易伤 。 NL 造成 !D! 点伤害。"
+        "DESCRIPTION": "进入 maniac:癫狂 。 NL 造成 !D! 点伤害。 NL 给予 !M! 易伤 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL *锋利: !Enchants!",
+            " NL *饥渴: !Enchants!",
+            " NL *诡异: !Enchants!",
+            "特效:",
+            "锋利：给予X层出血。 NL 饥渴：治疗X点生命值。 NL 诡异：给予X层虚弱。"
+        ]
     },
 
     "maniac:ListenToNone": {
         "NAME": "心无旁骛",
-        "DESCRIPTION": "如果你手中没有任何攻击牌，则获得 !B! 点 格挡 。 NL maniac:癫狂: 获得 !ExtraNumber! 点额外 格挡 。"
+        "DESCRIPTION": "如果你手中没有任何攻击牌，则获得 !B! 点 格挡 。 NL maniac:癫狂: 获得 !ExtraNumber! 点额外 格挡 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL *聚精: !Enchants!",
+            " NL *空无: !Enchants!",
+            " NL *会神",
+            "特效:",
+            "聚精：获得X点额外格挡。 NL 空无：生命值高于一半时获得X层金属化。 NL 会神：移除身上所有虚弱。"
+        ]
     },
 
     "maniac:UndyingDesire": {
         "NAME": "无尽欲望",
-        "DESCRIPTION": "失去 !M! 点生命值。 NL 抽 !ExtraNumber! 张牌。 NL 每抽到一张耗能大于等于1的牌获得 [E] [E] "
+        "DESCRIPTION": "失去 !M! 点生命值。 NL 抽 !ExtraNumber! 张牌。 NL 每抽到一张耗能大于等于1的牌获得 [E] [E] ",
+        "EXTENDED_DESCRIPTION": [
+            " NL *重生",
+            " NL *陨落: !Enchants!",
+            "特效:",
+            "重生：重复此卡效果一次。 NL 陨落：获得X点格挡。"
+        ]
     },
 
     "maniac:SpectralKnives": {
         "NAME": "幽灵飞刀",
-        "DESCRIPTION": "对一名随机敌人造成 !D! 点伤害 !M! 次。 NL maniac:癫狂: 将每次的伤害提升 !ExtraNumber! 点。 NL 消耗 。"
+        "DESCRIPTION": "对一名随机敌人造成 !D! 点伤害 !M! 次。 NL maniac:癫狂: 将每次的伤害提升 !ExtraNumber! 点。 NL 消耗 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL *灵异: !Enchants!",
+            " NL *恐怖: !Enchants!",
+            "特效:",
+            "灵异：将X张该牌的临时复制置入手牌。 NL 恐怖：对所有敌人造成X点额外伤害。"
+        ]
     },
 
     "maniac:PanickyParry": {
         "NAME": "慌乱格挡",
-        "DESCRIPTION": "每有一个敌人就获得 !B! 点 格挡 。"
+        "DESCRIPTION": "每有一个敌人就获得 !B! 点 格挡 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL *迅捷: !Enchants!",
+            " NL *冷静: !Enchants!",
+            " NL *谨慎: !Enchants!",
+            "特效:",
+            "迅捷：获得X层多层护甲。 NL 冷静：当前回合获得X点敏捷。 NL 谨慎：下回合获得X点格挡。"
+        ]
     },
 
     "maniac:Intimidate": {
         "NAME": "恐吓",
-        "DESCRIPTION": "给予所有敌人 !M! 层 maniac:害怕 。 NL maniac:癫狂: 同时给予 maniac:缓慢 。 NL 消耗 。"
+        "DESCRIPTION": "给予所有敌人 !M! 层 maniac:害怕 。 NL maniac:癫狂: 同时给予 maniac:缓慢 。 NL 消耗 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL *压倒: !Enchants!",
+            " NL *恐惧: !Enchants!",
+            "特效:",
+            "压倒：所有敌人失去X点力量。 NL 恐惧：给予X层额外害怕。"
+        ]
     },
 
     "maniac:MeleeStrike": {
         "NAME": "贴身打击",
         "DESCRIPTION": "只有当这张牌是唯一的手牌时才能打出。 NL 造成 !D! 点伤害两次。 NL 消耗 。",
         "EXTENDED_DESCRIPTION": [
-            "我还有其他牌在手中。"
+            "我还有其他牌在手中。",
+            " NL *突破: !Enchants!",
+            " NL *重击: !Enchants!",
+            "特效:",
+            "突破：敌人有格挡时获得X点力量。 NL 重击：给予X层易伤。"
         ]
     },
 
     "maniac:FindAShortcut": {
         "NAME": "寻找捷径",
-        "DESCRIPTION": "maniac:追踪 你的抽牌堆中的 !M! 张牌。 NL maniac:癫狂: maniac:追踪 两次。 NL 消耗 。"
+        "DESCRIPTION": "maniac:追踪 你的抽牌堆中的 !M! 张牌。 NL maniac:癫狂: maniac:追踪 两次。 NL 消耗 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL *明晰: !Enchants!",
+            " NL *直行: !Enchants!",
+            "特效:",
+            "明晰：抽X张牌。 NL 直行：获得X点格挡。"
+        ]
     },
 
     "maniac:GremlinCompanion": {
@@ -73,7 +136,14 @@
 
     "maniac:DashForward": {
         "NAME": "前冲",
-        "DESCRIPTION": "进入 maniac:癫狂 。 NL 对所有敌人造成 !D! 点伤害并给予 !M! 层 易伤 。"
+        "DESCRIPTION": "进入 maniac:癫狂 。 NL 对所有敌人造成 !D! 点伤害并给予 !M! 层 易伤 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL *掠过: !Enchants!",
+            " NL *旋身: !Enchants!",
+            " NL *无畏: !Enchants!",
+            "特效:",
+            "掠过：对一名随机敌人造成X点伤害X次。 NL 旋身：没有手牌时抽X张牌。 NL 无畏：本回合获得X点力量并失去X点敏捷。"
+        ]
     },
 
     "maniac:BackupWeapon": {
@@ -81,24 +151,55 @@
         "DESCRIPTION": "将一张随机 maniac:武器 置入你的手牌。 NL maniac:癫狂: 先 maniac:强化 你的武器一次。 NL 消耗 。"
     },
 
+    "maniac:Refine": {
+        "NAME": "改良",
+        "DESCRIPTION": "本场战斗中， maniac:附魔 一张手牌。",
+        "UPGRADE_DESCRIPTION": "本场战斗中， maniac:附魔 两张手牌。"
+    },
+
     "maniac:BladeShoot": {
         "NAME": "刀刃射击",
-        "DESCRIPTION": "造成 !D! 点伤害。 将一张 *刀刃雨 置入你的手牌。 NL maniac:癫狂: 升级 加入手牌的 *刀刃雨 。 退出 maniac:癫狂 。"
+        "DESCRIPTION": "造成 !D! 点伤害。 将一张 *刀刃雨 置入你的手牌。 NL maniac:癫狂: 升级 加入手牌的 *刀刃雨 。 退出 maniac:癫狂 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL *利刃: !Enchants!",
+            " NL *曲折: !Enchants!",
+            "特效:",
+            "利刃：给予X层出血。 NL 曲折：给予X层弱点。"
+        ]
     },
 
     "maniac:ShelteringEdge": {
         "NAME": "暂避锋芒",
-        "DESCRIPTION": "进入 maniac:癫狂 。 NL 获得 !B! 点 格挡 。 NL 回合结束时，退出 maniac:癫狂 。"
+        "DESCRIPTION": "进入 maniac:癫狂 。 NL 获得 !B! 点 格挡 。 NL 回合结束时，退出 maniac:癫狂 。",
+        "EXTENDED_DESCRIPTION": [
+            " NL *防御: !Enchants!",
+            " NL *遮蔽: !Enchants!",
+            "特效:",
+            "防御：获得X点额外格挡。 NL 遮蔽：生命值低于一半时治疗X点生命值。"
+        ]
     },
 
     "maniac:BladesInCloak": {
         "NAME": "暗藏刀刃",
-        "DESCRIPTION": "你的回合开始时，将一张 *刀刃雨 置入你的手牌。"
+        "DESCRIPTION": "你的回合开始时，将一张 *刀刃雨 置入你的手牌。",
+        "EXTENDED_DESCRIPTION": [
+            " NL *戏法",
+            " NL *揭示: !Enchants!",
+            "特效:",
+            "戏法：效果翻倍。 NL 揭示：追踪抽牌堆里的X张牌。"
+        ]
     },
 
     "maniac:UntravelledPath": {
         "NAME": "未寻之路",
-        "DESCRIPTION": "maniac:追踪 你消耗堆中的 !M! 张牌。 NL maniac:癫狂: 抽一张牌。"
+        "DESCRIPTION": "maniac:追踪 你消耗堆中的 !M! 张牌。 NL maniac:癫狂: 抽一张牌。",
+        "EXTENDED_DESCRIPTION": [
+            " NL *侦察: !Enchants!",
+            " NL *入口: !Enchants!",
+            " NL *无暇",
+            "特效:",
+            "侦察：给予一名随机敌人X层弱点。 NL 入口：没有手牌时获得X层敏捷。 NL 无暇：移除身上所有易伤。"
+        ]
     },
 
     "maniac:WardAndDefend": {
@@ -542,8 +643,33 @@
         "DESCRIPTION": "不能被打出 。 NL 被 消耗 时， 消耗 一张随机手牌。"
     },
 
+    "maniac:Guilty": {
+        "NAME": "负罪",
+        "DESCRIPTION": "不能被打出 。 NL 每当你打出一张技能牌，失去 [E]"
+    },
+
+    "maniac:Humiliation": {
+        "NAME": "羞辱",
+        "DESCRIPTION": "不能被打出 。 NL 每当你打出一张攻击牌，在本回合失去1点 力量 。"
+    },
+
+    "maniac:Remorse": {
+        "NAME": "懊悔",
+        "DESCRIPTION": "不能被打出 。 NL 保留 。"
+    },
+
+    "maniac:Scruple": {
+        "NAME": "顾虑",
+        "DESCRIPTION": "不能被打出 。 NL 从抽牌堆抽到时，将一张临时复制洗入你的抽牌堆。"
+    },
+
     "maniac:TheUndigested": {
         "NAME": "残渣",
         "DESCRIPTION": "臃肿巨口获得 !M! 层 *肿胀 并恢复4点生命值。 NL 失去2层 *唾液 。 NL 消耗 。"
+    },
+
+    "maniac:ModifierTest": {
+        "NAME": "Modifier",
+        "DESCRIPTION": "Current magic number is !M!. Permanently increases its magic number by 2 when played."
     }
 }

@@ -74,12 +74,12 @@
     },
 
     "maniac:Enchant": {
-        "PROPER_NAME": "强化",
+        "PROPER_NAME": "附魔",
         "NAMES": [
-            "强化",
-            "强化"
+            "附魔",
+            "附魔"
         ],
-        "DESCRIPTION": "每次强化会使武器的属性值在本次游戏中永久提升 #b1 点。强化只影响武器库中的武器。"
+        "DESCRIPTION": "附魔卡牌能给予一种特定的特效。卡牌能被附魔许多次但特效在第一次时就已经确定。"
     },
 
     "maniac:Gremlin": {

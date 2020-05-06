@@ -1,5 +1,6 @@
 package TheManiac.stances;
 
+import TheManiac.character.TheManiacCharacter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
@@ -58,6 +59,14 @@ public class LimboStance extends AbstractStance {
     }
 
     @Override
+    public void update() {
+        super.update();
+        /*if (AbstractDungeon.player instanceof TheManiacCharacter) {
+            ((TheManiacCharacter) AbstractDungeon.player).updateParticles();
+        }*/
+    }
+
+    @Override
     public void updateDescription() {
         this.description = stanceString.DESCRIPTION[0];
     }
@@ -72,7 +81,7 @@ public class LimboStance extends AbstractStance {
         AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.BLUE, true));
         AbstractDungeon.effectsQueue.add(new StanceChangeParticleGenerator(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, "Divinity"));
         AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
-
+        
     }
 
     @Override

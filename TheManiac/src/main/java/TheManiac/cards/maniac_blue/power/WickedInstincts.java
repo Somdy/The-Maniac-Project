@@ -40,6 +40,11 @@ public class WickedInstincts extends AbstractManiacCard {
     }
 
     @Override
+    public void enchant() {
+        
+    }
+
+    @Override
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();

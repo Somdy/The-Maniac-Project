@@ -2,6 +2,7 @@ package TheManiac.cards.maniac_blue.skill;
 
 import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.character.TheManiacCharacter;
+import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Defend_Maniac extends AbstractManiacCard {
     public static final String ID = "maniac:Defend";
@@ -28,12 +30,15 @@ public class Defend_Maniac extends AbstractManiacCard {
     private static final int COST = 1;
     private static final int BLOCK = 5;
     private static final int UPGRADE_BLOCK = 3;
+    private List<TooltipInfo> tips;
 
     public Defend_Maniac() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.block = this.baseBlock = BLOCK;
         this.magicNumber = this.baseMagicNumber = 0;
         this.tags.add(CardTags.STARTER_DEFEND);
+        this.tips = new ArrayList<>();
+        this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[3], EXTENDED_DESCRIPTION[4]));
     }
     
     public void setPlatedArmor(int amount) {
@@ -50,6 +55,36 @@ public class Defend_Maniac extends AbstractManiacCard {
         if (this.baseMagicNumber > 0) {
             this.addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.magicNumber)));
         }
+        
+        if (enchanted) {
+            if (this.enchantment == 1) {
+                this.addToBot(new GainBlockAction(p, p, this.enchantNumber));
+            } else {
+                this.addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.enchantNumber), this.enchantNumber));
+            }
+        }
+    }
+
+    @Override
+    public void enchant() {
+        if (!enchanted) {
+            switch (this.enchantOpts(1, 2)) {
+                case 1:
+                    this.rawDescription += EXTENDED_DESCRIPTION[1];
+                    break;
+                default:
+                    this.rawDescription += EXTENDED_DESCRIPTION[2];
+            }
+            System.out.println(this.name + "gets enchantment opt: " + this.enchantment);
+        }
+        this.enchantName();
+        this.modifyEnchants(2);
+        initializeDescription();
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        return this.tips;
     }
 
     @Override

@@ -1,5 +1,18 @@
 {
-   "maniac:TrackAction": {
+  "maniac:MonsterNames": {
+    "TEXT": [
+      "Mutated Louses",
+      "Jaw Flesh Horde",
+      "Thorny Shelled Parasite",
+      "Biryds",
+      "Kaleidoscrimson",
+      "Lagavulin Mutations",
+      "",
+      ""
+    ]
+  },
+  
+  "maniac:TrackAction": {
       "TEXT": [
           "Choose any number of cards to obtain. If you do, the rest will be exhausted.",
           "Choose any number of cards to obtain."
@@ -25,6 +38,13 @@
     "TEXT": [
       "Choose a card. Add a temp copy of that to your hand.",
       "The copy costs 0 this combat."
+    ]
+  },
+
+  "maniac:RefineAction": {
+    "TEXT": [
+      "Choose a card two enchant this combat.",
+      "Choose two cards two enchant this combat."
     ]
   },
 

@@ -53,6 +53,11 @@ public class HeavySkull extends AbstractManiacCard {
     }
 
     @Override
+    public void enchant() {
+        
+    }
+
+    @Override
     public void upgrade() {
     }
 

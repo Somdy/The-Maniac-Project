@@ -50,6 +50,11 @@ public class BigSword extends AbstractManiacCard {
     }
 
     @Override
+    public void enchant() {
+        
+    }
+
+    @Override
     public void upgrade() {
     }
 
