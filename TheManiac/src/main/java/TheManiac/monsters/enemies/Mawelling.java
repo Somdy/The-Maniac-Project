@@ -1,6 +1,5 @@
 package TheManiac.monsters.enemies;
 
-import TheManiac.actions.CollectingAction;
 import TheManiac.actions.MawellingUpgradeMudAction;
 import TheManiac.cards.status.TheUndigested;
 import TheManiac.powers.DigestPower;

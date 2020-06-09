@@ -31,20 +31,24 @@ public class SpectralFlashAction extends AbstractGameAction {
     
     @Override
     public void update() {
-        if (this.targetMonster != null) {
-            SpectralFlash spectralFlash = new SpectralFlash();
-            spectralFlash.setAdditionalDmg(this.DmgIncrease + this.baseDmg);
-            AbstractCard tmp = spectralFlash.makeStatEquivalentCopy();
-            
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(tmp, 1, true, true));
-            
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(this.targetMonster, new DamageInfo(this.source, this.Dmg, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-            
-            if (AbstractDungeon.player.stance.ID.equals(LimboStance.STANCE_ID)) {
-                AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.source, 1, false));
+        if (this.duration == Settings.ACTION_DUR_FAST) {
+            if (this.targetMonster != null) {
+                this.addToBot(new DamageAction(this.targetMonster, new DamageInfo(this.source, this.Dmg, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+
+                if (AbstractDungeon.player.stance.ID.equals(LimboStance.STANCE_ID)) {
+                    this.addToBot(new DrawCardAction(this.source, 1, false));
+                }
             }
         }
         
-        this.isDone = true;
+        this.tickDuration();
+        
+        if (this.isDone) {
+            SpectralFlash spectralFlash = new SpectralFlash();
+            spectralFlash.setAdditionalDmg(this.DmgIncrease + this.baseDmg);
+            AbstractCard tmp = spectralFlash.makeStatEquivalentCopy();
+
+            this.addToBot(new MakeTempCardInDrawPileAction(tmp, 1, true, true));
+        }
     }
 }

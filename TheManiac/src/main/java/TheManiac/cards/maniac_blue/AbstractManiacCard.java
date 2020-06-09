@@ -1,14 +1,24 @@
 package TheManiac.cards.maniac_blue;
 
+import TheManiac.stances.LimboStance;
 import basemod.abstracts.CustomCard;
+import basemod.helpers.SuperclassFinder;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
+import com.evacipated.cardcrawl.modthespire.lib.SpireSuper;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.lang.reflect.Field;
 
 public abstract class AbstractManiacCard extends CustomCard {
     private Logger logger = LogManager.getLogger(AbstractManiacCard.class.getName());
@@ -53,13 +63,8 @@ public abstract class AbstractManiacCard extends CustomCard {
         this.timesEnchanted = 0;
     }
 
-    public static class ManiacCardTags {
-        @SpireEnum public static AbstractCard.CardTags ManiacSpell;
-        @SpireEnum public static AbstractCard.CardTags ManiacWeapon;
-    }
-    
     public boolean isInLimbo() {
-        return AbstractDungeon.player.stance.ID.equals("maniac:Limbo");
+        return AbstractDungeon.player.stance.ID.equals(LimboStance.STANCE_ID);
     }
 
     @Override
@@ -116,6 +121,10 @@ public abstract class AbstractManiacCard extends CustomCard {
 
     }
     
+    public void WhenDetected() {
+        
+    }
+    
     public abstract void enchant();
     
     protected void modifyEnchants(int amount) {
@@ -144,6 +153,9 @@ public abstract class AbstractManiacCard extends CustomCard {
             return false;
         } else if (this.type == AbstractCard.CardType.STATUS) {
             return false;
+        }
+        else if (this.rarity == CardRarity.RARE) {
+            return false;
         } else {
             return !this.isEnchanter;
         }
@@ -156,7 +168,7 @@ public abstract class AbstractManiacCard extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        
     }
 
     @Override
@@ -169,14 +181,61 @@ public abstract class AbstractManiacCard extends CustomCard {
         AbstractCard card = super.makeStatEquivalentCopy();
         
         if (card instanceof AbstractManiacCard) {
-            for (int i = 0; i < this.timesEnchanted; i++) {
-                ((AbstractManiacCard) card).enchant();
-            }
-
-            ((AbstractManiacCard) card).enchanted = this.enchanted;
-            ((AbstractManiacCard) card).timesEnchanted = this.timesEnchanted;
+            ((AbstractManiacCard) card).maniacBaseExtraMagicNumber = this.maniacBaseExtraMagicNumber;
+            ((AbstractManiacCard) card).maniacBaseOtherMagicNumber = this.maniacBaseOtherMagicNumber;
+            ((AbstractManiacCard) card).applyAdditionalPowers = this.applyAdditionalPowers;
+            ((AbstractManiacCard) card).isEnchanter = this.isEnchanter;
+            ((AbstractManiacCard) card).isEnchantModified = this.isEnchantModified;
         }
         
+        card.retain = this.retain;
+        card.selfRetain = this.selfRetain;
+        card.purgeOnUse = this.purgeOnUse;
+        card.isEthereal = this.isEthereal;
+        card.exhaust = this.exhaust;
+        
         return card;
+    }
+    
+    private BitmapFont getCardTitleFont() throws Exception {
+        BitmapFont font;
+        
+        Field useSmallTitleFont = AbstractCard.class.getDeclaredField("useSmallTitleFont");
+        useSmallTitleFont.setAccessible(true);
+
+        if (!useSmallTitleFont.getBoolean(this)) {
+            font = FontHelper.cardTitleFont;
+        } else {
+            font = FontHelper.cardTitleFont_small;
+        }
+
+        return font;
+    }
+    
+    @SpireOverride
+    protected void renderTitle(SpriteBatch sb) {
+        BitmapFont font = null;
+        try {
+            font = getCardTitleFont();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (font == null) {
+            font = FontHelper.cardTitleFont_small;
+        }
+        font.getData().setScale(this.drawScale);
+        if (this.enchanted && this.upgraded) {
+            Color color = Settings.PURPLE_RELIC_COLOR.cpy();
+            color.a = 1F;
+            FontHelper.renderRotatedText(sb, font, this.name, this.current_x, this.current_y, 0.0F, 175.0F * this.drawScale * Settings.scale, this.angle, false, color);
+            return;
+        }
+        if (this.enchanted) {
+            Color color = Settings.BLUE_TEXT_COLOR.cpy();
+            color.a = 1F;
+            FontHelper.renderRotatedText(sb, font, this.name, this.current_x, this.current_y, 0.0F, 175.0F * this.drawScale * Settings.scale, this.angle, false, color);
+            return;
+        }
+        SpireSuper.call(sb);
     }
 }

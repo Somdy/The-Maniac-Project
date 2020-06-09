@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class GremlinLeaderPower extends AbstractPower implements CloneablePowerInterface {
+public class GremlinLeaderPower extends AbstractManiacPower implements CloneablePowerInterface {
     public static final String POWER_ID = "maniac:GremlinLeaderPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -24,8 +24,9 @@ public class GremlinLeaderPower extends AbstractPower implements CloneablePowerI
         this.owner = owner;
         this.amount = -1;
         this.type = PowerType.BUFF;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);
+        this.loadImg("GremlinLeader");
+        /*this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);*/
         updateDescription();
     }
 

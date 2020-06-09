@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <copy file="target/TheManiac.jar" tofile="D:\Programme Files\Steam\steamapps\common\SlayTheSpire\mods/[地精首领爬塔]TheManiac.jar"/>
+</target>
+</project>

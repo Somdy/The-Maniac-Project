@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AngerPower;
 import com.megacrit.cardcrawl.powers.AngryPower;
 import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
 import kobting.friendlyminions.monsters.MinionMove;

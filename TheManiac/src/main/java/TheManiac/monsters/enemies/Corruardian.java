@@ -6,7 +6,6 @@ import TheManiac.powers.CorruardianSelfDestructionPower;
 import TheManiac.powers.NoAttackPower;
 import TheManiac.vfx.CorruardianOrbsEffect;
 import basemod.abstracts.CustomMonster;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

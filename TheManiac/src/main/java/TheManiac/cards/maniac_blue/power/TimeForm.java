@@ -29,7 +29,7 @@ public class TimeForm extends AbstractManiacCard {
     public TimeForm() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.isEthereal = true;
-        this.magicNumber = this.baseMagicNumber = 7;
+        this.magicNumber = this.baseMagicNumber = 8;
         this.tags.add(BaseModCardTags.FORM);
     }
 

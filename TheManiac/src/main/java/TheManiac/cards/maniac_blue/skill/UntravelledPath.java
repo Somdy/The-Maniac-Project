@@ -1,8 +1,10 @@
 package TheManiac.cards.maniac_blue.skill;
 
+import TheManiac.actions.FlashbackAction;
 import TheManiac.actions.TrackAction;
 import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.character.TheManiacCharacter;
+import TheManiac.powers.FoilsPower;
 import TheManiac.powers.WeaknessPower;
 import TheManiac.stances.LimboStance;
 import basemod.helpers.TooltipInfo;
@@ -41,6 +43,7 @@ public class UntravelledPath extends AbstractManiacCard {
     public UntravelledPath() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = track;
+        this.isUnreal = true;
         
         this.tips = new ArrayList<>();
         this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[3], EXTENDED_DESCRIPTION[4]));
@@ -48,10 +51,10 @@ public class UntravelledPath extends AbstractManiacCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new TrackAction(this.magicNumber, p.exhaustPile));
-        if (p.stance.ID.equals(LimboStance.STANCE_ID)) {
-            this.addToBot(new DrawCardAction(p, 1, false));
+        if (isInLimbo()) {
+            this.magicNumber += 1;
         }
+        this.addToBot(new FlashbackAction(this, this.magicNumber, false));
         
         if (enchanted) {
             if (this.enchantment == 1) {
@@ -62,7 +65,7 @@ public class UntravelledPath extends AbstractManiacCard {
             }
             else if (this.enchantment == 2) {
                 if (p.hand.isEmpty()) {
-                    this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, this.enchantNumber), this.enchantNumber));
+                    this.addToBot(new ApplyPowerAction(p, p, new FoilsPower(p, this.enchantNumber), this.enchantNumber));
                 }
             } else {
                 if (p.getPower(VulnerablePower.POWER_ID) != null) {

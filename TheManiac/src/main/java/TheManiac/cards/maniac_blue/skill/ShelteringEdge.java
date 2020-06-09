@@ -4,6 +4,7 @@ import TheManiac.TheManiac;
 import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.character.TheManiacCharacter;
 import TheManiac.powers.ExitManiacPower;
+import TheManiac.powers.FoilsPower;
 import TheManiac.stances.LimboStance;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -51,7 +52,7 @@ public class ShelteringEdge extends AbstractManiacCard {
         
         if (enchanted) {
             if (this.enchantment == 1) {
-                this.addToBot(new GainBlockAction(p, p, this.enchantNumber));
+                this.addToBot(new ApplyPowerAction(p, p, new FoilsPower(p, this.enchantNumber), this.enchantNumber));
             } else {
                 if (p.currentHealth < p.maxHealth / 2) {
                     this.addToBot(new HealAction(p, p, this.enchantNumber, 0.2F));
@@ -79,6 +80,11 @@ public class ShelteringEdge extends AbstractManiacCard {
             this.modifyEnchants(4);
         }
         initializeDescription();
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        return this.tips;
     }
 
     @Override

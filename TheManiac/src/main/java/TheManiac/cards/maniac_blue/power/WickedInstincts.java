@@ -16,26 +16,24 @@ public class WickedInstincts extends AbstractManiacCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    private static final String UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     private static final String IMG_PATH = "maniacMod/images/1024portraits/maniac_blue/power/wicked_instincts.png";
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheManiacCharacter.Enums.MANIAC_BLUE;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final int COST = 3;
-    private static final int DRAW = 1;
-    private static final int PLAY = 2;
-    private static final int UPGRADE = 1;
 
     public WickedInstincts() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = PLAY;
-        this.maniacExtraMagicNumber = this.maniacBaseExtraMagicNumber = DRAW;
+        this.isEthereal = true;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!p.hasPower(WickedInstinctsPower.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WickedInstinctsPower(this.maniacExtraMagicNumber, this.magicNumber), this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WickedInstinctsPower(this.magicNumber), this.magicNumber));
         }
     }
 
@@ -48,8 +46,8 @@ public class WickedInstincts extends AbstractManiacCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE);
-            this.upgradeManiacExtraMagicNumber(UPGRADE);
+            this.isEthereal = false;
+            this.rawDescription = UPGRADED_DESCRIPTION;
             initializeDescription();
         }
     }

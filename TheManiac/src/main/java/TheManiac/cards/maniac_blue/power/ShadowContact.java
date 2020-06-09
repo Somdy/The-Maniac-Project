@@ -22,7 +22,7 @@ public class ShadowContact extends AbstractManiacCard {
     public static final CardColor COLOR = TheManiacCharacter.Enums.MANIAC_BLUE;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final int COST = 2;
+    private static final int COST = 1;
     
     public ShadowContact() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -42,6 +42,7 @@ public class ShadowContact extends AbstractManiacCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
+            this.isInnate = true;
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

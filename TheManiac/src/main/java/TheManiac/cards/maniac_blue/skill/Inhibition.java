@@ -2,6 +2,7 @@ package TheManiac.cards.maniac_blue.skill;
 
 import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.character.TheManiacCharacter;
+import TheManiac.powers.FoilsPower;
 import TheManiac.powers.InhibitionPower;
 import TheManiac.stances.LimboStance;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -26,28 +27,26 @@ public class Inhibition extends AbstractManiacCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final int COST = 2;
-    private static final int BLOCK = 15;
-    private static final int POWERS = 3;
-    private static final int UPGRADE_BLOCK = 5;
-    private static final int UPGRADE_POWERS = 1;
+    private static final int POWERS = 16;
+    private static final int UPGRADE_POWERS = 2;
 
     public Inhibition() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.block = this.baseBlock = BLOCK;
         this.magicNumber = this.baseMagicNumber = POWERS;
+        this.maniacExtraMagicNumber = this.maniacBaseExtraMagicNumber = 3;
         this.exhaust = true;
         this.isUnreal = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (p.stance.ID.equals(LimboStance.STANCE_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, this.block));
+        if (isInLimbo()) {
+            this.addToBot(new ApplyPowerAction(p, p, new FoilsPower(p, this.magicNumber), this.magicNumber));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new InhibitionPower(p, 1), 1));
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
         }
         else {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, this.maniacExtraMagicNumber), this.maniacExtraMagicNumber));
         }
     }
 
@@ -70,7 +69,6 @@ public class Inhibition extends AbstractManiacCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            this.upgradeBlock(UPGRADE_BLOCK);
             this.upgradeMagicNumber(UPGRADE_POWERS);
             initializeDescription();
         }

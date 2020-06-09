@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class DigestPower extends AbstractPower implements CloneablePowerInterface {
+public class DigestPower extends AbstractManiacPower implements CloneablePowerInterface {
     public static final Logger logger = LogManager.getLogger(DigestPower.class.getName());
     public static final String POWER_ID = "maniac:DigestPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -29,8 +29,9 @@ public class DigestPower extends AbstractPower implements CloneablePowerInterfac
         this.owner = owner;
         this.amount = amount;
         this.type = PowerType.BUFF;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);
+        this.loadImg("Digest");
+        /*this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);*/
         updateDescription();
     }
 

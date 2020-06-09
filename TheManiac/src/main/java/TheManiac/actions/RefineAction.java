@@ -50,7 +50,7 @@ public class RefineAction extends AbstractGameAction {
                     if (card instanceof AbstractManiacCard) {
                         if (((AbstractManiacCard) card).canEnchant()) {
                             ((AbstractManiacCard) card).enchant();
-                            card.superFlash(Color.PURPLE);
+                            card.superFlash(Color.PURPLE.cpy());
                             card.applyPowers();
                         }
                     }
@@ -75,11 +75,11 @@ public class RefineAction extends AbstractGameAction {
                 for (AbstractCard card : player.hand.group) {
                     if (card instanceof AbstractManiacCard) {
                         ((AbstractManiacCard) card).enchant();
-                        card.superFlash(Color.PURPLE);
+                        card.superFlash(Color.PURPLE.cpy());
                         card.applyPowers();
                     }
                 }
-                returnCards();
+                //returnCards();
                 this.isDone = true;
             }
         }
@@ -94,13 +94,17 @@ public class RefineAction extends AbstractGameAction {
                 }
             }
 
-            returnCards();
+            //returnCards();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
             this.isDone = true;
         }
 
         this.tickDuration();
+        
+        if (this.isDone) {
+            returnCards();
+        }
     }
     
     private void returnCards() {

@@ -5,6 +5,9 @@ import TheManiac.cards.maniac_blue.attack.AbyssShackle;
 import TheManiac.cards.maniac_blue.attack.Strike_Maniac;
 import TheManiac.cards.maniac_blue.skill.BurnBlood;
 import TheManiac.cards.maniac_blue.skill.Defend_Maniac;
+import TheManiac.helper.MinionHelper;
+import TheManiac.minions.AbstractManiacMinion;
+import TheManiac.patches.MinionPatches.MonsterIntentsOnMinionPatch;
 import TheManiac.relics.BrokenHorn;
 import TheManiac.relics.DamagedAnvil;
 import TheManiac.stances.LimboStance;
@@ -13,10 +16,12 @@ import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -29,13 +34,14 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.random.Random;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
-import kobting.friendlyminions.characters.CustomCharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -44,7 +50,7 @@ import static TheManiac.TheManiac.THE_MANIAC_SKELETON_JSON;
 import static TheManiac.character.TheManiacCharacter.Enums.MANIAC_BLUE;
 import static TheManiac.character.TheManiacCharacter.Enums.THE_MANIAC;
 
-public class TheManiacCharacter extends AbstractPlayerWithMinions {
+public class TheManiacCharacter extends CustomPlayer {
     public static final Logger logger = LogManager.getLogger(TheManiac.class.getName());
     private static final String ID = "TheManiac";
     public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString(ID);
@@ -65,10 +71,10 @@ public class TheManiacCharacter extends AbstractPlayerWithMinions {
     };
     public static final String orbVFX = "maniacMod/images/character/energyOrb/vfx.png";
     public static final int ENERGY_PER_TURN = 3;
-    public static final int STARTING_HP = 82;
-    public static final int MAX_HP = 82;
+    public static final int STARTING_HP = 84;
+    public static final int MAX_HP = 84;
     public static final int STARTING_GOLD = 99;
-    public static final int ORB_SLOTS = 3;
+    public static final int ORB_SLOTS = 0;
     public static final int DRAW_PER_TURN = 5;
     public static final int MAX_MINIONS = 3;
     public static final String ANIMATION = "maniacMod/images/character/ManiacSpriter/theManiacCharacter.scml";
@@ -76,27 +82,22 @@ public class TheManiacCharacter extends AbstractPlayerWithMinions {
     public int weaponUpgrades;
     public int minionsUpgrades;
     private float fireTimer = 0F;
-
-    @Override
-    public CustomCharSelectInfo getInfo() {
-        return new CustomCharSelectInfo(NAME, DESCRIPTION, STARTING_HP, MAX_HP, ORB_SLOTS, MAX_MINIONS,STARTING_GOLD, DRAW_PER_TURN,
-                this, this.getStartingRelics(), this.getStartingDeck(), false);
-    }
+    
+    public MonsterGroup minions;
+    public AbstractManiacMinion[] gremlin_minions;
+    public int maxMinions = 1;
 
     public static class Enums {
         @SpireEnum
         public static AbstractPlayer.PlayerClass THE_MANIAC;
         @SpireEnum(name = "MANIAC_BLUE_COLOR")
         public static AbstractCard.CardColor MANIAC_BLUE;
+        @SpireEnum(name = "Possessed")
+        public static AbstractCard.CardColor MANIAC_POSSESSED;
         @SpireEnum(name = "MANIAC_BLUE_COLOR")
-        public static CardLibrary.LibraryType LIBRARY_COLOR;
-    }
-
-    public static class CustomAttackEffect {
-        @SpireEnum public static AbstractGameAction.AttackEffect EXOTIC_POISON;
-        @SpireEnum public static AbstractGameAction.AttackEffect MANIC_BLUNT;
-        @SpireEnum public static AbstractGameAction.AttackEffect MANIC_CLEAVE;
-        @SpireEnum public static AbstractGameAction.AttackEffect MANIC_SLASH;
+        public static CardLibrary.LibraryType LIBRARY_THE_MANIAC;
+        @SpireEnum(name = "Possessed")
+        public static CardLibrary.LibraryType LIBRARY_THE_POSSESSED;
     }
 
     public TheManiacCharacter(String name) {
@@ -112,6 +113,7 @@ public class TheManiacCharacter extends AbstractPlayerWithMinions {
         dialogY = (drawY + 220.0F * Settings.scale);
         this.weaponUpgrades = 0;
         this.minionsUpgrades = 0;
+        removeAllMinions();
     }
     
     public void changeState(String state) {
@@ -140,6 +142,140 @@ public class TheManiacCharacter extends AbstractPlayerWithMinions {
     }
 
     @Override
+    public void damage(DamageInfo info) {
+        boolean minionDefend = false;
+        if (info.owner instanceof AbstractMonster && info.type == DamageInfo.DamageType.NORMAL && hasMinions()) {
+            AbstractMonster monster = (AbstractMonster) info.owner;
+            minionDefend = minionTakeDmg(monster.intent);
+        }
+        
+        if (minionDefend && hasMinions()) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(this.getMinion(), info, AbstractGameAction.AttackEffect.NONE));
+        }
+        else if (minionDefend && !hasMinions()) {
+            MinionHelper.returnMonsterTarget((AbstractMonster) info.owner);
+            info.applyPowers(info.owner, this);
+            super.damage(info);
+        } else {
+            super.damage(info);
+        }
+    }
+    
+    private boolean minionTakeDmg(AbstractMonster.Intent intent) {
+        return intent == MonsterIntentsOnMinionPatch.Enums.ATTACK_MINION || intent == MonsterIntentsOnMinionPatch.Enums.ATTACK_MINION_BUFF
+                || intent == MonsterIntentsOnMinionPatch.Enums.ATTACK_MINION_DEBUFF || intent == MonsterIntentsOnMinionPatch.Enums.ATTACK_MINION_DEFEND;
+    }
+
+
+    @Override
+    public void preBattlePrep() {
+        super.preBattlePrep();
+        removeAllMinions();
+    }
+
+    public void removeAllMinions() {
+        this.gremlin_minions = new AbstractManiacMinion[maxMinions];
+        this.minions = new MonsterGroup(this.gremlin_minions);
+        this.minions.monsters.removeIf(Objects::isNull);
+    }
+    
+    public boolean removeMinion(AbstractManiacMinion minion) {
+        return this.minions.monsters.remove(minion);
+    }
+    
+    public boolean summonMinion(AbstractManiacMinion minion) {
+        if (this.minions.monsters.size() >= this.maxMinions) {
+            return false;
+        }
+        minion.init();
+        minion.applyPowers();
+        minion.showHealthBar();
+        minion.usePreBattleAction();
+        this.minions.add(minion);
+        return true;
+    }
+    
+    public MonsterGroup getMinions() {
+        return this.minions;
+    }
+    
+    public AbstractMonster getMinion() {
+        return this.minions.monsters.get(this.minions.monsters.size() - 1);
+    }
+    
+    public boolean hasMinion(AbstractManiacMinion minion) {
+        return this.minions.monsters.contains(minion);
+    }
+    
+    public boolean hasMinions() {
+        return this.minions.monsters.size() > 0;
+    }
+    
+    public void applyMinionPowers() {
+        for (AbstractMonster minion : this.minions.monsters) {
+            minion.applyPowers();
+        }
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        if (AbstractDungeon.getCurrRoom() != null) {
+            if ((AbstractDungeon.getCurrRoom()).phase == AbstractRoom.RoomPhase.COMBAT) {
+                this.minions.update();
+            }
+        }
+    }
+
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if (AbstractDungeon.getCurrRoom() != null) {
+            if ((AbstractDungeon.getCurrRoom()).phase == AbstractRoom.RoomPhase.COMBAT) {
+                this.minions.render(sb);
+            }
+        }
+    }
+
+    @Override
+    public void applyEndOfTurnTriggers() {
+        for (AbstractMonster minion : this.minions.monsters) {
+            minion.takeTurn();
+            minion.applyEndOfTurnTriggers();
+        }
+        for (AbstractMonster minion: this.minions.monsters) {
+            for (AbstractPower power : minion.powers) {
+                power.atEndOfRound();
+            }
+        }
+        super.applyEndOfTurnTriggers();
+    }
+
+    @Override
+    public void applyStartOfTurnPostDrawPowers() {
+        super.applyStartOfTurnPostDrawPowers();
+        for (AbstractMonster minion : this.minions.monsters) {
+            minion.applyStartOfTurnPostDrawPowers();
+        }
+    }
+
+    @Override
+    public void applyStartOfTurnPowers() {
+        super.applyStartOfTurnPowers();
+        for (AbstractMonster minion : this.minions.monsters) {
+            minion.applyStartOfTurnPowers();
+        }
+    }
+
+    @Override
+    public void updatePowers() {
+        super.updatePowers();
+        for (AbstractMonster minion : this.minions.monsters) {
+            minion.updatePowers();
+        }
+    }
+
+    @Override
     public void updateAnimations() {
         super.updateAnimations();
         if (AbstractDungeon.player.stance.ID.equals(LimboStance.STANCE_ID)) {
@@ -156,7 +292,7 @@ public class TheManiacCharacter extends AbstractPlayerWithMinions {
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList();
-        logger.info("Now loading The Maniac's starting deck");
+        logger.info("==正在给狂徒添加初始卡牌");
         retVal.add(Strike_Maniac.ID);
         retVal.add(Strike_Maniac.ID);
         retVal.add(Strike_Maniac.ID);
@@ -168,14 +304,17 @@ public class TheManiacCharacter extends AbstractPlayerWithMinions {
         retVal.add(Defend_Maniac.ID);
         retVal.add(BurnBlood.ID);
         retVal.add(AbyssShackle.ID);
+        logger.info("已添加狂徒的所有初始卡牌==");
         return retVal;
     }
 
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
+        logger.info("==正在给狂徒一些初始遗物");
         retVal.add(DamagedAnvil.ID);
         retVal.add(BrokenHorn.ID);
+        logger.info("已添加狂徒的所有初始遗物==");
         return retVal;
     }
 
@@ -222,13 +361,13 @@ public class TheManiacCharacter extends AbstractPlayerWithMinions {
 
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("ATTACK_DAGGER_1", 1.2f);
+        CardCrawlGame.sound.playA(TheManiac.makeID("ManiacSelectSound"), 1.2f);
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.MED, false);
     }
 
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "ATTACK_DAGGER_1";
+        return TheManiac.makeID("ManiacSelectSound");
     }
 
     @Override

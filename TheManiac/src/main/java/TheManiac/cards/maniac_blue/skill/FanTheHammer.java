@@ -27,6 +27,7 @@ public class FanTheHammer extends AbstractManiacCard {
         this.magicNumber = this.baseMagicNumber = 6;
         this.exhaust = true;
         this.isUnreal = true;
+        this.isEnchanter = true;
     }
 
     @Override

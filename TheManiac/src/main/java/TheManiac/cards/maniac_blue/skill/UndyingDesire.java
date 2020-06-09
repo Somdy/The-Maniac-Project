@@ -33,7 +33,7 @@ public class UndyingDesire extends AbstractManiacCard {
     private static final int COST = 3;
     private static final int UPGRADED_COST = 2;
     private static final int DRAW = 2;
-    private static final int LIFE_COST = 2;
+    private static final int LIFE_COST = 3;
     private List<TooltipInfo> tips;
 
     public UndyingDesire() {

@@ -1,10 +1,8 @@
 package TheManiac.stances;
 
-import TheManiac.character.TheManiacCharacter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -47,7 +45,7 @@ public class LimboStance extends AbstractStance {
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer2 < 0.0f) {
             this.particleTimer2 = MathUtils.random(0.45F, 0.55F);
-            AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Divinity"));
+            AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
         }
     }
 
@@ -79,7 +77,7 @@ public class LimboStance extends AbstractStance {
         CardCrawlGame.sound.play("STANCE_ENTER_WRATH");
         sfxId = CardCrawlGame.sound.playAndLoop("STANCE_LOOP_WRATH");
         AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.BLUE, true));
-        AbstractDungeon.effectsQueue.add(new StanceChangeParticleGenerator(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, "Divinity"));
+        AbstractDungeon.effectsQueue.add(new StanceChangeParticleGenerator(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, "Wrath"));
         AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
         
     }

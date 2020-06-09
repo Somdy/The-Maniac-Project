@@ -2,6 +2,7 @@ package TheManiac.cards.maniac_blue.skill;
 
 import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.character.TheManiacCharacter;
+import TheManiac.powers.FoilsPower;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -53,14 +54,14 @@ public class Defend_Maniac extends AbstractManiacCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         if (this.baseMagicNumber > 0) {
-            this.addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.magicNumber)));
+            this.addToBot(new ApplyPowerAction(p, p, new FoilsPower(p, this.magicNumber)));
         }
         
         if (enchanted) {
             if (this.enchantment == 1) {
                 this.addToBot(new GainBlockAction(p, p, this.enchantNumber));
             } else {
-                this.addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.enchantNumber), this.enchantNumber));
+                this.addToBot(new ApplyPowerAction(p, p, new FoilsPower(p, this.enchantNumber), this.enchantNumber));
             }
         }
     }

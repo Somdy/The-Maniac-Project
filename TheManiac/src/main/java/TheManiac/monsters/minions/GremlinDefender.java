@@ -36,7 +36,7 @@ public class GremlinDefender extends AbstractFriendlyMonster {
     private boolean renderChecker = false;
     
     public GremlinDefender(float rot) {
-        super(NAME, ID, base_Hp, 0.0F, 0.0F, 120.0F, 200.0F, (String)null, -690F - (150F * (float)Math.cos(rot)), 6F + (float)Math.sin(rot));
+        super(NAME, ID, base_Hp, 0.0F, 0.0F, 120.0F, 200.0F, null, -690F - (150F * (float)Math.cos(rot)), 6F + (float)Math.sin(rot));
         if (AbstractDungeon.ascensionLevel > 10) {
             this.setHp(base_Hp, base_Hp + 7);
         } else {

@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class Lagavulred extends CustomMonster {
     public static final String ID = "maniac:Lagavulred";

@@ -1,7 +1,6 @@
 package TheManiac.monsters.enemies;
 
 import TheManiac.vfx.DestroyerFireEffect;
-import TheManiac.vfx.TorchGhostEffect;
 import basemod.abstracts.CustomMonster;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
@@ -12,10 +11,8 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.VoidCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.monsters.beyond.Exploder;
 import com.megacrit.cardcrawl.powers.ExplosivePower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;

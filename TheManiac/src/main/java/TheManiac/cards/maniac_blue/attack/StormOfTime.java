@@ -22,8 +22,8 @@ public class StormOfTime extends AbstractManiacCard {
     public static final CardColor COLOR = TheManiacCharacter.Enums.MANIAC_BLUE;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
-    private static final int COST = 1;
-    private static final int baseDmg = 2;
+    private static final int COST = 2;
+    private static final int baseDmg = 1;
     private static final int powers = 10;
     
     public StormOfTime() {
@@ -34,7 +34,7 @@ public class StormOfTime extends AbstractManiacCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new TimeStormAction(this.magicNumber, this.damage));
+        this.addToBot(new TimeStormAction(this.magicNumber, this.damage));
     }
 
     @Override
@@ -51,12 +51,7 @@ public class StormOfTime extends AbstractManiacCard {
     public void applyPowers() {
         super.applyPowers();
         int counts = AbstractDungeon.actionManager.cardsPlayedThisCombat.size();
-        if (this.upgraded) {
-            this.rawDescription = UPGRADE_DESCRIPTION;
-        }
-        else {
-            this.rawDescription = DESCRIPTION;
-        }
+        this.rawDescription = DESCRIPTION;
         this.rawDescription += EXTENDED_DESCRIPTION[0] + counts + EXTENDED_DESCRIPTION[1];
         initializeDescription();
     }
@@ -76,7 +71,7 @@ public class StormOfTime extends AbstractManiacCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(0);
+            this.upgradeBaseCost(1);
             initializeDescription();
         }
     }

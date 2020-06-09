@@ -1,6 +1,7 @@
 package TheManiac;
 
 import TheManiac.cards.colorless.attack.Blades;
+import TheManiac.cards.colorless.attack.DeusExMe;
 import TheManiac.cards.colorless.skill.Perception;
 import TheManiac.cards.curses.*;
 import TheManiac.cards.maniac_blue.attack.*;
@@ -8,8 +9,14 @@ import TheManiac.cards.maniac_blue.power.*;
 import TheManiac.cards.maniac_blue.skill.*;
 import TheManiac.cards.maniac_blue.weapon.*;
 import TheManiac.character.TheManiacCharacter;
+import TheManiac.helper.ManiacImageMaster;
+import TheManiac.helper.ThePossessedInitializer;
+import TheManiac.minions.AbstractManiacMinion;
 import TheManiac.monsters.enemies.*;
+import TheManiac.patches.CardMarkFieldPatch;
+import TheManiac.patches.NewRewardIType;
 import TheManiac.relics.*;
+import TheManiac.rewards.MixesReward;
 import TheManiac.variables.EnchantNumber;
 import TheManiac.variables.TheManiacExtraNumber;
 import TheManiac.variables.TheManiacOtherNumber;
@@ -17,6 +24,7 @@ import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.ReflectionHacks;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -27,12 +35,13 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -45,14 +54,15 @@ import java.util.Properties;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
-import com.megacrit.cardcrawl.monsters.exordium.Hexaghost;
+import com.megacrit.cardcrawl.rewards.RewardSave;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @SpireInitializer
 public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber,
-        EditKeywordsSubscriber, PostInitializeSubscriber, EditCharactersSubscriber {
+        EditKeywordsSubscriber, PostInitializeSubscriber, EditCharactersSubscriber, AddAudioSubscriber {
     public static final Logger logger = LogManager.getLogger(TheManiac.class.getName());
     public static final Color THE_MANIAC_BLUE = CardHelper.getColor(0,35,102);
 
@@ -88,7 +98,11 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
     public static final String BADGE_IMAGE = "maniacMod/images/badge.png";
 
     @SuppressWarnings("unused")
-    public static void initialize() { TheManiac TheManiac = new TheManiac(); }
+    public static void initialize() { 
+        logger.info("====正在初始化Maniac的基本数据");
+        TheManiac TheManiac = new TheManiac();
+        logger.info("Maniac的基本数据初始化成功====");
+    }
 
     public TheManiac() {
 
@@ -96,6 +110,11 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
 
         BaseMod.addColor(TheManiacCharacter.Enums.MANIAC_BLUE, THE_MANIAC_BLUE, THE_MANIAC_BLUE, THE_MANIAC_BLUE, THE_MANIAC_BLUE,
                 THE_MANIAC_BLUE, THE_MANIAC_BLUE, THE_MANIAC_BLUE, ATTACK_MANIAC_BLUE, SKILL_MANIC_BLUE, POWER_MANIAC_BLUE,
+                ENERGY_ORB_MANIAC_BLUE, ATTACK_MANIAC_BLUE_PORTRAIT, SKILL_MANIAC_BLUE_PORTRAIT, POWER_MANIAC_BLUE_PORTRAIT,
+                ENERGY_ORB_MANIAC_BLUE_PORTRAIT, CARD_ENERGY_ORB);
+        
+        BaseMod.addColor(TheManiacCharacter.Enums.MANIAC_POSSESSED, Color.BLACK.cpy(), Color.BLACK.cpy(), Color.BLACK.cpy(), Color.BLACK.cpy(),
+                Color.BLACK.cpy(), Color.BLACK.cpy(), Color.BLACK.cpy(), ATTACK_MANIAC_BLUE, SKILL_MANIC_BLUE, POWER_MANIAC_BLUE,
                 ENERGY_ORB_MANIAC_BLUE, ATTACK_MANIAC_BLUE_PORTRAIT, SKILL_MANIAC_BLUE_PORTRAIT, POWER_MANIAC_BLUE_PORTRAIT,
                 ENERGY_ORB_MANIAC_BLUE_PORTRAIT, CARD_ENERGY_ORB);
 
@@ -173,7 +192,7 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         BaseMod.addCard(new ExpectedMoves());
         BaseMod.addCard(new DoubleEdge());
         BaseMod.addCard(new SeeingDetails());
-        BaseMod.addCard(new GremlinCompanion());
+        //BaseMod.addCard(new GremlinCompanion());
         BaseMod.addCard(new Precision());
         BaseMod.addCard(new BladeArtist());
         logger.info("===正在添加狂徒的稀有卡牌");
@@ -192,10 +211,13 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         BaseMod.addCard(new Simulacrum());
         BaseMod.addCard(new HammerDown());
         BaseMod.addCard(new Trap());
+        BaseMod.addCard(new Deal());
         logger.info("===正在添加无色卡牌");
         BaseMod.addCard(new Perception());
         BaseMod.addCard(new Blades());
+        BaseMod.addCard(new DeusExMe());
         logger.info("===正在整理狂徒的武器库");
+        /*
         BaseMod.addCard(new AncientSphere());
         BaseMod.addCard(new BigSword());
         BaseMod.addCard(new BitingDagger());
@@ -206,12 +228,16 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         BaseMod.addCard(new DualMachetes());
         BaseMod.addCard(new HeavySkull());
         BaseMod.addCard(new ScorchingSpear());
+        */
+        logger.info("===武器库早没了！！！");
         logger.info("===正在下咒");
         BaseMod.addCard(new Torture());
         BaseMod.addCard(new Humiliation());
         BaseMod.addCard(new Remorse());
         BaseMod.addCard(new Guilty());
         BaseMod.addCard(new Scruple());
+        logger.info("===正在整理群魔的宝藏");
+        ThePossessedInitializer.addCards();
         logger.info("所有新卡已添加！===");
 
         logger.info("===解锁所有新卡牌，仅供测试使用");
@@ -297,6 +323,7 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
 
         UnlockTracker.unlockCard(Perception.ID);
         UnlockTracker.unlockCard(Blades.ID);
+        UnlockTracker.unlockCard(DeusExMe.ID);
 
         UnlockTracker.unlockCard(AncientSphere.ID);
         UnlockTracker.unlockCard(BigSword.ID);
@@ -328,6 +355,9 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         BaseMod.addRelicToCustomPool(new BetterBrokenHorn(), TheManiacCharacter.Enums.MANIAC_BLUE);
         BaseMod.addRelicToCustomPool(new MakerPen(), TheManiacCharacter.Enums.MANIAC_BLUE);
         BaseMod.addRelicToCustomPool(new VisionEye(), TheManiacCharacter.Enums.MANIAC_BLUE);
+        BaseMod.addRelicToCustomPool(new SmartDetector(), TheManiacCharacter.Enums.MANIAC_BLUE);
+        BaseMod.addRelic(new PossessedManuscripts(), RelicType.SHARED);
+        BaseMod.addRelic(new ResurrectionStone(), RelicType.SHARED);
         logger.info("成功使用所有新遗物污染奖励池！===");
     }
 
@@ -392,7 +422,7 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         logger.info("正在杀掉一些多余的马");
         Texture badge = new Texture(BADGE_IMAGE);
         ModPanel settings = new ModPanel();
-        ModLabeledToggleButton leisureModeButton = new ModLabeledToggleButton("Leisure Mode -- BE HAPPY", 350.0F, 700.0F,
+        ModLabeledToggleButton leisureModeButton = new ModLabeledToggleButton("Incoming...", 350.0F, 700.0F,
                 Settings.GREEN_TEXT_COLOR, FontHelper.charDescFont, leisureMode, settings, (label) -> {},
                 (button) -> {
             leisureMode = button.enabled;
@@ -405,33 +435,21 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
                 e.printStackTrace();
             }
                 });
-        ModLabeledToggleButton challengerModButton = new ModLabeledToggleButton("Challenger Mode -- KEEP SMILES", 350.0F, 600.0F,
-                Settings.RED_TEXT_COLOR, FontHelper.charDescFont, challengerMode, settings, (label) -> {},
-                (button) -> {
-                    challengerMode = button.enabled;
-                    try {
-                        SpireConfig config = new SpireConfig(MODNAME, "theManiacConfig", TheManiacSettings);
-                        config.setBool(ENABLE_CHALLENGER, challengerMode);
-                        config.save();
-                    } catch (Exception e) {
-                        logger.info("Failed to make a challenger config");
-                    }
-                });
         settings.addUIElement(leisureModeButton);
-        settings.addUIElement(challengerModButton);
         BaseMod.registerModBadge(badge, MODNAME, AUTHOR, DESCRIPTION, settings);
-        
+        ManiacImageMaster.Initialize();
         
         
         logger.info("==正在清扫未邀之地");
-        /*BaseMod.addMonster(MonsterEncounterList.LOUSES_ENC, MutatedLouse.NAME, () -> new MonsterGroup(new AbstractMonster[] {
+
+        BaseMod.addMonster(MonsterEncounterList.LOUSES_ENC, MutatedLouse.NAME, () -> new MonsterGroup(new AbstractMonster[] {
                 new MutatedLouse(-350F, -6F), new VariantLouse(-123F, 0F), new MutatedLouse(120F, 6F)
         }));
         BaseMod.addMonster(MonsterEncounterList.BIRYD_ENC, Biryd.NAME, () -> new MonsterGroup(new AbstractMonster[] {
                 new Biryd(-450F, 60F), new Biryd(-150F, 65F), new Biryd(155F, 55F)
         }));
-        BaseMod.addMonster(MonsterEncounterList.JAW_ENC, JawFlesh.NAME, () -> new MonsterGroup(new AbstractMonster[] {
-                new JawFlesh(-20F, 2F), new JawFlesh(-60F, 4F), new JawFlesh(-100F, 2F)
+        BaseMod.addMonster(MonsterEncounterList.JAWS_ENC, JawFlesh.NAME, () -> new MonsterGroup(new AbstractMonster[] {
+                new JawFlesh(-440F, 2F), new JawFlesh(-220F, 4F), new JawFlesh(-20F, 2F)
         }));
         BaseMod.addMonster(MonsterEncounterList.THORNY_SHELL_ENC, ThornShellParasite.NAME, () -> new ThornShellParasite(-40F, 0F));
         BaseMod.addMonster(MonsterEncounterList.KAL_ENC, Kaleidoscrimson.NAME, () -> new Kaleidoscrimson(-55F, -2F));
@@ -445,28 +463,32 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         BaseMod.addMonster(MonsterEncounterList.SNEC_ENC, Sneckouette.NAME, () -> new Sneckouette(-60F, 0F, false, false, -1));
         BaseMod.addMonster(MonsterEncounterList.MAW_ENC, Mawelling.NAME, () -> new Mawelling(-55F, 0F));
         BaseMod.addMonster(MonsterEncounterList.CORAD_ENC, Corruardian.NAME, () -> new Corruardian(-40F, 100F));
+        BaseMod.addMonster(MonsterEncounterList.POSED_ENC, Possessed.NAME, () -> new Possessed(10F, 0F));
         
-        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(MonsterEncounterList.LOUSES_ENC, 6));
-        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(MonsterEncounterList.BIRYD_ENC, 6));
-        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(MonsterEncounterList.JAW_ENC, 6));
-        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(MonsterEncounterList.THORNY_SHELL_ENC, 10));
-        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(MonsterEncounterList.KAL_ENC, 10));
-        BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(MonsterEncounterList.PLANTZAR_ENC, 12));
-        BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(MonsterEncounterList.LAGAS_ENC, 12));
-        BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(MonsterEncounterList.GHOST_ENC, 12));
+        BaseMod.addMonsterEncounter(TheCity.ID, new MonsterInfo(MonsterEncounterList.LOUSES_ENC, 6));
+        BaseMod.addMonsterEncounter(TheCity.ID, new MonsterInfo(MonsterEncounterList.BIRYD_ENC, 6));
+        BaseMod.addMonsterEncounter(TheCity.ID, new MonsterInfo(MonsterEncounterList.JAWS_ENC, 6));
+        BaseMod.addStrongMonsterEncounter(TheCity.ID, new MonsterInfo(MonsterEncounterList.THORNY_SHELL_ENC, 10));
+        BaseMod.addStrongMonsterEncounter(TheCity.ID, new MonsterInfo(MonsterEncounterList.KAL_ENC, 10));
+        BaseMod.addStrongMonsterEncounter(TheCity.ID, new MonsterInfo(MonsterEncounterList.POSED_ENC, 15));
+        BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(MonsterEncounterList.PLANTZAR_ENC, 12));
+        BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(MonsterEncounterList.LAGAS_ENC, 12));
+        BaseMod.addEliteEncounter(TheCity.ID, new MonsterInfo(MonsterEncounterList.GHOST_ENC, 12));
+        
+        /*
         BaseMod.addBoss(Exordium.ID, MonsterEncounterList.SNEC_ENC, "maniacMod/images/map/bossIcon/sneckouette.png", "maniacMod/images/map/bossIcon/outline/sneckouette.png");
         BaseMod.addBoss(Exordium.ID, MonsterEncounterList.MAW_ENC, "maniacMod/images/map/bossIcon/mawelling.png", "maniacMod/images/map/bossIcon/outline/mawelling.png");
         BaseMod.addBoss(Exordium.ID, MonsterEncounterList.CORAD_ENC, "maniacMod/images/map/bossIcon/corruardian.png", "maniacMod/images/map/bossIcon/outline/corruardian.png");
-        
-        BaseMod.addMonster(MonsterEncounterList.POSED_ENC, Possessed.NAME, () -> new Possessed(10F, 0F));
-        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(MonsterEncounterList.POSED_ENC, 15));
         */
         logger.info("已将懦弱的敌人赶出未邀之地==");
         
-        addCustomSound(makeID("CorruardianReboot_01"), "maniacMod/audio/sound/CorruardianRebootActivate_01.ogg");
+        /*addCustomSound(makeID("CorruardianReboot_01"), "maniacMod/audio/sound/CorruardianRebootActivate_01.ogg");
         addCustomSound(makeID("CorruardianReboot_02"), "maniacMod/audio/sound/CorruardianRebootActivate_02.ogg");
         addCustomSound(makeID("ThePossessedDeath"), "maniacMod/audio/sound/ThePossessedDeath.ogg");
         addCustomSound(makeID("ApplyRestrainedSfx"), "maniacMod/audio/sound/RestrainedPowerApply_v1.ogg");
+        addCustomSound(makeID("ManiacSelectSound"), "maniacMod/audio/sound/ManiacCharacterLoad_sound.ogg");*/
+        
+        //BaseMod.registerCustomReward(NewRewardIType.Possessed, rewardSave -> new MixesReward(), customReward -> new RewardSave(customReward.type.toString(), null));
     }
     
     public static String makeID(String ID) {
@@ -476,5 +498,24 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
     private static void addCustomSound(String ID, String path) {
         HashMap<String, Sfx> map = (HashMap)ReflectionHacks.getPrivate(CardCrawlGame.sound, SoundMaster.class, "map");
         map.put(ID, new Sfx(path, false));
+    }
+
+    @Override
+    public void receiveAddAudio() {
+        logger.info("==正在演奏新的乐曲");
+        BaseMod.addAudio(makeID("CorruardianReboot_01"), "maniacMod/audio/sound/CorruardianRebootActivate_01.ogg");
+        BaseMod.addAudio(makeID("CorruardianReboot_02"), "maniacMod/audio/sound/CorruardianRebootActivate_02.ogg");
+        BaseMod.addAudio(makeID("ThePossessedDeath"), "maniacMod/audio/sound/ThePossessedDeath.ogg");
+        BaseMod.addAudio(makeID("ApplyRestrainedSfx"), "maniacMod/audio/sound/RestrainedPowerApply_v1.ogg");
+        BaseMod.addAudio(makeID("ManiacSelectSound"), "maniacMod/audio/sound/ManiacCharacterLoad_sound.ogg");
+        BaseMod.addAudio(makeID("ChooseRisks"), "maniacMod/audio/sound/RisksLaughEffect_v1.ogg");
+        BaseMod.addAudio(makeID("ObtainUncertainties"), "maniacMod/audio/sound/RisksLaughEffect_v2.ogg");
+        BaseMod.addAudio(makeID("ObtainShinies"), "maniacMod/audio/sound/RisksLaughEffect_v3.ogg");
+        BaseMod.addAudio(makeID("ObtainRisks"), "maniacMod/audio/sound/RisksLaughEffect_v4.ogg");
+        BaseMod.addAudio(makeID("ObtainPossessed"), "maniacMod/audio/sound/RisksLaughEffect_v5.ogg");
+        BaseMod.addAudio(makeID("SpectreIgniteEffect_v1"), "maniacMod/audio/sound/SpectreIgniteEffect_v1.ogg");
+        BaseMod.addAudio(makeID("SpectreIgniteEffect_v2"), "maniacMod/audio/sound/SpectreIgniteEffect_v2.ogg");
+        BaseMod.addAudio(makeID("SpectreIgniteEffect_v3"), "maniacMod/audio/sound/SpectreIgniteEffect_v3.ogg");
+        logger.info("演奏结束==");
     }
 }

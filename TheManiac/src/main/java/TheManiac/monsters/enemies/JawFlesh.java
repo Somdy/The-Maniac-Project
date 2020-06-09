@@ -31,10 +31,10 @@ public class JawFlesh extends CustomMonster {
     private static final String[] MOVES = monsterStrings.MOVES;
     private static final String JAW_ATLAS = "maniacMod/images/monsters/enemies/jawFlesh/jawFlesh.atlas";
     private static final String JAW_JSON = "maniacMod/images/monsters/enemies/jawFlesh/skeleton.json";
-    private static final int max_hp = 94;
-    private static final int min_hp = 88;
-    private static final int asc_maxHp = 104;
-    private static final int asc_minHp = 98;
+    private static final int max_hp = 90;
+    private static final int min_hp = 84;
+    private static final int asc_maxHp = 100;
+    private static final int asc_minHp = 94;
     private static final int str = 3;
     private static final int asc_str = 5;
     private int bellowArmor;

@@ -1,7 +1,11 @@
 package TheManiac.actions;
 
+import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.character.TheManiacCharacter;
+import TheManiac.stances.LimboStance;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
@@ -9,14 +13,12 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 public class ExceedEnchantmentAction extends AbstractGameAction {
     private boolean freeToPlayOnce;
     private boolean upgraded;
-    private boolean doubleEffect;
     private int energyOnUse;
     
-    public ExceedEnchantmentAction(boolean freeToPlayOnce, int energyOnUse, boolean upgraded, boolean doubleEffect) {
+    public ExceedEnchantmentAction(boolean freeToPlayOnce, int energyOnUse, boolean upgraded) {
         this.actionType = ActionType.SPECIAL;
         this.freeToPlayOnce = freeToPlayOnce;
         this.upgraded = upgraded;
-        this.doubleEffect = doubleEffect;
         this.duration = Settings.ACTION_DUR_XFAST;
         this.energyOnUse = energyOnUse;
     }
@@ -38,16 +40,19 @@ public class ExceedEnchantmentAction extends AbstractGameAction {
             effect += 1;
         }
         
-        if (doubleEffect) {
-            effect *= 2;
+        if (AbstractDungeon.player.stance.ID.equals(LimboStance.STANCE_ID)) {
+            effect += 1;
         }
         
         if (effect > 0) {
-            if (AbstractDungeon.player instanceof TheManiacCharacter) {
-                ((TheManiacCharacter) AbstractDungeon.player).weaponUpgrades += effect;
-                System.out.println("Play weapon upgrades gain: " + ((TheManiacCharacter) AbstractDungeon.player).weaponUpgrades);
+            for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
+                if (card instanceof AbstractManiacCard && ((AbstractManiacCard) card).canEnchant()) {
+                    for (int i = 0; i < effect; i++) {
+                        card.superFlash(Color.PURPLE);
+                        ((AbstractManiacCard) card).enchant();
+                    }
+                }
             }
-
             if (!this.freeToPlayOnce) {
                 AbstractDungeon.player.energy.use(EnergyPanel.totalCount);
             }

@@ -27,8 +27,8 @@ public class TorturousScreams extends AbstractManiacCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final int COST = 0;
-    private static final int DAMAGE = 16;
-    private static final int UPGRADE_DAMAGE = 4;
+    private static final int DAMAGE = 14;
+    private static final int UPGRADE_DAMAGE = 6;
 
     public TorturousScreams() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -67,15 +67,7 @@ public class TorturousScreams extends AbstractManiacCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            if (TheManiac.leisureMode) {
-                this.upgradeDamage(UPGRADE_DAMAGE + 8);
-            }
-            else if (TheManiac.challengerMode) {
-                this.upgradeDamage(UPGRADE_DAMAGE);
-            }
-            else {
-                this.upgradeDamage(UPGRADE_DAMAGE + 4);
-            }
+            this.upgradeDamage(UPGRADE_DAMAGE);
             initializeDescription();
         }
     }

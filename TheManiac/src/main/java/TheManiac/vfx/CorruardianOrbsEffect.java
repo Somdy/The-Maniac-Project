@@ -17,7 +17,7 @@ public class CorruardianOrbsEffect extends AbstractGameEffect {
     private static final Logger logger = LogManager.getLogger(CorruardianOrbsEffect.class.getName());
     protected TextureAtlas atlas;
     protected Skeleton skeleton;
-    public AnimationState state;
+    public com.esotericsoftware.spine.AnimationState state;
     protected AnimationStateData stateData;
     public static SkeletonMeshRenderer sr;
     private static final String ORBS_ATLAS = "maniacMod/images/monsters/enemies/CorruardianOrbs/skeleton.atlas";
@@ -70,7 +70,6 @@ public class CorruardianOrbsEffect extends AbstractGameEffect {
             this.duration += Gdx.graphics.getDeltaTime();
         }
         this.color.a = Interpolation.fade.apply(0.0F, 0.8F, this.duration / this.startingDuration);
-        logger.info("Corruardian Orbs Keep Updating, get duration: " + this.duration);
     }
 
     @Override

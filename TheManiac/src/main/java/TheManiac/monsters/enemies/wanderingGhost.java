@@ -175,7 +175,7 @@ public class wanderingGhost extends CustomMonster {
             case 3:
                 this.sear_count++;
                 for (int i = 0; i < sear_attacks; i++) {
-                    this.addToBot(new VFXAction(new GhostFireBallEffect(this.hb.cX, this.hb.cY, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.5F));
+                    this.addToBot(new VFXAction(this, new GhostFireBallEffect(this.hb.cX, this.hb.cY, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.5F));
                     this.addToBot(new VFXAction(this, new GhostIgniteFireEffect(
                             AbstractDungeon.player.hb.cX + MathUtils.random(-120.0F, 120.0F) * Settings.scale,
                             AbstractDungeon.player.hb.cY + MathUtils.random(-120.0F, 120.0F) * Settings.scale), 0.05F));

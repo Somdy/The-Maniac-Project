@@ -34,6 +34,7 @@ public class Knockdown extends AbstractManiacCard {
         this.damage = this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = powersToApply;
         this.maniacExtraMagicNumber = this.maniacBaseExtraMagicNumber = 1;
+        this.isEnchanter = true;
     }
 
     @Override

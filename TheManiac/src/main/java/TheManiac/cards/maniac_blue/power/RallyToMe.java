@@ -20,7 +20,7 @@ public class RallyToMe extends AbstractManiacCard {
     private static final String IMG_PATH = "maniacMod/images/1024portraits/maniac_blue/power/rally_to_me.png";
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheManiacCharacter.Enums.MANIAC_BLUE;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final int COST = 2;
     

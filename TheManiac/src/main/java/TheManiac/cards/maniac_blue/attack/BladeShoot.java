@@ -34,8 +34,7 @@ public class BladeShoot extends AbstractManiacCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final int COST = 1;
-    private static final int DAMAGE = 8;
-    private static final int UPGRADED_COST = 0;
+    private static final int DAMAGE = 6;
     private List<TooltipInfo> tips;
     
     public BladeShoot() {
@@ -106,7 +105,7 @@ public class BladeShoot extends AbstractManiacCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(UPGRADED_COST);
+            this.upgradeDamage(2);
             initializeDescription();
         }
     }

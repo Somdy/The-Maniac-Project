@@ -41,6 +41,7 @@ public class Infuriate extends AbstractManiacCard {
         this.maniacExtraMagicNumber = this.maniacBaseExtraMagicNumber = HP_PER_STR;
         this.exhaust = true;
         this.isUnreal = true;
+        this.isEnchanter = true;
     }
 
     @Override
@@ -103,15 +104,7 @@ public class Infuriate extends AbstractManiacCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            if (TheManiac.leisureMode) {
-                this.upgradeManiacExtraMagicNumber(-11);
-            }
-            else if (TheManiac.challengerMode) {
-                this.upgradeManiacExtraMagicNumber(-6);
-            }
-            else {
-                this.upgradeManiacExtraMagicNumber(-8);
-            }
+            this.upgradeManiacExtraMagicNumber(-6);
             initializeDescription();
         }
     }

@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 
-public class CurlUpPower extends AbstractPower implements CloneablePowerInterface {
+public class CurlUpPower extends AbstractManiacPower implements CloneablePowerInterface {
     public static final String POWER_ID = "maniac:CurlUpPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -32,8 +32,9 @@ public class CurlUpPower extends AbstractPower implements CloneablePowerInterfac
         this.amount = amount;
         this.powers = powers;
         this.type = PowerType.BUFF;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);
+        this.loadImg("CurlUp");
+        /*this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);*/
         updateDescription();
     }
 

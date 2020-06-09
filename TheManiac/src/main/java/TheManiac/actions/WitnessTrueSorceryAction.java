@@ -19,34 +19,6 @@ public class WitnessTrueSorceryAction extends AbstractGameAction {
     private AbstractCard.CardType cardType = null;
     private int numCards;
 
-    public WitnessTrueSorceryAction(AbstractCard.CardType cardType, int amount, int numCards, boolean allowedColorless, boolean modifiedCosts) {
-        this.cardType = cardType;
-        this.amount = amount;
-        this.numCards = numCards;
-        this.returnColorless = allowedColorless;
-        this.modifiedCosts = modifiedCosts;
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
-    }
-
-    public WitnessTrueSorceryAction(AbstractCard.CardType cardType, int amount, int numCards, boolean modifiedCosts) {
-        this.cardType = cardType;
-        this.amount = amount;
-        this.numCards = numCards;
-        this.modifiedCosts = modifiedCosts;
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
-    }
-
-    public WitnessTrueSorceryAction(int amount, int numCards, boolean allowedColorless, boolean modifiedCosts) {
-        this.numCards = numCards;
-        this.amount = amount;
-        this.returnColorless = allowedColorless;
-        this.modifiedCosts = modifiedCosts;
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
-    }
-
     public WitnessTrueSorceryAction(int amount, int numCards, boolean modifiedCosts) {
         this.numCards = numCards;
         this.amount = amount;
@@ -100,7 +72,6 @@ public class WitnessTrueSorceryAction extends AbstractGameAction {
                             AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(posCard, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
                         }
 
-                        posCard2 = null;
                     }
                     else if (AbstractDungeon.player.hand.size() + this.amount <= 10) {
                         AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(posCard, (float)Settings.WIDTH / 2.0F - AbstractCard.IMG_WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));

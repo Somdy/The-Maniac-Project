@@ -34,10 +34,7 @@ public class ExceedEnchantment extends AbstractManiacCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (p.stance.ID.equals(LimboStance.STANCE_ID)) {
-            this.doubleEffect = true;
-        }
-        AbstractDungeon.actionManager.addToBottom(new ExceedEnchantmentAction(this.freeToPlayOnce, this.energyOnUse, this.upgraded, this.doubleEffect));
+        AbstractDungeon.actionManager.addToBottom(new ExceedEnchantmentAction(this.freeToPlayOnce, this.energyOnUse, this.upgraded));
     }
 
     @Override

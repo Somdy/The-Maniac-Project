@@ -1,5 +1,6 @@
 package TheManiac.cards.maniac_blue.skill;
 
+import TheManiac.actions.DetectAction;
 import TheManiac.actions.TrackAction;
 import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.character.TheManiacCharacter;
@@ -30,14 +31,14 @@ public class FindAShortcut extends AbstractManiacCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final int COST = 1;
-    private static final int TRACK = 2;
+    private static final int TRACK = 3;
     private static final int UPGRADE_TRACK = 1;
     private List<TooltipInfo> tips;
 
     public FindAShortcut() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = TRACK;
-        this.exhaust = true;
+        this.isUnreal = true;
         this.enchantNumber = this.baseEnchantNumber = 0;
         this.tips = new ArrayList<>();
         this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[2], EXTENDED_DESCRIPTION[3]));
@@ -45,9 +46,9 @@ public class FindAShortcut extends AbstractManiacCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new TrackAction(this.magicNumber, AbstractDungeon.player.drawPile));
+        AbstractDungeon.actionManager.addToBottom(new DetectAction(this.magicNumber, p.drawPile));
         if (p.stance.ID.equals(LimboStance.STANCE_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new TrackAction(this.magicNumber, AbstractDungeon.player.drawPile));
+            AbstractDungeon.actionManager.addToBottom(new DetectAction(this.magicNumber, p.drawPile));
         }
         
         if (enchanted) {

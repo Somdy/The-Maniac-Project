@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.util.ArrayList;
 
-public class CursePower extends AbstractPower implements CloneablePowerInterface {
+public class CursePower extends AbstractManiacPower implements CloneablePowerInterface {
     public static final String POWER_ID = "maniac:CursePower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -32,8 +32,9 @@ public class CursePower extends AbstractPower implements CloneablePowerInterface
         this.owner = owner;
         this.amount = -1;
         this.type = PowerType.DEBUFF;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);
+        this.loadImg("Curse");
+        /*this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);*/
         updateDescription();
     }
 
@@ -46,7 +47,12 @@ public class CursePower extends AbstractPower implements CloneablePowerInterface
             this.addToBot(new MakeTempCardInDrawPileAction(c, 1, true, true));
         }
     }
-    
+
+    @Override
+    public void updateDescription() {
+        this.description = DESCRIPTIONS[0];
+    }
+
     private CardGroup SpecificCurses() {
         CardGroup tmpGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         

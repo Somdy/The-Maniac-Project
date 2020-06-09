@@ -11,15 +11,15 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class FrightenedPower extends AbstractPower implements CloneablePowerInterface {
+public class FrightenedPower extends AbstractManiacPower implements CloneablePowerInterface {
     public static final String POWER_ID = "maniac:FrightenedPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private static final String IMG_PATH_LARGE = "maniacMod/images/powers/FrightenedPower_large.png";
     private static final String IMG_PATH = "maniacMod/images/powers/FrightenedPower.png";
-    private static final float DAMAGE_REDUCE = 0.15f;
-    private static final float DAMAGE_RECEIVE = 0.15f;
+    private static final float DAMAGE_REDUCE = 0.20f;
+    private static final float DAMAGE_RECEIVE = 0.20f;
 
     public FrightenedPower(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -27,8 +27,9 @@ public class FrightenedPower extends AbstractPower implements CloneablePowerInte
         this.owner = owner;
         this.amount = amount;
         this.type = PowerType.DEBUFF;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);
+        this.loadImg("Frightened");
+        /*this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);*/
         updateDescription();
     }
 
@@ -60,7 +61,7 @@ public class FrightenedPower extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + DAMAGE_REDUCE * 100 + DESCRIPTIONS[1] + DAMAGE_RECEIVE * 100 + DESCRIPTIONS[2];
+        this.description = DESCRIPTIONS[0] + (int)(DAMAGE_REDUCE * 100) + DESCRIPTIONS[1] + (int)(DAMAGE_RECEIVE * 100) + DESCRIPTIONS[2];
     }
 
     @Override

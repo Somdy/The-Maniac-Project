@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-public class ExoticPoisonPower extends AbstractPower implements CloneablePowerInterface {
+public class ExoticPoisonPower extends AbstractManiacPower implements CloneablePowerInterface {
     public static final String POWER_ID = "maniac:ExoticPoisonPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -33,8 +33,9 @@ public class ExoticPoisonPower extends AbstractPower implements CloneablePowerIn
         this.trueDmg = trueDmg;
         this.type = PowerType.DEBUFF;
         this.isTurnBased = true;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);
+        this.loadImg("ExoticPoison");
+        /*this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);*/
         updateDescription();
     }
 

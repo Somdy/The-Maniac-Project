@@ -33,7 +33,7 @@ public class Biryd extends CustomMonster {
     private static final int min_hp = 20;
     private static final int asc_maxHp = 26;
     private static final int asc_minHp = 24;
-    private static final int peck_dmg = 1;
+    private static final int peck_dmg = 2;
     private static final int claw_str = 1;
     private static final int claw_regen = 2;
     private int claw_block;
@@ -42,7 +42,7 @@ public class Biryd extends CustomMonster {
     private int fan_debuff;
     
     public Biryd(float x, float y) {
-        super(NAME, ID, 22, 20F, -6F, 350F, 260F, null, x, y);
+        super(NAME, ID, 22, 20F, -6F, 240.0F, 180.0F, null, x, y);
         if (AbstractDungeon.ascensionLevel >= 7) {
             this.setHp(asc_minHp, asc_maxHp);
         } else {
@@ -51,16 +51,16 @@ public class Biryd extends CustomMonster {
         
         if (AbstractDungeon.ascensionLevel >= 17) {
             this.claw_block = 6;
-            this.fan_debuff = 2;
+            this.fan_debuff = 3;
         } else {
             this.claw_block = 4;
-            this.fan_debuff = 1;
+            this.fan_debuff = 2;
         }
         
         if (AbstractDungeon.ascensionLevel >= 2) {
-            this.fan_dmg = 13;
+            this.fan_dmg = 8;
         } else {
-            this.fan_dmg = 11;
+            this.fan_dmg = 7;
         }
         this.damage.add(new DamageInfo(this, peck_dmg));
         this.damage.add(new DamageInfo(this, fan_dmg));

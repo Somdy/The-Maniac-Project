@@ -25,6 +25,7 @@ public class Refine extends AbstractManiacCard {
     public Refine() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 1;
+        this.isUnreal = true;
         this.isEnchanter = true;
     }
 

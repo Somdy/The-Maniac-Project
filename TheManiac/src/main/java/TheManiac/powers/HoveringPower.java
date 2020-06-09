@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class HoveringPower extends AbstractPower implements CloneablePowerInterface {
+public class HoveringPower extends AbstractManiacPower implements CloneablePowerInterface {
     public static final String POWER_ID = "maniac:HoveringPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -23,8 +23,9 @@ public class HoveringPower extends AbstractPower implements CloneablePowerInterf
         this.owner = owner;
         this.amount = -1;
         this.type = PowerType.BUFF;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);
+        this.loadImg("Hovering");
+        /*this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);*/
         updateDescription();
     }
 
@@ -35,7 +36,7 @@ public class HoveringPower extends AbstractPower implements CloneablePowerInterf
 
     @Override
     public float atDamageFinalReceive(float damage, DamageInfo.DamageType type) {
-        return (int)(damage * 0.75);
+        return (int)(damage * 0.65);
     }
 
     @Override
@@ -46,7 +47,7 @@ public class HoveringPower extends AbstractPower implements CloneablePowerInterf
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + 25 + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + 35 + DESCRIPTIONS[1];
     }
 
     @Override

@@ -1,19 +1,20 @@
 package TheManiac.vfx;
 
+import TheManiac.helper.ManiacImageMaster;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class FlashManiacAtkEffect extends AbstractGameEffect {
-    public static TextureAtlas vfxAtlas = new TextureAtlas("maniacMod/images/vfx/maniacVfx.atlas");
+    private static final Logger logger = LogManager.getLogger(FlashManiacAtkEffect.class.getName());
+    public static TextureAtlas vfxAtlas = new TextureAtlas(Gdx.files.internal("maniacMod/images/vfx/maniacVfx.atlas"));
     public TextureAtlas.AtlasRegion img;
-    private TextureAtlas.AtlasRegion EXOTIC_POISON;
-    private TextureAtlas.AtlasRegion MANIAC_SLASH;
-    private TextureAtlas.AtlasRegion MANIAC_BLUNT;
-    private TextureAtlas.AtlasRegion MANIAC_CLEAVE;
     private float x;
     private float y;
     private float sY;
@@ -30,6 +31,8 @@ public class FlashManiacAtkEffect extends AbstractGameEffect {
         if (this.img != null) {
             this.x = x - (float)this.img.packedWidth / 2.0F;
             y -= (float)this.img.packedHeight / 2.0F;
+        } else {
+            logger.info("Unable to find " + this.effect + "'s image!!!");
         }
 
         this.color = Color.WHITE.cpy();
@@ -40,23 +43,22 @@ public class FlashManiacAtkEffect extends AbstractGameEffect {
         this.y = y;
         this.sY = y;
         this.tY = y;
-        
-        EXOTIC_POISON = vfxAtlas.findRegion("exoticPoison");
-        MANIAC_SLASH = vfxAtlas.findRegion("maniac_slash");
-        MANIAC_BLUNT = vfxAtlas.findRegion("maniac_blunt");
-        MANIAC_CLEAVE = vfxAtlas.findRegion("maniac_cleave");
     }
     
     private TextureAtlas.AtlasRegion loadImage() {
         switch (this.effect) {
             case "EXOTIC_POISON":
-                return this.EXOTIC_POISON;
+                return ManiacImageMaster.EXOTIC_POISON;
+            case "PLAGUE":
+                return ManiacImageMaster.PLAGUE;
+            case "DECAY":
+                return ManiacImageMaster.DECAY;
             case "MANIAC_SLASH":
-                return this.MANIAC_SLASH;
+                return ManiacImageMaster.MANIAC_SLASH;
             case "MANIAC_BLUNT":
-                return this.MANIAC_BLUNT;
+                return ManiacImageMaster.MANIAC_BLUNT;
             case "MANIAC_CLEAVE":
-                return this.MANIAC_CLEAVE;
+                return ManiacImageMaster.MANIAC_CLEAVE;
             default:
                 return null;
         }
@@ -64,6 +66,8 @@ public class FlashManiacAtkEffect extends AbstractGameEffect {
     
     private void playSound(String effect) {
         switch (effect) {
+            case "PLAGUE":
+            case "DECAY":    
             case "EXOTIC_POISON":
                 CardCrawlGame.sound.play("ATTACK_POISON");
                 break;
@@ -79,11 +83,17 @@ public class FlashManiacAtkEffect extends AbstractGameEffect {
     }
 
     @Override
+    public void update() {
+        super.update();
+    }
+
+    @Override
     public void render(SpriteBatch sb) {
         if (this.img != null) {
             sb.setColor(this.color);
             sb.draw(this.img, this.x, this.y, (float)this.img.packedWidth / 2.0F, (float)this.img.packedHeight / 2.0F, 
                     (float)this.img.packedWidth, (float)this.img.packedHeight, this.scale, this.scale, this.rotation);
+            logger.info("Succeeded in updating " + this.effect + " attack effects!");
         }
     }
 

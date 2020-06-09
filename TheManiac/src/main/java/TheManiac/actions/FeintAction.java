@@ -12,15 +12,13 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class FeintAction extends AbstractGameAction {
     private int drawAmt;
-    private int powersToApply;
     private AbstractMonster targetMonster;
 
-    public FeintAction(AbstractCreature source, int damage, int powersToApply, int drawAmt, AbstractMonster targetMonster) {
+    public FeintAction(AbstractCreature source, int damage, int drawAmt, AbstractMonster targetMonster) {
         this.duration = 0.0F;
         this.actionType = ActionType.WAIT;
         this.source = source;
         this.amount = damage;
-        this.powersToApply = powersToApply;
         this.drawAmt = drawAmt;
         this.targetMonster = targetMonster;
     }
@@ -34,10 +32,7 @@ public class FeintAction extends AbstractGameAction {
                 AbstractDungeon.actionManager.clearPostCombatActions();
             }
 
-            if (this.targetMonster.getIntentBaseDmg() >= 0) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.targetMonster, this.source, new WeaknessPower(this.targetMonster, this.powersToApply), this.powersToApply));
-            }
-            else {
+            if (this.targetMonster.intent != AbstractMonster.Intent.ATTACK) {
                 AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.source, this.drawAmt, false));
             }
         }

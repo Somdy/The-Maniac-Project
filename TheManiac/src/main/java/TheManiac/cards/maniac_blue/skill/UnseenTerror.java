@@ -21,17 +21,16 @@ public class UnseenTerror extends AbstractManiacCard {
     public static final CardColor COLOR = TheManiacCharacter.Enums.MANIAC_BLUE;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final int COST = 3;
-    private static final int UPGRADED_COST = 2;
+    private static final int COST = 1;
 
     public UnseenTerror() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 4;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new UnseenTerrorPower(p, m, this.magicNumber)));
+        this.addToBot(new ApplyPowerAction(p, p, new UnseenTerrorPower(p, this.magicNumber), this.magicNumber));
     }
 
     @Override
@@ -43,7 +42,7 @@ public class UnseenTerror extends AbstractManiacCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(UPGRADED_COST);
+            this.upgradeMagicNumber(2);
             initializeDescription();
         }
     }

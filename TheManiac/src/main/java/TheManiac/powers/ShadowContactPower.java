@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
 
-public class ShadowContactPower extends AbstractPower implements CloneablePowerInterface {
+public class ShadowContactPower extends AbstractManiacPower implements CloneablePowerInterface {
     public static final String POWER_ID = "maniac:ShadowContactPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -28,8 +28,9 @@ public class ShadowContactPower extends AbstractPower implements CloneablePowerI
         this.owner = owner;
         this.amount = amount;
         this.type = PowerType.BUFF;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);
+        this.loadImg("ShadowContact");
+        /*this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);*/
         updateDescription();
     }
     
@@ -48,7 +49,7 @@ public class ShadowContactPower extends AbstractPower implements CloneablePowerI
                         tmp.isEthereal = true;
                         if (AbstractDungeon.player.hand.size() < 10) {
                             this.flash();
-                            AbstractDungeon.player.hand.addToTop(tmp);
+                            this.addToBot(new MakeTempCardInHandAction(tmp, true, true));
                         }
                     }
                 }

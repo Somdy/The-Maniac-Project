@@ -27,6 +27,7 @@ public class TrackAction extends AbstractGameAction {
     public TrackAction(int numCards, CardGroup cardGroup) {
         this.amount = numCards;
         this.cardGroup = cardGroup;
+        this.cardType = null;
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.startingDuration = Settings.ACTION_DUR_FAST;
         this.duration = this.startingDuration;
@@ -71,8 +72,7 @@ public class TrackAction extends AbstractGameAction {
                             logger.info("Unable to get available exhaust cards when Tracking -- Type. Report this if you see it." + e);
                             e.printStackTrace();
                         }
-                    }
-                    else {
+                    } else {
                         this.isDone = true;
                         return;
                     }
@@ -92,35 +92,53 @@ public class TrackAction extends AbstractGameAction {
                             logger.info("Unable to get available exhaust cards when Tracking -- Not Type. Report this if you see it.");
                             e.printStackTrace();
                         }
-                    }
-                    else {
+                    } else {
                         this.isDone = true;
                         return;
                     }
                 }
             }
             else {
-                if (this.amount != -1) {
-                    for (int i = 0; i < Math.min(this.amount, this.cardGroup.size()); i++) {
-                        AbstractCard card = this.cardGroup.group.get(this.cardGroup.size() - i - 1);
-                        if (this.cardType != null) {
-                            if (card.type == this.cardType) { tmpGroup.addToTop(card); }
-                        }
-                        else { tmpGroup.addToTop(card); }
+                if (this.cardType != null) {
+                    int avalCards = getSpecificTypeCards(this.cardGroup, this.cardType);
+                    
+                    if (avalCards == 0) {
+                        this.isDone = true;
+                        return;
                     }
-                }
-                else {
-                    for (AbstractCard card : this.cardGroup.group) {
-                        if (this.cardType != null) {
-                            if (card.type == this.cardType) { tmpGroup.addToTop(card); }
+                    
+                    if (this.amount == -1) {
+                        this.amount = avalCards;
+                    }
+
+                    boolean done = false;
+                    for (int i = 0; i < this.cardGroup.size() && !done; i++) {
+                        AbstractCard card = this.cardGroup.group.get(this.cardGroup.size() - i - 1);
+                        if (card.type == this.cardType) {
+                            if (tmpGroup.size() < Math.min(this.amount, avalCards)) {
+                                tmpGroup.addToTop(card);
+                            } else {
+                                done = true;
+                            }
                         }
-                        else { tmpGroup.addToTop(card); }
+                    }
+                } else {
+                    if (this.amount != -1) {
+                        for (int i = 0; i < Math.min(this.amount, this.cardGroup.size()); i++) {
+                            AbstractCard card = this.cardGroup.group.get(this.cardGroup.size() - i - 1);
+                            tmpGroup.addToTop(card);
+                        }
+                    }
+                    else {
+                        for (AbstractCard card : this.cardGroup.group) {
+                            tmpGroup.addToTop(card);
+                        }
                     }
                 }
             }
 
 
-            if (this.cardGroup != AbstractDungeon.player.exhaustPile) {
+            if (this.cardGroup != AbstractDungeon.player.exhaustPile && this.cardGroup != AbstractDungeon.player.masterDeck) {
                 AbstractDungeon.gridSelectScreen.open(tmpGroup, this.amount, true, TEXT[0]);
             }
             else {
@@ -128,17 +146,15 @@ public class TrackAction extends AbstractGameAction {
             }
         }
         else if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-            if (this.cardGroup != AbstractDungeon.player.exhaustPile) {
+            if (this.cardGroup != AbstractDungeon.player.exhaustPile && this.cardGroup != AbstractDungeon.player.masterDeck) {
                 for (AbstractCard card : tmpGroup.group) {
                     if (AbstractDungeon.gridSelectScreen.selectedCards.contains(card)) {
                         this.cardGroup.moveToHand(card);
-                    }
-                    else {
+                    } else {
                         this.cardGroup.moveToExhaustPile(card);
                     }
                 }
-            }
-            else {
+            } else {
                 for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
                     this.cardGroup.moveToHand(card);
                 }
@@ -152,31 +168,55 @@ public class TrackAction extends AbstractGameAction {
             for (AbstractCard card : this.cardGroup.group) {
                 if (card instanceof AbstractManiacCard) {
                     ((AbstractManiacCard) card).triggerOnTrack();
+                    
                 }
             }
         }
+    }
+    
+    private int getSpecificTypeCards(CardGroup group, AbstractCard.CardType type) {
+        int targetCards = 0;
+        
+        for (AbstractCard card : group.group) {
+            if (card.type == type) {
+                targetCards++;
+            }
+        }
+        
+        logger.info("Get " + this.cardType + " in " + this.cardGroup + ": " + targetCards);
+        return targetCards;
+    }
+    
+    private boolean allowedCard(AbstractCard card) {
+        if (card.type == AbstractCard.CardType.CURSE || card.type == AbstractCard.CardType.STATUS || card.cardID.equals(Exhume.ID)) {
+            return false;
+        }
+        if (card instanceof AbstractManiacCard) {
+            return !((AbstractManiacCard) card).isUnreal || AbstractDungeon.player.getRelic(VisionEye.ID) != null;
+        }
+        
+        return true;
+    }
+    
+    private boolean allowedCard(AbstractCard card, AbstractCard.CardType type) {
+        if (card.type == AbstractCard.CardType.CURSE || card.type == AbstractCard.CardType.STATUS || card.cardID.equals(Exhume.ID)) {
+            return false;
+        }
+        if (card instanceof AbstractManiacCard) {
+            return !((AbstractManiacCard) card).isUnreal || AbstractDungeon.player.getRelic(VisionEye.ID) != null;
+        }
+        
+        return card.type == type;
     }
 
     private int getNumUsefulExCards() {
         int usefulCards = 0;
         ArrayList<AbstractCard> tmpCards = new ArrayList<>();
         for (AbstractCard card : AbstractDungeon.player.exhaustPile.group) {
-            if (card.type != AbstractCard.CardType.CURSE && card.type != AbstractCard.CardType.STATUS) {
-                if (card instanceof AbstractManiacCard) {
-                    if (!((AbstractManiacCard) card).isUnreal || AbstractDungeon.player.hasRelic(VisionEye.ID)) {
-                        if (!tmpCards.contains(card)) {
-                            usefulCards++;
-                            tmpCards.add(card);
-                        }
-                    }
-                }
-                else {
-                    if (!card.cardID.equals(Exhume.ID)) {
-                        if (!tmpCards.contains(card)) {
-                            usefulCards++;
-                            tmpCards.add(card);
-                        }
-                    }
+            if (allowedCard(card)) {
+                if (!tmpCards.contains(card)) {
+                    usefulCards++;
+                    tmpCards.add(card);
                 }
             }
         }
@@ -187,22 +227,10 @@ public class TrackAction extends AbstractGameAction {
         int usefulCards = 0;
         ArrayList<AbstractCard> tmpCards = new ArrayList<>();
         for (AbstractCard card : AbstractDungeon.player.exhaustPile.group) {
-            if (card.type == cardType) {
-                if (card instanceof AbstractManiacCard) {
-                    if (!((AbstractManiacCard) card).isUnreal || AbstractDungeon.player.hasRelic(VisionEye.ID)) {
-                        if (!tmpCards.contains(card)) {
-                            usefulCards++;
-                            tmpCards.add(card);
-                        }
-                    }
-                }
-                else {
-                    if (!card.cardID.equals(Exhume.ID)) {
-                        if (!tmpCards.contains(card)) {
-                            usefulCards++;
-                            tmpCards.add(card);
-                        }
-                    }
+            if (allowedCard(card, cardType)) {
+                if (!tmpCards.contains(card)) {
+                    usefulCards++;
+                    tmpCards.add(card);
                 }
             }
         }
@@ -212,35 +240,31 @@ public class TrackAction extends AbstractGameAction {
     private CardGroup getUsefulExhaustedCards() {
         CardGroup tmpGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         if (this.amount != -1) {
-            for (int i = 0; i < Math.min(this.amount, this.cardGroup.size()); i++) {
+            for (int i = 0; i < this.cardGroup.size(); i++) {
                 AbstractCard card = this.cardGroup.group.get(this.cardGroup.size() - i - 1);
-                if (card.type != AbstractCard.CardType.CURSE && card.type != AbstractCard.CardType.STATUS) {
-                    if (card instanceof AbstractManiacCard) {
-                        if (!((AbstractManiacCard) card).isUnreal || AbstractDungeon.player.hasRelic(VisionEye.ID)) {
-                            if (!tmpGroup.contains(card)) { tmpGroup.addToTop(card); }
+                if (allowedCard(card)) {
+                    boolean dupe = false;
+                    for (AbstractCard c : tmpGroup.group) {
+                        if (c.name.equals(card.name)) {
+                            dupe = true;
+                            break;
                         }
                     }
-                    else {
-                        if (!card.cardID.equals(Exhume.ID)) {
-                            if (!tmpGroup.contains(card)) { tmpGroup.addToTop(card); }
-                        }
-                    }
+                    if (!dupe) { tmpGroup.addToTop(card); }
+                    if (tmpGroup.size() == this.amount) break;
                 }
             }
-        }
-        else {
+        } else {
             for (AbstractCard card : this.cardGroup.group) {
-                if (card.type != AbstractCard.CardType.CURSE && card.type != AbstractCard.CardType.STATUS) {
-                    if (card instanceof AbstractManiacCard) {
-                        if (!((AbstractManiacCard) card).isUnreal || AbstractDungeon.player.hasRelic(VisionEye.ID)) {
-                            if (!tmpGroup.contains(card)) { tmpGroup.addToTop(card); }
+                if (allowedCard(card)) {
+                    boolean dupe = false;
+                    for (AbstractCard c : tmpGroup.group) {
+                        if (c.name.equals(card.name)) {
+                            dupe = true;
+                            break;
                         }
                     }
-                    else {
-                        if (!card.cardID.equals(Exhume.ID)) {
-                            if (!tmpGroup.contains(card)) { tmpGroup.addToTop(card); }
-                        }
-                    }
+                    if (!dupe) { tmpGroup.addToTop(card); }
                 }
             }
         }
@@ -250,35 +274,32 @@ public class TrackAction extends AbstractGameAction {
     private CardGroup getUsefulExhaustedCards(AbstractCard.CardType cardType) {
         CardGroup tmpGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         if (this.amount != -1) {
-            for (int i = 0; i < Math.min(this.amount, this.cardGroup.size()); i++) {
+            for (int i = 0; i < this.cardGroup.size(); i++) {
                 AbstractCard card = this.cardGroup.group.get(this.cardGroup.size() - i - 1);
-                if (card.type == cardType) {
-                    if (card instanceof AbstractManiacCard) {
-                        if (!((AbstractManiacCard) card).isUnreal || AbstractDungeon.player.hasRelic(VisionEye.ID)) {
-                            if (!tmpGroup.contains(card)) { tmpGroup.addToTop(card); }
+                if (allowedCard(card, cardType)) {
+                    boolean dupe = false;
+                    for (AbstractCard c : tmpGroup.group) {
+                        if (c.name.equals(card.name)) {
+                            dupe = true;
+                            break;
                         }
                     }
-                    else {
-                        if (!card.cardID.equals(Exhume.ID)) {
-                            if (!tmpGroup.contains(card)) { tmpGroup.addToTop(card); }
-                        }
-                    }
+                    if (!dupe) { tmpGroup.addToTop(card); }
+                    if (tmpGroup.size() == this.amount) break;
                 }
             }
-        }
-        else {
+        } else {
             for (AbstractCard card : this.cardGroup.group) {
-                if (card.type == cardType) {
-                    if (card instanceof AbstractManiacCard) {
-                        if (!((AbstractManiacCard) card).isUnreal || AbstractDungeon.player.hasRelic(VisionEye.ID)) {
-                            if (!tmpGroup.contains(card)) { tmpGroup.addToTop(card); }
+                if (allowedCard(card, cardType)) {
+                    boolean dupe = false;
+                    for (AbstractCard c : tmpGroup.group) {
+                        if (c.name.equals(card.name)) {
+                            dupe = true;
+                            break;
                         }
                     }
-                    else {
-                        if (!card.cardID.equals(Exhume.ID)) {
-                            if (!tmpGroup.contains(card)) { tmpGroup.addToTop(card); }
-                        }
-                    }
+
+                    if (!dupe) { tmpGroup.addToTop(card); }
                 }
             }
         }

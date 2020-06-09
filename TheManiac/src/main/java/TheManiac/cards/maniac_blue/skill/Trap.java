@@ -22,7 +22,7 @@ public class Trap extends AbstractManiacCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final int COST = 0;
-    private static final int powersToApply = 3;
+    private static final int powersToApply = 4;
     private static final int upgrade_powers = 1;
     
     public Trap() {

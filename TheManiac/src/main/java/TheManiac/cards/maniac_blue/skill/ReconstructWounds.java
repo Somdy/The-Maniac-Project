@@ -30,6 +30,7 @@ public class ReconstructWounds extends AbstractManiacCard {
         this.magicNumber = this.baseMagicNumber = LIFE_HEAL;
         this.exhaust = true;
         this.isUnreal = true;
+        this.isEnchanter = true;
     }
 
     @Override

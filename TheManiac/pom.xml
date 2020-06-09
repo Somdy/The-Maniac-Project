@@ -7,7 +7,7 @@
     <artifactId>TheManiac</artifactId>
     <version>1.6.5</version>
     <packaging>jar</packaging>
-    <name>The Maniac</name>
+    <name>[地精首领爬塔]The Maniac</name>
     <description>Attempting to make a mod</description>
     
     <properties>
@@ -21,6 +21,7 @@
         <FriendlyMinions.version>0.1.2</FriendlyMinions.version>
         <ActLikeIt.version>0.1.2</ActLikeIt.version>
         <Steam.path>D:\Programme Files\Steam\steamapps</Steam.path>
+        <SpireCustomMod.path>D:\Programme Files\Steam\steamapps\common\SlayTheSpire\mods</SpireCustomMod.path>
     </properties>
     
     <dependencies>
@@ -89,7 +90,7 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="target/${project.artifactId}.jar" tofile="../lib/TheManiac.jar"/>
+                                <copy file="target/${project.artifactId}.jar" tofile = "${SpireCustomMod.path}/[地精首领爬塔]TheManiac.jar"/>
                             </target>
                         </configuration>
                         <goals>

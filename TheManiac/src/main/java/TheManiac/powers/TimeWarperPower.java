@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.combat.TimeWarpTurnEndEffect;
 import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 
-public class TimeWarperPower extends AbstractPower implements CloneablePowerInterface {
+public class TimeWarperPower extends AbstractManiacPower implements CloneablePowerInterface {
     public static final String POWER_ID = "maniac:TimeWarperPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -30,8 +30,9 @@ public class TimeWarperPower extends AbstractPower implements CloneablePowerInte
         this.owner = AbstractDungeon.player;
         this.type = PowerType.BUFF;
         this.amount = -1;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);
+        this.loadImg("TimeWarper");
+        /*this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);*/
         updateDescription();
     }
 

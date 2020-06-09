@@ -5,10 +5,7 @@ import TheManiac.character.TheManiacCharacter;
 import TheManiac.stances.LimboStance;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,8 +28,8 @@ public class SpectralKnives extends AbstractManiacCard {
     public static final CardColor COLOR = TheManiacCharacter.Enums.MANIAC_BLUE;
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
-    private static final int COST = 0;
-    private static final int DAMAGE = 2;
+    private static final int COST = 1;
+    private static final int DAMAGE = 1;
     private static final int UPGRADE_DAMAGE = 1;
     private static final int DAMAGE_TIMES = 4;
     private static final int BONUS_DAMAGE = 1;
@@ -43,7 +40,7 @@ public class SpectralKnives extends AbstractManiacCard {
         this.damage = this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = DAMAGE_TIMES;
         this.maniacExtraMagicNumber = this.maniacBaseExtraMagicNumber = BONUS_DAMAGE;
-        this.exhaust = true;
+        this.isUnreal = true;
         
         this.tips = new ArrayList<>();
         this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[2], EXTENDED_DESCRIPTION[3]));
@@ -51,11 +48,14 @@ public class SpectralKnives extends AbstractManiacCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (AbstractDungeon.player.stance.ID.equals(LimboStance.STANCE_ID)) {
+        if (p.stance.ID.equals(LimboStance.STANCE_ID)) {
             this.damage += this.maniacExtraMagicNumber;
         }
         for (int i = 0; i < this.magicNumber; i ++) {
-            AbstractDungeon.actionManager.addToBottom(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            AbstractMonster mo = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
+            if (mo != null) {
+                this.addToBot(new DamageAction(mo, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            }
         }
         
         if (enchanted) {

@@ -1,5 +1,6 @@
 package TheManiac.powers;
 
+import TheManiac.TheManiac;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -12,7 +13,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 
-public class GainDexterityPower extends AbstractPower implements CloneablePowerInterface {
+public class GainDexterityPower extends AbstractManiacPower implements CloneablePowerInterface {
     public static final String POWER_ID = "maniac:RestrainedPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -26,14 +27,15 @@ public class GainDexterityPower extends AbstractPower implements CloneablePowerI
         this.owner = owner;
         this.amount = amount;
         this.type = PowerType.DEBUFF;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);
+        this.loadImg("Restrained");
+        /*this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);*/
         updateDescription();
     }
 
     @Override
     public void playApplyPowerSfx() {
-        CardCrawlGame.sound.play("ApplyRestrainedSfx", 0.05F);
+        CardCrawlGame.sound.play(TheManiac.makeID("ApplyRestrainedSfx"), 0.05F);
     }
 
     @Override

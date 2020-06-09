@@ -2,6 +2,7 @@ package TheManiac.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class BleedingPower extends AbstractPower implements CloneablePowerInterface {
+public class BleedingPower extends AbstractManiacPower implements CloneablePowerInterface {
     public static final String POWER_ID = "maniac:BleedingPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -25,8 +26,9 @@ public class BleedingPower extends AbstractPower implements CloneablePowerInterf
         this.owner = owner;
         this.amount = amount;
         this.type = PowerType.DEBUFF;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);
+        this.loadImg("Bleeding");
+        /*this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);*/
         updateDescription();
     }
 
@@ -34,14 +36,18 @@ public class BleedingPower extends AbstractPower implements CloneablePowerInterf
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (this.amount > 0 && this.owner != null) {
             this.flash();
-            this.owner.currentHealth -= this.amount;
-            this.amount--;
-            if (this.amount == 0) {
-                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
-            }
+            this.addToBot(new ReducePowerAction(this.owner, this.owner, this, 2));
         }
         this.updateDescription();
         return super.onAttacked(info, damageAmount);
+    }
+
+    @Override
+    public float atDamageReceive(float damage, DamageInfo.DamageType damageType) {
+        if (damageType == DamageInfo.DamageType.NORMAL) {
+            return damage + this.amount;
+        }
+        return damage;
     }
 
     @Override

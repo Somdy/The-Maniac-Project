@@ -24,7 +24,7 @@ public class ReachVictory extends AbstractManiacCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final int COST = 2;
-    private static final int track = 10;
+    private static final int track = 6;
     
     public ReachVictory() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

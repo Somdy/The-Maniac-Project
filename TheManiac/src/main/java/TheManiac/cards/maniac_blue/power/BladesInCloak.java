@@ -43,11 +43,11 @@ public class BladesInCloak extends AbstractManiacCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new BladesInCloakPower(this.magicNumber)));
+        this.addToBot(new ApplyPowerAction(p, p, new BladesInCloakPower(this.magicNumber), this.magicNumber));
         
         if (enchanted) {
             if (this.enchantment == 1) {
-                this.addToBot(new ApplyPowerAction(p, p, new BladesInCloakPower(this.magicNumber)));
+                this.addToBot(new ApplyPowerAction(p, p, new BladesInCloakPower(this.magicNumber), this.magicNumber));
             } else {
                 this.addToBot(new TrackAction(this.enchantNumber, AbstractDungeon.player.drawPile));
             }

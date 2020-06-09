@@ -27,11 +27,13 @@ public class TimeStormAction extends AbstractGameAction {
     
     @Override
     public void update() {
+        /*
         if (AbstractDungeon.player.stance.ID.equals(LimboStance.STANCE_ID)) {
             for (AbstractMonster monster : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
                 this.addToBot(new ApplyPowerAction(monster, this.source, new SlowPower(monster, this.amount), this.amount));
             }
         }
+        */
         if (!AbstractDungeon.actionManager.cardsPlayedThisCombat.isEmpty()) {
             try {
                 int totalDmg = AbstractDungeon.actionManager.cardsPlayedThisCombat.size();

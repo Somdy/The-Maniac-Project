@@ -28,7 +28,7 @@ public class LootBarrage extends AbstractManiacCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final int COST = 2;
-    private static final int DAMAGE = 2;
+    private static final int DAMAGE = 10;
     private static final int DMG_INC = 1;
     private static final int UPGRADE_AMT = 1;
 
@@ -36,15 +36,21 @@ public class LootBarrage extends AbstractManiacCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = DMG_INC;
+        this.isUnreal = true;
+        this.isEnchanter = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int counts = p.relics.size();
-        if (p.stance.ID.equals(LimboStance.STANCE_ID)) {
-            this.damage += this.magicNumber;
+        int counts = 0;
+        for (AbstractRelic relic : p.relics) {
+            if (isInLimbo()) {
+                counts += 1 + this.magicNumber;
+            } else {
+                counts++;
+            }
         }
-        this.damage *= counts;
+        this.damage += counts;
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
@@ -61,14 +67,16 @@ public class LootBarrage extends AbstractManiacCard {
     @Override
     public void applyPowers() {
         super.applyPowers();
-        int counts = AbstractDungeon.player.relics.size();
-        int totalDmg = 0;
-        if (AbstractDungeon.player.stance.ID.equals(LimboStance.STANCE_ID)) {
-            this.damage += this.magicNumber;
+        int counts = 0;
+        int totalDmg;
+        for (AbstractRelic relic : AbstractDungeon.player.relics) {
+            if (isInLimbo()) {
+                counts += 1 + this.magicNumber;
+            } else {
+                counts++;
+            }
         }
-        for (int i = 0; i < counts; i++) {
-            totalDmg += this.damage;
-        }
+        totalDmg = this.damage + counts;
         this.rawDescription = DESCRIPTION;
         this.rawDescription += EXTENDED_DESCRIPTION[0] + totalDmg + EXTENDED_DESCRIPTION[1];
         initializeDescription();

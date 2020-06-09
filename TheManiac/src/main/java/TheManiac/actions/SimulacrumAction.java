@@ -47,8 +47,6 @@ public class SimulacrumAction extends AbstractGameAction {
                     if (!c.cardID.equals(Simulacrum.ID)) {
                         for (int i = 0; i < this.amount; i++) {
                             AbstractCard tmp = c.makeStatEquivalentCopy();
-                            tmp.purgeOnUse = true;
-                            tmp.isEthereal = true;
                             if (modifyCosts) {
                                 tmp.modifyCostForCombat(-9);
                             }

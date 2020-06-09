@@ -29,7 +29,7 @@ public class ExoticPoisonDamageAction extends AbstractGameAction {
             this.isDone = true;
             return;
         } else {
-            if (this.duration == 0.33F && this.target.currentHealth > 0) {
+            if (this.duration == 0.3F && this.target.currentHealth > 0) {
                 AbstractDungeon.effectList.add(new FlashManiacAtkEffect(this.target.hb.cX, this.target.hb.cY, this.attackEffect, false));
             }
             

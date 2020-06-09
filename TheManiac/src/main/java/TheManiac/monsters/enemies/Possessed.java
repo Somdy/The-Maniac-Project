@@ -1,5 +1,6 @@
 package TheManiac.monsters.enemies;
 
+import TheManiac.TheManiac;
 import TheManiac.powers.CursePower;
 import TheManiac.powers.WeaknessPower;
 import basemod.abstracts.CustomMonster;
@@ -30,10 +31,10 @@ public class Possessed extends CustomMonster {
     private static final String[] MOVES = monsterStrings.MOVES;
     private static final String POSED_ATLAS = "maniacMod/images/monsters/enemies/Possessed/Possessed.atlas";
     private static final String POSED_JSON = "maniacMod/images/monsters/enemies/Possessed/skeleton.json";
-    private static final int max_hp = 102;
-    private static final int min_hp = 98;
-    private static final int asc_maxHp = 106;
-    private static final int asc_minHp = 102;
+    private static final int max_hp = 106;
+    private static final int min_hp = 102;
+    private static final int asc_maxHp = 110;
+    private static final int asc_minHp = 106;
     private static final int poke_attaks = 3;
     private static final int drain_str = 2;
     private static final int drain_debuff = -1;
@@ -191,6 +192,6 @@ public class Possessed extends CustomMonster {
     @Override
     public void die() {
         super.die();
-        CardCrawlGame.sound.play("ThePossessedDeath");
+        CardCrawlGame.sound.play(TheManiac.makeID("ThePossessedDeath"));
     }
 }

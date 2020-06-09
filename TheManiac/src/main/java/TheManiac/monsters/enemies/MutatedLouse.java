@@ -27,10 +27,10 @@ public class MutatedLouse extends CustomMonster {
     private static final String[] MOVES = monsterStrings.MOVES;
     private static final String LOUSE_ATLAS = "maniacMod/images/monsters/enemies/mutatedLouse/skeleton.atlas";
     private static final String LOUSE_JSON = "maniacMod/images/monsters/enemies/mutatedLouse/skeleton.json";
-    private static final int max_hp = 28;
-    private static final int min_hp = 24;
-    private static final int asc_maxHp = 34;
-    private static final int asc_minHp = 30;
+    private static final int max_hp = 32;
+    private static final int min_hp = 28;
+    private static final int asc_maxHp = 38;
+    private static final int asc_minHp = 34;
     private static final int max_bite = 7;
     private static final int min_bite = 5;
     private static final int str = 3;
@@ -73,12 +73,12 @@ public class MutatedLouse extends CustomMonster {
     @Override
     public void usePreBattleAction() {
         if (AbstractDungeon.ascensionLevel >= 17) {
-            this.addToBot(new ApplyPowerAction(this, this, new CurlUpPower(this, AbstractDungeon.monsterHpRng.random(8, 10), AbstractDungeon.monsterHpRng.random(2, 4))));
+            this.addToBot(new ApplyPowerAction(this, this, new CurlUpPower(this, AbstractDungeon.monsterHpRng.random(16, 18), AbstractDungeon.monsterHpRng.random(10, 12))));
         }
         else if (AbstractDungeon.ascensionLevel >= 7) {
-            this.addToBot(new ApplyPowerAction(this, this, new com.megacrit.cardcrawl.powers.CurlUpPower(this, AbstractDungeon.monsterHpRng.random(6, 8))));
+            this.addToBot(new ApplyPowerAction(this, this, new CurlUpPower(this, AbstractDungeon.monsterHpRng.random(12, 14), AbstractDungeon.monsterHpRng.random(8, 10))));
         } else {
-            this.addToBot(new ApplyPowerAction(this, this, new com.megacrit.cardcrawl.powers.CurlUpPower(this, AbstractDungeon.monsterHpRng.random(4, 6))));
+            this.addToBot(new ApplyPowerAction(this, this, new CurlUpPower(this, AbstractDungeon.monsterHpRng.random(8, 10), AbstractDungeon.monsterHpRng.random(6, 8))));
         }
     }
 
@@ -140,24 +140,13 @@ public class MutatedLouse extends CustomMonster {
         if (AbstractDungeon.ascensionLevel >= 17) {
             if (num < 25) {
                 if (!this.hasPower(CurlUpPower.POWER_ID)) {
-                    if (TheManiac.challengerMode) {
-                        if (num < 20) {
-                            this.setMove(MOVES[1], (byte)3, Intent.BUFF);
-                        }
-                        else if (this.lastMove((byte)2)) {
-                            this.setMove((byte)1, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
-                        } else {
-                            this.setMove(MOVES[0], (byte)2, Intent.BUFF);
-                        }
+                    if (num < 15) {
+                        this.setMove(MOVES[1], (byte)3, Intent.BUFF);
+                    }
+                    else if (this.lastMove((byte)2)) {
+                        this.setMove((byte)1, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
                     } else {
-                        if (num < 15) {
-                            this.setMove(MOVES[1], (byte)3, Intent.BUFF);
-                        }
-                        else if (this.lastMove((byte)2)) {
-                            this.setMove((byte)1, Intent.ATTACK_DEBUFF, this.damage.get(0).base);
-                        } else {
-                            this.setMove(MOVES[0], (byte)2, Intent.BUFF);
-                        }
+                        this.setMove(MOVES[0], (byte)2, Intent.BUFF);
                     }
                 }
                 else if (this.lastMove((byte)2)) {

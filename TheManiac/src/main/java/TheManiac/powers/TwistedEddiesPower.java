@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.TimeWarpTurnEndEffect;
 
-public class TwistedEddiesPower extends AbstractPower implements CloneablePowerInterface {
+public class TwistedEddiesPower extends AbstractManiacPower implements CloneablePowerInterface {
     public static final String POWER_ID = "maniac:TwistedEddiesPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -29,8 +29,9 @@ public class TwistedEddiesPower extends AbstractPower implements CloneablePowerI
         this.owner = owner;
         this.amount = amount;
         this.type = PowerType.BUFF;
-        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);
+        this.loadImg("TwistedEddies");
+        /*this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_LARGE), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH), 0, 0, 32, 32);*/
         updateDescription();
     }
 
@@ -52,6 +53,7 @@ public class TwistedEddiesPower extends AbstractPower implements CloneablePowerI
         if (this.amount == 0) {
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
         }
+        updateDescription();
     }
 
     @Override
