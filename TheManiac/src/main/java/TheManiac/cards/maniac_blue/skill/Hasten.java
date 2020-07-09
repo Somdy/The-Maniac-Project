@@ -46,7 +46,7 @@ public class Hasten extends AbstractManiacCard {
         this.magicNumber = this.baseMagicNumber = 1;
         
         this.tips = new ArrayList<>();
-        this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[3], EXTENDED_DESCRIPTION[4]));
+        this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[2], EXTENDED_DESCRIPTION[3]));
     }
 
     @Override
@@ -54,7 +54,7 @@ public class Hasten extends AbstractManiacCard {
         if (isInLimbo()) {
             drawCard = true;
         }
-        this.addToBot(new HastenAction(this.upgraded, drawCard, this.magicNumber));
+        this.addToBot(new HastenAction(false, drawCard, this.magicNumber));
     }
 
     @Override
@@ -114,6 +114,7 @@ public class Hasten extends AbstractManiacCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
+            this.upgradeBaseCost(0);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

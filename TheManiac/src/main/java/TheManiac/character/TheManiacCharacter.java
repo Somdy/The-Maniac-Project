@@ -10,8 +10,10 @@ import TheManiac.minions.AbstractManiacMinion;
 import TheManiac.patches.MinionPatches.MonsterIntentsOnMinionPatch;
 import TheManiac.relics.BrokenHorn;
 import TheManiac.relics.DamagedAnvil;
+import TheManiac.relics.EnigmaticDecoder;
 import TheManiac.stances.LimboStance;
 import TheManiac.vfx.ManiacLimboEyeParticle;
+import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -71,8 +73,8 @@ public class TheManiacCharacter extends CustomPlayer {
     };
     public static final String orbVFX = "maniacMod/images/character/energyOrb/vfx.png";
     public static final int ENERGY_PER_TURN = 3;
-    public static final int STARTING_HP = 84;
-    public static final int MAX_HP = 84;
+    public static final int STARTING_HP = 75;
+    public static final int MAX_HP = 80;
     public static final int STARTING_GOLD = 99;
     public static final int ORB_SLOTS = 0;
     public static final int DRAW_PER_TURN = 5;
@@ -278,20 +280,23 @@ public class TheManiacCharacter extends CustomPlayer {
     @Override
     public void updateAnimations() {
         super.updateAnimations();
-        if (AbstractDungeon.player.stance.ID.equals(LimboStance.STANCE_ID)) {
-            this.fireTimer -= Gdx.graphics.getDeltaTime();
-            if (this.fireTimer < 0F) {
-                this.fireTimer = 0.1F;
-                AbstractDungeon.effectList.add(new ManiacLimboEyeParticle(this.skeleton.getX() + this.skeleton.findBone("Eye_L").getWorldX(),
-                        this.skeleton.getY() + this.skeleton.findBone("Eye_L").getWorldY()));
+        try {
+            if (AbstractDungeon.player.stance.ID.equals(LimboStance.STANCE_ID)) {
+                this.fireTimer -= Gdx.graphics.getDeltaTime();
+                if (this.fireTimer < 0F) {
+                    this.fireTimer = 0.1F;
+                    AbstractDungeon.effectList.add(new ManiacLimboEyeParticle(this.skeleton.getX() + this.skeleton.findBone("Eye_L").getWorldX(),
+                            this.skeleton.getY() + this.skeleton.findBone("Eye_L").getWorldY()));
+                }
             }
+        } catch (Exception e) {
+            logger.info( "该名角色：" + AbstractDungeon.player.name + "不是地精首领，没有对应动画");
         }
-        
     }
 
     @Override
     public ArrayList<String> getStartingDeck() {
-        ArrayList<String> retVal = new ArrayList();
+        ArrayList<String> retVal = new ArrayList<>();
         logger.info("==正在给狂徒添加初始卡牌");
         retVal.add(Strike_Maniac.ID);
         retVal.add(Strike_Maniac.ID);

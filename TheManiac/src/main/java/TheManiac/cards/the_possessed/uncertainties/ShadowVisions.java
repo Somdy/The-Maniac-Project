@@ -30,15 +30,16 @@ public class ShadowVisions extends AbstractUncertaintiesCard implements CustomSa
     
     public ShadowVisions() {
         super(ID, IMG_PATH, COST, TYPE, TARGET, INFO);
+        this.magicNumber = this.baseMagicNumber = 4;
         this.combatCounter = 0;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.combatCounter++;
-        this.addToBot(new TrackAction(-1, p.drawPile));
+        this.addToBot(new TrackAction(this.magicNumber, p.drawPile));
         if (this.combatCounter >= 2 && hasAvailableCard()) {
-            this.flipCard();
+            flipCard();
         }
     }
     
@@ -80,6 +81,12 @@ public class ShadowVisions extends AbstractUncertaintiesCard implements CustomSa
     }
 
     @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeMagicNumber(level);
+    }
+
+    @Override
     public AbstractCard makeCopy() {
         return new ShadowVisions();
     }
@@ -113,15 +120,15 @@ public class ShadowVisions extends AbstractUncertaintiesCard implements CustomSa
             logger.info("==正在读取暗影视界黑掉的牌==");
             for (int i = 0; i < records.size(); i++) {
                 sv.shadowsIndex.add(records.get(i));
-                logger.info("==正在读取第" + i + "位成员，应该为：" + AbstractDungeon.player.masterDeck.group.get(records.get(i)).name 
-                        + " 对应的uuid：" + AbstractDungeon.player.masterDeck.group.get(records.get(i)).uuid);
+                /*logger.info("==正在读取第" + i + "位成员，应该为：" + AbstractDungeon.player.masterDeck.group.get(records.get(i)).name 
+                        + " 对应的uuid：" + AbstractDungeon.player.masterDeck.group.get(records.get(i)).uuid);*/
                 CardMarkFieldPatch.ShadowVisionHideField.isShadowHidden.set(AbstractDungeon.player.masterDeck.group.get(records.get(i)), true);
             }
             
             logger.info("==正在检查暗影视界黑掉的牌==");
             for (int i = 0; i < sv.shadowsIndex.size(); i++) {
-                logger.info("==正在检查第" + i + "位成员，最终为：" + AbstractDungeon.player.masterDeck.group.get(sv.shadowsIndex.get(i)).name 
-                        + " 对应的uuid：" + AbstractDungeon.player.masterDeck.group.get(sv.shadowsIndex.get(i)).uuid);
+                /*logger.info("==正在检查第" + i + "位成员，最终为：" + AbstractDungeon.player.masterDeck.group.get(sv.shadowsIndex.get(i)).name 
+                        + " 对应的uuid：" + AbstractDungeon.player.masterDeck.group.get(sv.shadowsIndex.get(i)).uuid);*/
                 if (AbstractDungeon.player.masterDeck.group.get(sv.shadowsIndex.get(i)).uuid != AbstractDungeon.player.masterDeck.group.get(records.get(i)).uuid) {
                     logger.info("==检查到第" + i + "位成员出错！请联系作者！！！==");
                 }

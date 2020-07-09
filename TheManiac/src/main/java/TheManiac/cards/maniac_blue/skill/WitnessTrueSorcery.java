@@ -38,8 +38,8 @@ public class WitnessTrueSorcery extends AbstractManiacCard {
 
     public WitnessTrueSorcery() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = obtain;
-        this.maniacExtraMagicNumber = this.maniacBaseExtraMagicNumber = cardChoice;
+        this.magicNumber = this.baseMagicNumber = cardChoice;
+        this.maniacExtraMagicNumber = this.maniacBaseExtraMagicNumber = obtain;
         this.maniacOtherMagicNumber = this.maniacBaseOtherMagicNumber = additionalChoice;
         
         this.tips = new ArrayList<>();
@@ -51,7 +51,7 @@ public class WitnessTrueSorcery extends AbstractManiacCard {
         if (p.stance.ID.equals(LimboStance.STANCE_ID)) {
             this.maniacExtraMagicNumber += this.maniacOtherMagicNumber;
         }
-        AbstractDungeon.actionManager.addToBottom(new WitnessTrueSorceryAction(this.magicNumber, this.maniacExtraMagicNumber, this.upgraded));
+        AbstractDungeon.actionManager.addToBottom(new WitnessTrueSorceryAction(this.maniacExtraMagicNumber, this.magicNumber, this.upgraded));
         
         if (enchanted) {
             if (this.enchantment == 1) {

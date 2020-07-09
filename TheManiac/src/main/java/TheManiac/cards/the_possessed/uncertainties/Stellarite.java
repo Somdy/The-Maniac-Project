@@ -3,6 +3,7 @@ package TheManiac.cards.the_possessed.uncertainties;
 import TheManiac.TheManiac;
 import TheManiac.cards.the_possessed.ManiacRisksCard;
 import basemod.helpers.TooltipInfo;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -27,7 +28,7 @@ public class Stellarite extends AbstractUncertaintiesCard {
     
     public Stellarite() {
         super(ID, IMG_PATH, COST, TYPE, TARGET, INFO);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
@@ -47,6 +48,12 @@ public class Stellarite extends AbstractUncertaintiesCard {
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         return false;
+    }
+
+    @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeMagicNumber(MathUtils.ceil(level * 0.5F));
     }
 
     @Override

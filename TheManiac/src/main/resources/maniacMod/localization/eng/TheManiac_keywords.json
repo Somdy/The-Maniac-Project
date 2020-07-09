@@ -196,6 +196,46 @@
             "foils"
         ],
         "DESCRIPTION": "Creatures with foils gain block at the start of their turn."
+    },
+
+    "maniac:Locked": {
+        "PROPER_NAME": "Locked",
+        "NAMES": [
+            "locked"
+        ],
+        "DESCRIPTION": "Locked creatures receive more unblocked damage."
+    },
+
+    "maniac:Limited": {
+        "PROPER_NAME": "Limited",
+        "NAMES": [
+            "Limited"
+        ],
+        "DESCRIPTION": "Can be used only once per turn."
+    },
+
+    "maniac:Activate": {
+        "PROPER_NAME": "Activate",
+        "NAMES": [
+            "activate"
+        ],
+        "DESCRIPTION": "Right click to use this relic."
+    },
+
+    "maniac:Shroud": {
+        "PROPER_NAME": "Shroud",
+        "NAMES": [
+            "shroud"
+        ],
+        "DESCRIPTION": "When exhausted, must move to exhaust pile and add a corresponding shrouded card to hand."
+    },
+
+    "maniac:Shrouded": {
+        "PROPER_NAME": "Shrouded",
+        "NAMES": [
+            "shrouded",
+            "shrouded"
+        ],
+        "DESCRIPTION": "Can be played or triggered only when there's the corresponding shroud card in exhaust pile. Will be removed from the combat when exhausted."
     }
-    
 }

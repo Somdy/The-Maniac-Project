@@ -5,6 +5,7 @@ import TheManiac.stances.LimboStance;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -48,7 +49,7 @@ public class SpectralFlashAction extends AbstractGameAction {
             spectralFlash.setAdditionalDmg(this.DmgIncrease + this.baseDmg);
             AbstractCard tmp = spectralFlash.makeStatEquivalentCopy();
 
-            this.addToBot(new MakeTempCardInDrawPileAction(tmp, 1, true, true));
+            this.addToBot(new MakeTempCardInDiscardAction(tmp, 1));
         }
     }
 }

@@ -148,5 +148,24 @@
     "TEXT": [
       "to exhaust and increase its damage and block by "
     ]
+  },
+
+  "maniac:RemoveCardFromDeckAction": {
+    "TEXT": [
+      "Remove up to ",
+      " cards."
+    ]
+  },
+
+  "maniac:ExhaustAndDrawAction": {
+    "TEXT": [
+      "Exhaust and draw"
+    ]
+  },
+
+  "maniac:UnravelAction": {
+    "TEXT": [
+      "Ravel"
+    ]
   }
 }

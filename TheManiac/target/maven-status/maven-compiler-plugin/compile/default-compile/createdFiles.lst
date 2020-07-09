@@ -6,8 +6,8 @@ TheManiac\actions\RecollectAction.class
 TheManiac\actions\CursedInfernoAction.class
 TheManiac\vfx\PossessedVfx\SpectreFireBallEffect.class
 TheManiac\minions\MinionMoveInfo.class
-TheManiac\relics\AbstractClickableRelic.class
 TheManiac\relics\BrokenHorn.class
+TheManiac\relics\EnigmaticEncoder.class
 TheManiac\cards\the_possessed\risks\FuryOfAir.class
 TheManiac\helper\TargetIndicatorPatch.class
 TheManiac\monsters\enemies\Destroyer.class
@@ -23,6 +23,9 @@ TheManiac\helper\TargetIndicatorPatch$InsertRender$RenderLocator.class
 TheManiac\powers\CorruardianSelfDestructionPower.class
 TheManiac\actions\ListenToNoneAction.class
 TheManiac\cards\the_possessed\risks\ToyLeperchaun.class
+TheManiac\actions\UnravelAction.class
+TheManiac\cards\colorless\skill\Unravel.class
+TheManiac\cards\temp\FortressExpedition.class
 TheManiac\helper\TargetIndicatorPatch$InsertPostUpdate$UpdateLocator.class
 TheManiac\actions\ThePossessedAction\BookOfDarknessAction.class
 TheManiac\patches\MinionPatches\MonsterCaldmgMinionPatch$MonsterCalculateDmgOnMinion.class
@@ -61,6 +64,7 @@ TheManiac\cards\the_possessed\possessed\AbstractPossessedCard.class
 TheManiac\powers\DualMachetesPower.class
 TheManiac\relics\BetterBrokenHorn.class
 TheManiac\monsters\enemies\Mawelling.class
+TheManiac\vfx\AssassinateParticle.class
 TheManiac\helper\ThePossessedPool.class
 TheManiac\rewards\MixesReward$1.class
 TheManiac\cards\colorless\skill\Perception.class
@@ -79,8 +83,10 @@ TheManiac\actions\ThePossessedAction\Uniques\BookClubPlagueDamageAction.class
 TheManiac\cards\maniac_blue\attack\Whirlscythe.class
 TheManiac\cards\curses\Scruple$1.class
 TheManiac\powers\PuzzledPower.class
+TheManiac\actions\PossessedMonsterAction\ThrillRisksAction.class
 TheManiac\cards\curses\Humiliation.class
 TheManiac\powers\BitingDaggerPower.class
+TheManiac\powers\RavelPower.class
 TheManiac\cards\maniac_blue\attack\HammerDown.class
 TheManiac\monsters\enemies\wanderingGhostBody.class
 TheManiac\cards\maniac_blue\attack\SpectralKnives.class
@@ -92,6 +98,7 @@ TheManiac\powers\UnseenTerrorPower.class
 TheManiac\cards\status\TheUndigested.class
 TheManiac\powers\SorceryHourPower.class
 TheManiac\actions\ThePossessedAction\Uniques\GiftsExhaustHandAction.class
+TheManiac\cards\maniac_blue\attack\Lacerate.class
 TheManiac\cards\maniac_blue\attack\HammerStrike.class
 TheManiac\cards\the_possessed\possessed\BookClub.class
 TheManiac\helper\TargetIndicatorPatch$InsertPostUpdate.class
@@ -110,6 +117,7 @@ TheManiac\helper\ObtainManuscriptsAccess.class
 TheManiac\patches\MinionPatches\MonsterIntentPatch$MonsterCreateIntentPach$IntentLocator.class
 TheManiac\relics\VisionEye.class
 TheManiac\powers\RetrospectPower.class
+TheManiac\actions\ManiacTalkAction.class
 TheManiac\cards\maniac_blue\attack\MeleeStrike.class
 TheManiac\patches\ExhaustOtherCardPatch.class
 TheManiac\powers\FrightenedPower.class
@@ -124,6 +132,7 @@ TheManiac\actions\AlloutAttackAction.class
 TheManiac\actions\ExceedEnchantmentAction.class
 TheManiac\cards\maniac_blue\power\TimeForm.class
 TheManiac\cards\maniac_blue\skill\AlleviatingSorcery.class
+TheManiac\cards\maniac_blue\power\UniversalPerception.class
 TheManiac\cards\maniac_blue\skill\WitnessTrueSorcery.class
 TheManiac\powers\HoveringPower.class
 TheManiac\patches\NeowEventsPatches$ManuscriptsOptionPatch.class
@@ -132,6 +141,7 @@ TheManiac\patches\CombatVictoryCardPatch$onVictoryCombat.class
 TheManiac\actions\ThePossessedAction\CreationScienceAction.class
 TheManiac\actions\ApplyRandomDebuffAction.class
 TheManiac\relics\MakerPen.class
+TheManiac\cards\temp\DarkMatter.class
 TheManiac\powers\BladeArtistPower.class
 TheManiac\patches\DamageModifierCardPatch$onAttackToCalculateDamage.class
 TheManiac\patches\MinionPatches\MonsterIntentPatch$MonsterIntentImgPatch.class
@@ -140,6 +150,7 @@ TheManiac\actions\PossessedMonsterAction\UncertaintyBlindAction.class
 TheManiac\vfx\GhostIgniteFireEffect.class
 TheManiac\patches\BattleStartCardPatch$usePreBattle.class
 TheManiac\patches\CardMarkFieldPatch$ShadowVisionHideField.class
+TheManiac\cards\the_possessed\uncertainties\EnigmaticFortress.class
 TheManiac\monsters\minions\GremlinWarrior.class
 TheManiac\cards\the_possessed\uncertainties\AbstractUncertaintiesCard.class
 TheManiac\cards\maniac_blue\skill\Simulacrum.class
@@ -172,13 +183,16 @@ TheManiac\cards\maniac_blue\attack\Confront.class
 TheManiac\patches\CardMarkFieldPatch.class
 TheManiac\patches\SunglassesAuraPatch$ModifyEnemyIntents.class
 TheManiac\cards\the_possessed\shinies\AbstractShiniesCard.class
+TheManiac\actions\ShatterAction.class
 TheManiac\powers\AbstractManiacPower.class
 TheManiac\cards\the_possessed\risks\EtherDrake.class
+TheManiac\helper\ThePossessedCardSavior.class
 TheManiac\cards\the_possessed\risks\BookOfDarkness.class
 TheManiac\TheManiac.class
 TheManiac\cards\maniac_blue\skill\WardAndDefend$1.class
 TheManiac\TheManiac$1.class
 TheManiac\cards\maniac_blue\power\Retrospect.class
+TheManiac\cards\the_possessed\shinies\PebbleInTheSky.class
 TheManiac\actions\PossessedMonsterAction\RiskySunglassessAction.class
 TheManiac\cards\maniac_blue\weapon\AncientSphere.class
 TheManiac\cards\the_possessed\possessed\Gifts.class
@@ -203,12 +217,15 @@ TheManiac\cards\maniac_blue\attack\SeekerKnife.class
 TheManiac\patches\HoverRisksCardPatch.class
 TheManiac\cards\the_possessed\shinies\ToyExterminator.class
 TheManiac\cards\curses\Guilty.class
+TheManiac\powers\LockedPower.class
+TheManiac\patches\ExhaustOtherCardPatch$onMoveToExhaustPile$ShroudLocator.class
 TheManiac\relics\AbstractManiacRelic.class
 TheManiac\vfx\SneckouetteSummonParticles.class
 TheManiac\monsters\enemies\Possessed.class
 TheManiac\helper\ThePossessedInitializer.class
 TheManiac\actions\SphereChannelAction.class
 TheManiac\powers\SwellingPower.class
+TheManiac\cards\temp\FortressExpedition2.class
 TheManiac\cards\maniac_blue\skill\Traceback.class
 TheManiac\patches\ModifyBlockPowerPatch$Locator.class
 TheManiac\cards\maniac_blue\skill\ListenToNone.class
@@ -246,8 +263,10 @@ TheManiac\cards\the_possessed\ManiacRisksCard.class
 TheManiac\cards\maniac_blue\power\BladeArtist.class
 TheManiac\cards\maniac_blue\skill\PerceiveDanger.class
 TheManiac\cards\maniac_blue\power\WickedInstincts.class
+TheManiac\cards\maniac_blue\skill\Assassinate.class
 TheManiac\orbs\AbstractManiacOrb.class
 TheManiac\powers\SalivaPower.class
+TheManiac\vfx\DimScreenEffect.class
 TheManiac\vfx\GhostFireBurstParticleEffect.class
 TheManiac\helper\TargetIndicator.class
 TheManiac\powers\GremlinLeaderUpgradePower.class
@@ -293,7 +312,9 @@ TheManiac\cards\maniac_blue\skill\Intimidate.class
 TheManiac\actions\PossessedMonsterAction\SpectreSearAction.class
 TheManiac\actions\PossessedMonsterAction\VanishAction.class
 TheManiac\vfx\PossessedVfx\VanishEffect.class
+TheManiac\actions\ExhaustAndDrawAction.class
 TheManiac\patches\TriggerCardEffectPatch.class
+TheManiac\monsters\possessed_enemies\RiskySpectre.class
 TheManiac\actions\ThePossessedAction\RiskUniversalThrillActions.class
 TheManiac\patches\DamageModifierCardPatch$onAttackPlayer.class
 TheManiac\cards\the_possessed\uncertainties\Stellarite.class
@@ -305,6 +326,7 @@ TheManiac\vfx\ManiacLimboEyeParticle.class
 TheManiac\patches\CardMarkFieldPatch$FlashbackField.class
 TheManiac\cards\maniac_blue\skill\Infuriate.class
 TheManiac\cards\maniac_blue\power\EndOfTheRoad.class
+TheManiac\powers\PerceptionPower.class
 TheManiac\powers\TrapPower.class
 TheManiac\monsters\possessed_enemies\UncertaintySpectre.class
 TheManiac\relics\PossessedManuscripts.class
@@ -312,6 +334,7 @@ TheManiac\relics\SmartDetector.class
 TheManiac\cards\maniac_blue\attack\SpectralFlash.class
 TheManiac\cards\maniac_blue\attack\DoubleEdge.class
 TheManiac\vfx\PossessedVfx\VanishParticleEffect.class
+TheManiac\actions\ThePossessedAction\RemoveCardFromDeckAction.class
 TheManiac\patches\MonsterDeathCardPatch.class
 TheManiac\cards\maniac_blue\skill\UntravelledPath.class
 TheManiac\patches\MinionPatches\MonsterIntentsOnMinionPatch.class
@@ -328,8 +351,11 @@ TheManiac\cards\the_possessed\shinies\RocketshipOfLearning.class
 TheManiac\cards\maniac_blue\skill\UnseenTerror.class
 TheManiac\cards\maniac_blue\attack\AbyssShackle.class
 TheManiac\powers\PetrifyPower.class
+TheManiac\patches\AdvancedSpoonPatch$ShroudMustExhaust.class
 TheManiac\patches\TriggerCardEffectPatch$triggerOnCardPlayed.class
+TheManiac\vfx\AssassinateEffect.class
 TheManiac\vfx\EtherDrakeFireEffect.class
+TheManiac\patches\AdvancedSpoonPatch.class
 TheManiac\actions\RefineAction.class
 TheManiac\cards\maniac_blue\attack\FlyTheKnives.class
 TheManiac\cards\the_possessed\uncertainties\TopologicalEnergy.class
@@ -365,10 +391,12 @@ TheManiac\cards\maniac_blue\attack\AbyssShackle$1.class
 TheManiac\variables\EnchantNumber.class
 TheManiac\cards\maniac_blue\skill\ExceedEnchantment.class
 TheManiac\actions\MawellingUpgradeMudAction.class
+TheManiac\vfx\AssassinateLethalEffect.class
 TheManiac\vfx\GhostFireEffect.class
 TheManiac\actions\WitnessTrueSorceryAction.class
 TheManiac\character\TheManiacCharacter$Enums.class
 TheManiac\helper\TargetIndicatorPatch$InsertRender.class
+TheManiac\actions\AssassinateAction.class
 TheManiac\monsters\enemies\Sneckouette.class
 TheManiac\cards\maniac_blue\skill\FindAShortcut.class
 TheManiac\powers\SilhouettePower.class
@@ -378,6 +406,7 @@ TheManiac\monsters\enemies\Biryd.class
 TheManiac\cards\the_possessed\shinies\WitchHour.class
 TheManiac\patches\TriggerCardEffectPatch$triggerOnCardPlayed$Locator.class
 TheManiac\cards\maniac_blue\skill\ReconstructWounds.class
+TheManiac\relics\EnigmaticDecoder.class
 TheManiac\cards\maniac_blue\skill\SeeingDetails.class
 TheManiac\powers\TwistedEddiesPower.class
 TheManiac\patches\EndOfTurnCardPatch.class
@@ -402,10 +431,12 @@ TheManiac\actions\FanTheHammerAction.class
 TheManiac\patches\SunglassesAuraPatch$ModifyCardTarget.class
 TheManiac\cards\the_possessed\uncertainties\Translocation.class
 TheManiac\patches\SunglassesAuraPatch$ModifyGainBlockAction.class
+TheManiac\actions\LacerateAction.class
 TheManiac\monsters\enemies\MonsterEncounterList.class
 TheManiac\powers\ShiftingShadowsPower.class
 TheManiac\actions\ThePossessedAction\Uniques\RollNextCardMoveAction.class
 TheManiac\powers\TimeWarperPower.class
+TheManiac\patches\TriggerCardEffectPatch$triggerOnCardDrawn.class
 TheManiac\cards\maniac_blue\power\Precision.class
 TheManiac\patches\MinionPatches\MonsterNewField$AttackMinionField.class
 TheManiac\powers\PlaguePower.class
@@ -428,6 +459,7 @@ TheManiac\actions\HastenAction.class
 TheManiac\patches\ModifyBurnBloodCosts.class
 TheManiac\actions\ThePossessedAction\GlacialMysteriesAction.class
 TheManiac\patches\MinionPatches\MonsterCaldmgMinionPatch.class
+TheManiac\helper\ManiacUtils.class
 TheManiac\patches\NeowEventsPatches$ManuscriptsBlessingPatch.class
 TheManiac\cards\maniac_blue\skill\ManipulatedFaith.class
 TheManiac\monsters\enemies\Planzarre.class

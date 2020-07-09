@@ -135,5 +135,24 @@
     "TEXT": [
       "消耗并将其伤害和格挡提升"
     ]
+  },
+
+  "maniac:RemoveCardFromDeckAction": {
+    "TEXT": [
+      "移除最多",
+      "张牌。"
+    ]
+  },
+
+  "maniac:ExhaustAndDrawAction": {
+    "TEXT": [
+      "消耗并抽取"
+    ]
+  },
+
+  "maniac:UnravelAction": {
+    "TEXT": [
+      "彻悟"
+    ]
   }
 }

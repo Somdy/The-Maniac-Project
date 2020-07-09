@@ -22,10 +22,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class TargetIndicator {
     private static final Logger logger = LogManager.getLogger(TargetIndicator.class.getName());
     private static boolean isHidden = true;
+    private static boolean hasLimits = false;
     private static AbstractCreature hoveredCreature;
     private static AbstractPlayer source;
     private static AbstractCreature target;
@@ -37,9 +39,20 @@ public class TargetIndicator {
     private static float startX;
     private static float startY;
     private static ArrayList<TargetIndicatorSubscriber> indicators = new ArrayList<>();
+    private static ArrayList<AbstractCreature> allowedCreatures = new ArrayList<>();
+    private static TargetIndicatorSubscriber actionTrigger;
     
     public static void register(ISubscriber sub) {
-        indicators.add((TargetIndicatorSubscriber) sub);
+        boolean dupe = false;
+        
+        for (TargetIndicatorSubscriber subscriber : indicators) {
+            if (subscriber.getClass() == sub.getClass()) {
+                dupe = true;
+                break;
+            }
+        }
+        
+        if (!dupe) indicators.add((TargetIndicatorSubscriber) sub);
     }
     
     public static void init() {
@@ -53,14 +66,30 @@ public class TargetIndicator {
         isHidden = true;
     }
 
-    public static void active(Vector2 whereStart) {
+    public static void active(TargetIndicatorSubscriber actor, Vector2 whereStart) {
+        logger.info("===指示器被激活===");
+        actionTrigger = actor;
         start = whereStart;
         startX = start.x;
         startY = start.y;
         init();
     }
 
-    public static void active(float x, float y) {
+    public static void active(TargetIndicatorSubscriber actor, Vector2 whereStart, ArrayList<AbstractCreature> allows) {
+        logger.info("===指示器被激活===");
+        actionTrigger = actor;
+        start = whereStart;
+        startX = start.x;
+        startY = start.y;
+        allowedCreatures.addAll(allows);
+        hasLimits = true;
+        logger.info("需要检查目标是否属于：" + allowedCreatures);
+        init();
+    }
+
+    public static void active(TargetIndicatorSubscriber actor, float x, float y) {
+        logger.info("===指示器被激活===");
+        actionTrigger = actor;
         startX = x;
         startY = y;
         start = new Vector2(startX, startY);
@@ -85,10 +114,21 @@ public class TargetIndicator {
         return target;
     }
     
+    private static boolean isAllowed(AbstractCreature target) {
+        if (!hasLimits) return true;
+        
+        return allowedCreatures.contains(target);
+    }
+    
     private static void runAction() {
-        for (TargetIndicatorSubscriber sub : indicators) {
-            logger.info("run all the subscribers' actions...");
-            sub.receivePostTargeted(getSource(), getTarget());
+        logger.info("===开始传递参数===");
+        for (TargetIndicatorSubscriber indicator : indicators) {
+            boolean allowed = indicator.getClass() == actionTrigger.getClass();
+            logger.info("判断 " + indicator.getClass() + " 是否为 " + actionTrigger.getClass() + "：" + allowed);
+            if (allowed) {
+                logger.info("正在传递给 " + indicator.getClass() + " 相应的参数");
+                indicator.receivePostTargeted(getSource(), getTarget());
+            }
         }
     }
     
@@ -102,14 +142,14 @@ public class TargetIndicator {
         hoveredCreature = null;
 
         for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-            if (m.hb.hovered && !m.isDying) {
+            if (m.hb.hovered && !m.isDying && isAllowed(m)) {
                 hoveredCreature = m;
                 break;
             }
         }
 
         AbstractPlayer p = AbstractDungeon.player;
-        if (p.hb.hovered && !p.isDying) hoveredCreature = p;
+        if (p.hb.hovered && !p.isDying && isAllowed(p)) hoveredCreature = p;
 
         if (InputHelper.justClickedLeft) {
             InputHelper.justClickedLeft = false;

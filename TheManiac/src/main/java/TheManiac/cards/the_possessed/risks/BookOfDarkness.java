@@ -29,7 +29,7 @@ public class BookOfDarkness extends AbstractRisksCard {
     public BookOfDarkness() {
         super(ID, IMG_PATH, COST, TYPE, TARGET, INFO);
         this.magicNumber = this.baseMagicNumber = 5;
-        this.damage = this.baseDamage = 15;
+        this.damage = this.baseDamage = 12;
     }
 
     @Override
@@ -64,6 +64,12 @@ public class BookOfDarkness extends AbstractRisksCard {
     public void atEndOfTurn(boolean inHand, boolean inDrawPile) {
         if (inHand && isThrilled)
             thrill(AbstractDungeon.player, AbstractDungeon.getMonsters().getRandomMonster(true), false);
+    }
+
+    @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeDamage(level);
     }
 
     @Override

@@ -22,7 +22,7 @@ public class CelebrationBus extends AbstractShiniesCard {
     public CelebrationBus() {
         super(ID, IMG_PATH, COST, TYPE, TARGET);
         
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
@@ -50,6 +50,12 @@ public class CelebrationBus extends AbstractShiniesCard {
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }
+    }
+
+    @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeMagicNumber(1);
     }
 
     @Override

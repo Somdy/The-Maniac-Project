@@ -2,6 +2,10 @@ package TheManiac.cards.the_possessed;
 
 import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.character.TheManiacCharacter;
+import TheManiac.helper.ManiacUtils;
+import TheManiac.helper.ThePossessedCardSavior;
+import basemod.abstracts.CustomSavable;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -14,12 +18,15 @@ import org.apache.logging.log4j.Logger;
 
 public abstract class ManiacRisksCard extends AbstractManiacCard {
     private static final Logger logger = LogManager.getLogger(ManiacRisksCard.class.getName());
+    public static final String[] identifiers = {"ri", "my", "un", "es", "tr", "of", "tch", "or", "re", "cal", "in", "even", "odd"};
+    public String riskID;
+    public static int IDCounter = 0;
     public int combatCounter;
     public int counter;
     
     public ManiacRisksCard(String id, String img, int cost, CardType type, CardRarity rarity, CardTarget target) {
-        super(id, CardCrawlGame.languagePack.getCardStrings(id).NAME, img, cost, CardCrawlGame.languagePack.getCardStrings(id).DESCRIPTION, type, TheManiacCharacter.Enums.MANIAC_POSSESSED, rarity, target);
-        
+        super(id, CardCrawlGame.languagePack.getCardStrings(id).NAME, img, cost, CardCrawlGame.languagePack.getCardStrings(id).DESCRIPTION, 
+                type, TheManiacCharacter.Enums.MANIAC_POSSESSED, rarity, target);
         combatCounter = 0;
         counter = 0;
         
@@ -41,9 +48,21 @@ public abstract class ManiacRisksCard extends AbstractManiacCard {
         public static AbstractCard.CardRarity THE_POSSESSED;
     }
     
+    public void smith(int level) {
+        if (level < 0) return;
+        if (!upgraded) upgradeName();
+        ThePossessedCardSavior.loadSavior(this, level);
+    }
+    
+    public void getSpecificID(String target) {
+        this.riskID = ManiacUtils.gnrRandomTargetNumbers(target, identifiers[MathUtils.random(0, identifiers.length - 1)]);
+        IDCounter++;
+    }
+    
     public void onObtain() {
+        getSpecificID(this.cardID.substring(7) + (IDCounter % 2 == 0 ? "even" : "odd") + IDCounter);
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT, false);
-        logger.info("从奖励中获得：" + this.name);
+        logger.info("从奖励中获得：" + this.name + " 对应的ID : " + this.riskID);
     }
     
     public void usePreBattle() {
@@ -80,10 +99,6 @@ public abstract class ManiacRisksCard extends AbstractManiacCard {
         return damageAmount;
     }
     
-    public int onAttackedToModifyDamage(DamageInfo info, int damageAmount, boolean inHand) {
-        return damageAmount;
-    }
-    
     public void atEndOfTurn(boolean inHand, boolean inDrawPile) {
         
     }
@@ -99,7 +114,6 @@ public abstract class ManiacRisksCard extends AbstractManiacCard {
 
     @Override
     public void enchant() {
-        
     }
 
     @Override

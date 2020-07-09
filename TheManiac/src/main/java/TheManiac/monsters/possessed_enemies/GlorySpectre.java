@@ -65,12 +65,12 @@ public class GlorySpectre extends AbstractPossessedMonster {
         e.setTime(e.getEndTime() * MathUtils.random());
     }
 
-    public GlorySpectre(int minHp, int maxHp, int baseDmg, int vanishTurn, int inflame_str, int inflame_block, int weakness_amt, float x, float y) {
+    public GlorySpectre(int minHp, int maxHp, int baseDmg, int inflame_str, int inflame_block, int weakness_amt, float x, float y) {
         super(NAME, ID, PossessedClass.Glorious, minHp, maxHp, baseDmg, -8F, 6F, 240.0F, 260.0F, x, y);
         this.firstInflame = false;
         this.isSummoned = true;
         this.firstMove = true;
-        this.vanishTurn = vanishTurn;
+        this.vanishTurn = -1;
         this.inflame_str = inflame_str;
         this.inflame_block = inflame_block;
         this.weakness_amt = weakness_amt;

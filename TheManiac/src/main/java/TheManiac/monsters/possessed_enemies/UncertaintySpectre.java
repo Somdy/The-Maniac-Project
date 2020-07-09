@@ -66,12 +66,12 @@ public class UncertaintySpectre extends AbstractPossessedMonster {
         e.setTime(e.getEndTime() * MathUtils.random());
     }
 
-    public UncertaintySpectre(int minHp, int maxHp, int baseDmg, int vanishTurn, int inflame_str, int inflame_metal, int bleeding_amt, float x, float y) {
+    public UncertaintySpectre(int minHp, int maxHp, int baseDmg, int inflame_str, int inflame_metal, int bleeding_amt, float x, float y) {
         super(NAME, ID, PossessedClass.Uncertain, minHp, maxHp, baseDmg, -8F, 6F, 240.0F, 260.0F, x, y);
         this.firstInflame = false;
         this.isSummoned = true;
         this.firstMove = true;
-        this.vanishTurn = vanishTurn;
+        this.vanishTurn = -1;
         this.inflame_str = inflame_str;
         this.inflame_metal = inflame_metal;
         this.bleeding_amt = bleeding_amt;

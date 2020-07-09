@@ -3,13 +3,16 @@ package TheManiac;
 import TheManiac.cards.colorless.attack.Blades;
 import TheManiac.cards.colorless.attack.DeusExMe;
 import TheManiac.cards.colorless.skill.Perception;
+import TheManiac.cards.colorless.skill.Unravel;
 import TheManiac.cards.curses.*;
+import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.cards.maniac_blue.attack.*;
 import TheManiac.cards.maniac_blue.power.*;
 import TheManiac.cards.maniac_blue.skill.*;
 import TheManiac.cards.maniac_blue.weapon.*;
 import TheManiac.character.TheManiacCharacter;
 import TheManiac.helper.ManiacImageMaster;
+import TheManiac.helper.ThePossessedCardSavior;
 import TheManiac.helper.ThePossessedInitializer;
 import TheManiac.minions.AbstractManiacMinion;
 import TheManiac.monsters.enemies.*;
@@ -29,6 +32,8 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -37,6 +42,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.audio.SoundMaster;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -54,6 +61,7 @@ import java.util.Properties;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -61,20 +69,19 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @SpireInitializer
-public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber,
-        EditKeywordsSubscriber, PostInitializeSubscriber, EditCharactersSubscriber, AddAudioSubscriber {
+public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber, 
+        PostInitializeSubscriber, EditCharactersSubscriber, AddAudioSubscriber {
     public static final Logger logger = LogManager.getLogger(TheManiac.class.getName());
     public static final Color THE_MANIAC_BLUE = CardHelper.getColor(0,35,102);
 
     private static final String MODNAME = "The Maniac";
     private static final String MODID = "maniac";
     private static final String AUTHOR = "Somdy";
-    private static final String DESCRIPTION = "A base for Slay the Spire to start your own mod from, feat. the Default.";
+    private static final String DESCRIPTION = "Blahblahblahblah";
     public static Properties TheManiacSettings = new Properties();
-    public static final String ENABLE_LEISURE = "Be a happy player!";
-    public static final String ENABLE_CHALLENGER = "Be a challenger!";
     public static boolean leisureMode = false;
     public static boolean challengerMode = false;
+    public static boolean talkiveMode = true;
 
     private static final String ATTACK_MANIAC_BLUE = "maniacMod/images/512defaults/cardui/maniac_attack.png";
     private static final String SKILL_MANIC_BLUE =  "maniacMod/images/512defaults/cardui/maniac_skill.png";
@@ -117,7 +124,8 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
                 Color.BLACK.cpy(), Color.BLACK.cpy(), Color.BLACK.cpy(), ATTACK_MANIAC_BLUE, SKILL_MANIC_BLUE, POWER_MANIAC_BLUE,
                 ENERGY_ORB_MANIAC_BLUE, ATTACK_MANIAC_BLUE_PORTRAIT, SKILL_MANIAC_BLUE_PORTRAIT, POWER_MANIAC_BLUE_PORTRAIT,
                 ENERGY_ORB_MANIAC_BLUE_PORTRAIT, CARD_ENERGY_ORB);
-
+        
+        BaseMod.addSaveField("PossessedSavior", new ThePossessedCardSavior());
     }
 
     @Override
@@ -157,7 +165,8 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         BaseMod.addCard(new WitnessTrueSorcery());
         BaseMod.addCard(new ColdHeart());
         BaseMod.addCard(new ManipulatedFaith());
-        BaseMod.addCard(new ImpaleFlesh());
+        //BaseMod.addCard(new ImpaleFlesh());
+        BaseMod.addCard(new Lacerate());
         BaseMod.addCard(new Whirlscythe());
         BaseMod.addCard(new GlassScratch());
         BaseMod.addCard(new SorceryHour());
@@ -190,17 +199,18 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         BaseMod.addCard(new SpectralFlash());
         BaseMod.addCard(new RallyToMe());
         BaseMod.addCard(new ExpectedMoves());
-        BaseMod.addCard(new DoubleEdge());
+        //BaseMod.addCard(new DoubleEdge());
         BaseMod.addCard(new SeeingDetails());
         //BaseMod.addCard(new GremlinCompanion());
         BaseMod.addCard(new Precision());
         BaseMod.addCard(new BladeArtist());
+        BaseMod.addCard(new Assassinate());
         logger.info("===正在添加狂徒的稀有卡牌");
         BaseMod.addCard(new TimeForm());
         BaseMod.addCard(new UnseenTerror());
         BaseMod.addCard(new TorturousScreams());
         BaseMod.addCard(new Collecting());
-        BaseMod.addCard(new WickedInstincts());
+        //BaseMod.addCard(new WickedInstincts());
         BaseMod.addCard(new TwistedEddies());
         BaseMod.addCard(new Inhibition());
         BaseMod.addCard(new ExceedEnchantment());
@@ -212,10 +222,12 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         BaseMod.addCard(new HammerDown());
         BaseMod.addCard(new Trap());
         BaseMod.addCard(new Deal());
+        BaseMod.addCard(new UniversalPerception());
         logger.info("===正在添加无色卡牌");
         BaseMod.addCard(new Perception());
         BaseMod.addCard(new Blades());
         BaseMod.addCard(new DeusExMe());
+        BaseMod.addCard(new Unravel());
         logger.info("===正在整理狂徒的武器库");
         /*
         BaseMod.addCard(new AncientSphere());
@@ -267,7 +279,8 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         UnlockTracker.unlockCard(WitnessTrueSorcery.ID);
         UnlockTracker.unlockCard(ColdHeart.ID);
         UnlockTracker.unlockCard(ManipulatedFaith.ID);
-        UnlockTracker.unlockCard(ImpaleFlesh.ID);
+        //UnlockTracker.unlockCard(ImpaleFlesh.ID);
+        UnlockTracker.unlockCard(Lacerate.ID);
         UnlockTracker.unlockCard(Whirlscythe.ID);
         UnlockTracker.unlockCard(GlassScratch.ID);
         UnlockTracker.unlockCard(SorceryHour.ID);
@@ -300,17 +313,18 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         UnlockTracker.unlockCard(SpectralFlash.ID);
         UnlockTracker.unlockCard(RallyToMe.ID);
         UnlockTracker.unlockCard(ExpectedMoves.ID);
-        UnlockTracker.unlockCard(DoubleEdge.ID);
+        //UnlockTracker.unlockCard(DoubleEdge.ID);
         UnlockTracker.unlockCard(SeeingDetails.ID);
         UnlockTracker.unlockCard(Precision.ID);
         UnlockTracker.unlockCard(BladeArtist.ID);
+        UnlockTracker.unlockCard(Assassinate.ID);
 
         UnlockTracker.unlockCard(FanTheHammer.ID);
         UnlockTracker.unlockCard(TimeForm.ID);
         UnlockTracker.unlockCard(UnseenTerror.ID);
         UnlockTracker.unlockCard(TorturousScreams.ID);
         UnlockTracker.unlockCard(Collecting.ID);
-        UnlockTracker.unlockCard(WickedInstincts.ID);
+        //UnlockTracker.unlockCard(WickedInstincts.ID);
         UnlockTracker.unlockCard(TwistedEddies.ID);
         UnlockTracker.unlockCard(Inhibition.ID);
         UnlockTracker.unlockCard(ExceedEnchantment.ID);
@@ -320,11 +334,14 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         UnlockTracker.unlockCard(Simulacrum.ID);
         UnlockTracker.unlockCard(HammerDown.ID);
         UnlockTracker.unlockCard(Trap.ID);
+        UnlockTracker.unlockCard(UniversalPerception.ID);
 
         UnlockTracker.unlockCard(Perception.ID);
         UnlockTracker.unlockCard(Blades.ID);
         UnlockTracker.unlockCard(DeusExMe.ID);
+        UnlockTracker.unlockCard(Unravel.ID);
 
+        /*
         UnlockTracker.unlockCard(AncientSphere.ID);
         UnlockTracker.unlockCard(BigSword.ID);
         UnlockTracker.unlockCard(BitingDagger.ID);
@@ -335,6 +352,7 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         UnlockTracker.unlockCard(DualMachetes.ID);
         UnlockTracker.unlockCard(HeavySkull.ID);
         UnlockTracker.unlockCard(ScorchingSpear.ID);
+        */
 
         UnlockTracker.unlockCard(Torture.ID);
         logger.info("已解锁所有新卡牌！===");
@@ -358,6 +376,8 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         BaseMod.addRelicToCustomPool(new SmartDetector(), TheManiacCharacter.Enums.MANIAC_BLUE);
         BaseMod.addRelic(new PossessedManuscripts(), RelicType.SHARED);
         BaseMod.addRelic(new ResurrectionStone(), RelicType.SHARED);
+        BaseMod.addRelic(new EnigmaticDecoder(), RelicType.SHARED);
+        BaseMod.addRelic(new EnigmaticEncoder(), RelicType.SHARED);
         logger.info("成功使用所有新遗物污染奖励池！===");
     }
 
@@ -400,7 +420,7 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         String keywordStrings = Gdx.files.internal(languageString + "/TheManiac_keywords.json").readString(String.valueOf(StandardCharsets.UTF_8));
         Type typeToken = new TypeToken<Map<String, Keyword>>() {}.getType();
 
-        Map<String, Keyword> keywords = (Map)gson.fromJson(keywordStrings, typeToken);
+        Map<String, Keyword> keywords = gson.fromJson(keywordStrings, typeToken);
 
         keywords.forEach((k,v)->{
             logger.info("添加关键字：" + v.NAMES[0]);
@@ -422,20 +442,19 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         logger.info("正在杀掉一些多余的马");
         Texture badge = new Texture(BADGE_IMAGE);
         ModPanel settings = new ModPanel();
-        ModLabeledToggleButton leisureModeButton = new ModLabeledToggleButton("Incoming...", 350.0F, 700.0F,
-                Settings.GREEN_TEXT_COLOR, FontHelper.charDescFont, leisureMode, settings, (label) -> {},
-                (button) -> {
-            leisureMode = button.enabled;
+        ModLabeledToggleButton talkiveModeButton = new ModLabeledToggleButton("健谈模式(Talkive Mode)", 350F, 700F, 
+                Settings.BLUE_TEXT_COLOR, FontHelper.charDescFont, talkiveMode, settings, (label) -> {}, (button) -> {
+            talkiveMode = button.enabled;
             try {
                 SpireConfig config = new SpireConfig(MODNAME, "theManiacConfig", TheManiacSettings);
-                config.setBool(ENABLE_LEISURE, leisureMode);
+                config.setBool("TALKIVE", talkiveMode);
                 config.save();
             } catch (Exception e) {
-                logger.info("Failed to make a leisure config");
+                logger.info("===Failed to make a talkive config===");
                 e.printStackTrace();
             }
-                });
-        settings.addUIElement(leisureModeButton);
+        });
+        settings.addUIElement(talkiveModeButton);
         BaseMod.registerModBadge(badge, MODNAME, AUTHOR, DESCRIPTION, settings);
         ManiacImageMaster.Initialize();
         
@@ -517,5 +536,9 @@ public class TheManiac implements EditCardsSubscriber, EditRelicsSubscriber, Edi
         BaseMod.addAudio(makeID("SpectreIgniteEffect_v2"), "maniacMod/audio/sound/SpectreIgniteEffect_v2.ogg");
         BaseMod.addAudio(makeID("SpectreIgniteEffect_v3"), "maniacMod/audio/sound/SpectreIgniteEffect_v3.ogg");
         logger.info("演奏结束==");
+    }
+    
+    public static void saveData() {
+        
     }
 }

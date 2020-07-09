@@ -18,7 +18,7 @@ public class CorruptingMist extends AbstractShiniesCard {
     private static final String IMG_PATH = "maniacMod/images/1024portraits/shinies/skill/corrupting_mist.png";
     private static final CardType TYPE = CardType.SKILL;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final TooltipInfo INFO = new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]);
     
     public CorruptingMist() {

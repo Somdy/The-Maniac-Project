@@ -2,6 +2,9 @@ package TheManiac.helper;
 
 import TheManiac.cards.colorless.skill.LostSoul;
 import TheManiac.cards.status.Unidentified;
+import TheManiac.cards.temp.DarkMatter;
+import TheManiac.cards.temp.FortressExpedition;
+import TheManiac.cards.temp.FortressExpedition2;
 import TheManiac.cards.the_possessed.ManiacRisksCard;
 import TheManiac.cards.the_possessed.possessed.BookClub;
 import TheManiac.cards.the_possessed.possessed.Gifts;
@@ -36,6 +39,7 @@ public class ThePossessedInitializer {
         Shinies.add(new CorruptingMist());
         Shinies.add(new PrimordialGlyph());
         Shinies.add(new WitchHour());
+        Shinies.add(new PebbleInTheSky());
         logger.info("===正在获得新荣誉");
         for (AbstractCard card : Shinies) {
             BaseMod.addCard(card.makeCopy());
@@ -53,6 +57,7 @@ public class ThePossessedInitializer {
         Uncertainties.add(new Stellarite());
         Uncertainties.add(new NatureNourish());
         Uncertainties.add(new ShadowVisions());
+        Uncertainties.add(new EnigmaticFortress());
         logger.info("===正在预测新未知");
         for (AbstractCard card : Uncertainties) {
             BaseMod.addCard(card.makeCopy());
@@ -92,6 +97,9 @@ public class ThePossessedInitializer {
         BaseMod.addCard(new LostSoul());
         BaseMod.addCard(new PossessedCurse());
         BaseMod.addCard(new Unidentified());
+        BaseMod.addCard(new FortressExpedition());
+        BaseMod.addCard(new FortressExpedition2());
+        BaseMod.addCard(new DarkMatter());
         logger.info("已添加所有特殊的……===");
     }
 }

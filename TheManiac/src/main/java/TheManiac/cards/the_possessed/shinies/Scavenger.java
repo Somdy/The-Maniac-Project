@@ -19,11 +19,18 @@ public class Scavenger extends AbstractShiniesCard {
     
     public Scavenger() {
         super(ID, IMG_PATH, COST, TYPE, TARGET);
+        this.magicNumber = this.baseMagicNumber = 6;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new TrackAction(-1, p.discardPile));
+        this.addToBot(new TrackAction(this.magicNumber, p.discardPile));
+    }
+
+    @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeMagicNumber(level);
     }
 
     @Override

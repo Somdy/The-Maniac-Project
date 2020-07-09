@@ -19,10 +19,9 @@ public class EvilEntity extends AbstractRisksCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final int COST = 1;
-    private static final TooltipInfo INFO = new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]);
     
     public EvilEntity() {
-        super(ID, IMG_PATH, COST, TYPE, TARGET, INFO);
+        super(ID, IMG_PATH, COST, TYPE, TARGET);
     }
 
     @Override

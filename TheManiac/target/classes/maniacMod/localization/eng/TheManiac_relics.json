@@ -46,6 +46,7 @@
             " card(s).",
             " NL #rLost #rSouls: You have imprisoned #b",
             " #rLost #rSouls .",
+            " NL #pCorrupted #pNourish: You have corrupted #pNature #pNourish.",
             ""
         ]
     },
@@ -79,6 +80,23 @@
         "FLAVOR": "Even the Deep Thoughts can't figure out how it actually works.",
         "DESCRIPTIONS": [
             "You will no longer #ymaniac:detect #rCurses or #yStatus."
+        ]
+    },
+
+    "maniac:EnigmaticDecoder": {
+        "NAME": "Enigmatic Decoder",
+        "FLAVOR": "While producing average results in standard tests, the accuracy of Enigmatic Decoder's prediction algorithms seemingly increases as the target's flight path grows more erratic.",
+        "DESCRIPTIONS": [
+            "#ymaniac:limited. #ymaniac:activate: Apply #b1 #ymaniac:locked to an enemy."
+        ]
+    },
+
+    "maniac:EnigmaticEncoder": {
+        "NAME": "Enigmatic Encoder",
+        "FLAVOR": "The Enigmatic Encoder scrambles flight path data according to some indeterminable design before feeding it back to fleet command.",
+        "DESCRIPTIONS": [
+            "#yLimited. #yActivate: Gain #b",
+            " #yblock. Increase this gain by #b2 for the first three uses in each combat."
         ]
     }
 }

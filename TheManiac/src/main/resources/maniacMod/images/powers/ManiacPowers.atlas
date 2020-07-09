@@ -1,677 +1,719 @@
 
 ManiacPowers.png
-size: 420,1031
+size: 1795,256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 lp/Agonal
   rotate: false
-  xy: 337, 859
+  xy: 1551, 89
   size: 81, 81
   orig: 128, 128
   offset: 21, 21
   index: -1
 lp/Antiquity
   rotate: false
-  xy: 262, 106
+  xy: 977, 5
   size: 79, 77
   orig: 128, 128
   offset: 22, 24
   index: -1
 lp/Armolve
   rotate: false
-  xy: 119, 940
+  xy: 296, 165
   size: 88, 89
   orig: 128, 128
   offset: 21, 21
   index: -1
 lp/BladeArtist
   rotate: false
-  xy: 92, 659
+  xy: 1467, 88
   size: 82, 82
   orig: 128, 128
   offset: 24, 20
   index: -1
 lp/BladesInCloak
   rotate: false
-  xy: 262, 854
+  xy: 1075, 170
   size: 73, 84
   orig: 128, 128
   offset: 28, 18
   index: -1
 lp/Bleeding
   rotate: false
-  xy: 262, 768
+  xy: 1136, 84
   size: 71, 84
   orig: 128, 128
   offset: 29, 18
   index: -1
 lp/Bloodsucker
   rotate: false
-  xy: 2, 552
+  xy: 2, 50
   size: 83, 92
   orig: 128, 128
   offset: 23, 16
   index: -1
 lp/Bloodsucking
   rotate: false
-  xy: 176, 773
+  xy: 718, 2
   size: 84, 78
   orig: 128, 128
   offset: 22, 25
   index: -1
 lp/BurnBlood
   rotate: false
-  xy: 2, 194
+  xy: 627, 81
   size: 86, 85
   orig: 128, 128
   offset: 18, 22
   index: -1
 lp/CurlUp
   rotate: false
-  xy: 176, 605
+  xy: 804, 2
   size: 87, 80
   orig: 128, 128
   offset: 21, 25
   index: -1
 lp/Curse
   rotate: false
-  xy: 176, 687
+  xy: 820, 170
   size: 84, 84
   orig: 128, 128
   offset: 22, 22
   index: -1
 lp/DeadEnd
   rotate: false
-  xy: 2, 459
+  xy: 119, 163
   size: 84, 91
   orig: 128, 128
   offset: 21, 21
   index: -1
 lp/Decay
   rotate: false
-  xy: 2, 919
+  xy: 2, 144
   size: 115, 110
   orig: 128, 128
   offset: 7, 11
   index: -1
 lp/Digest
   rotate: false
-  xy: 297, 942
+  xy: 540, 77
   size: 85, 87
   orig: 128, 128
   offset: 21, 21
   index: -1
+lp/Doubt
+  rotate: false
+  xy: 87, 51
+  size: 89, 91
+  orig: 128, 128
+  offset: 21, 16
+  index: -1
 lp/Drargor
   rotate: false
-  xy: 2, 829
+  xy: 448, 75
   size: 90, 88
   orig: 128, 128
   offset: 18, 20
   index: -1
 lp/Endurance
   rotate: false
-  xy: 209, 940
+  xy: 386, 165
   size: 86, 89
   orig: 128, 128
   offset: 21, 20
   index: -1
 lp/ExoticPoison
   rotate: false
-  xy: 2, 23
+  xy: 1150, 171
   size: 86, 83
   orig: 128, 128
   offset: 21, 23
   index: -1
 lp/Foils
   rotate: false
-  xy: 2, 369
+  xy: 474, 166
   size: 83, 88
   orig: 128, 128
   offset: 22, 19
   index: -1
 lp/Fragile
   rotate: false
-  xy: 263, 185
+  xy: 893, 2
   size: 82, 80
   orig: 128, 128
   offset: 23, 24
   index: -1
 lp/Frightened
   rotate: false
-  xy: 88, 413
+  xy: 1058, 8
   size: 85, 74
   orig: 128, 128
   offset: 24, 26
   index: -1
 lp/GremlinLeader
   rotate: false
-  xy: 2, 108
+  xy: 732, 170
   size: 86, 84
   orig: 128, 128
   offset: 20, 20
   index: -1
 lp/Hovering
   rotate: false
-  xy: 94, 832
+  xy: 715, 82
   size: 80, 85
   orig: 128, 128
   offset: 24, 22
   index: -1
 lp/Inhibition
   rotate: false
-  xy: 91, 575
+  xy: 1301, 2
   size: 83, 82
   orig: 128, 128
   offset: 23, 18
   index: -1
+lp/Locked
+  rotate: false
+  xy: 205, 165
+  size: 89, 89
+  orig: 128, 128
+  offset: 19, 20
+  index: -1
 lp/NoAttack
   rotate: false
-  xy: 261, 353
+  xy: 1495, 172
   size: 82, 82
   orig: 128, 128
   offset: 23, 23
   index: -1
 lp/Petrify
   rotate: false
-  xy: 90, 243
+  xy: 1386, 2
   size: 83, 82
   orig: 128, 128
   offset: 23, 23
   index: -1
 lp/Plague
   rotate: false
-  xy: 2, 738
+  xy: 358, 74
   size: 88, 89
   orig: 128, 128
   offset: 20, 20
   index: -1
 lp/Precision
   rotate: false
-  xy: 264, 521
+  xy: 1471, 5
   size: 83, 81
   orig: 128, 128
   offset: 23, 23
   index: -1
 lp/Puzzled
   rotate: false
-  xy: 175, 404
+  xy: 632, 2
   size: 84, 77
   orig: 128, 128
   offset: 23, 23
   index: -1
 lp/Rally
   rotate: false
-  xy: 175, 319
+  xy: 1209, 86
   size: 84, 83
   orig: 128, 128
   offset: 23, 22
   index: -1
+lp/Ravel
+  rotate: false
+  xy: 267, 74
+  size: 89, 89
+  orig: 128, 128
+  offset: 19, 19
+  index: -1
 lp/Recollect
   rotate: false
-  xy: 176, 853
+  xy: 646, 169
   size: 84, 85
   orig: 128, 128
   offset: 21, 20
   index: -1
 lp/Restrained
   rotate: false
-  xy: 90, 158
+  xy: 1238, 171
   size: 84, 83
   orig: 128, 128
   offset: 21, 20
   index: -1
 lp/Retrospect
   rotate: false
-  xy: 90, 73
+  xy: 1295, 86
   size: 84, 83
   orig: 128, 128
   offset: 21, 20
   index: -1
 lp/Saliva
   rotate: false
-  xy: 176, 179
+  xy: 1324, 171
   size: 84, 83
   orig: 128, 128
   offset: 22, 21
   index: -1
 lp/Selfrepair
   rotate: false
-  xy: 2, 646
+  xy: 178, 71
   size: 87, 90
   orig: 128, 128
   offset: 23, 20
   index: -1
 lp/ShadowContact
   rotate: false
-  xy: 2, 281
+  xy: 559, 168
   size: 85, 86
   orig: 128, 128
   offset: 21, 20
   index: -1
 lp/ShelteringEdge
   rotate: false
-  xy: 92, 743
+  xy: 970, 84
   size: 82, 84
   orig: 128, 128
   offset: 23, 22
   index: -1
 lp/ShiftingShadow
   rotate: false
-  xy: 265, 604
+  xy: 991, 170
   size: 82, 84
   orig: 128, 128
   offset: 21, 22
   index: -1
 lp/Silhouette
   rotate: false
-  xy: 176, 552
+  xy: 368, 21
   size: 86, 51
   orig: 128, 128
   offset: 21, 38
   index: -1
 lp/SorceryHour
   rotate: false
-  xy: 88, 489
+  xy: 797, 84
   size: 85, 84
   orig: 128, 128
   offset: 21, 21
   index: -1
 lp/Swelling
   rotate: false
-  xy: 335, 690
+  xy: 906, 170
   size: 83, 84
   orig: 128, 128
   offset: 22, 21
   index: -1
 lp/TimeForm
   rotate: false
-  xy: 337, 776
+  xy: 1579, 173
   size: 81, 81
   orig: 128, 128
   offset: 23, 24
   index: -1
 lp/TimeWarper
   rotate: false
-  xy: 89, 327
+  xy: 884, 84
   size: 84, 84
   orig: 128, 128
   offset: 22, 22
   index: -1
 lp/Topolash
   rotate: false
-  xy: 263, 437
+  xy: 1410, 172
   size: 83, 82
   orig: 128, 128
   offset: 22, 22
   index: -1
 lp/Trap
   rotate: false
-  xy: 175, 483
+  xy: 192, 2
   size: 86, 67
   orig: 128, 128
   offset: 21, 28
   index: -1
 lp/TwistedEddies
   rotate: false
-  xy: 263, 267
+  xy: 1054, 84
   size: 80, 84
   orig: 128, 128
   offset: 24, 22
   index: -1
 lp/UnseenTerror
   rotate: false
-  xy: 176, 94
+  xy: 1381, 86
   size: 84, 83
   orig: 128, 128
   offset: 22, 23
   index: -1
 lp/Weakness
   rotate: false
-  xy: 176, 10
+  xy: 1215, 2
   size: 84, 82
   orig: 128, 128
   offset: 22, 21
   index: -1
 lp/WickedInstincts
   rotate: false
-  xy: 175, 264
+  xy: 280, 19
   size: 86, 53
   orig: 128, 128
   offset: 21, 36
   index: -1
 sp/Agonal
   rotate: false
-  xy: 383, 479
+  xy: 1634, 139
   size: 32, 32
   orig: 48, 48
   offset: 7, 7
   index: -1
 sp/Antiquity
   rotate: false
-  xy: 347, 181
+  xy: 1752, 5
   size: 30, 30
   orig: 48, 48
   offset: 8, 8
   index: -1
 sp/Armolve
   rotate: false
-  xy: 384, 994
+  xy: 85, 13
   size: 34, 35
   orig: 48, 48
   offset: 7, 7
   index: -1
 sp/BladeArtist
   rotate: false
-  xy: 332, 37
+  xy: 1720, 37
   size: 31, 32
   orig: 48, 48
   offset: 9, 7
   index: -1
 sp/BladesInCloak
   rotate: false
-  xy: 332, 71
+  xy: 1556, 19
   size: 28, 33
   orig: 48, 48
   offset: 10, 6
   index: -1
 sp/Bleeding
   rotate: false
-  xy: 379, 178
+  xy: 1586, 19
   size: 28, 33
   orig: 48, 48
   offset: 10, 6
   index: -1
 sp/Bloodsucker
   rotate: false
-  xy: 386, 653
+  xy: 456, 38
   size: 32, 35
   orig: 48, 48
   offset: 8, 6
   index: -1
 sp/Bloodsucking
   rotate: false
-  xy: 383, 447
+  xy: 1727, 72
   size: 32, 30
   orig: 48, 48
   offset: 8, 9
   index: -1
 sp/BurnBlood
   rotate: false
-  xy: 262, 696
+  xy: 597, 42
   size: 33, 33
   orig: 48, 48
   offset: 6, 8
   index: -1
 sp/CurlUp
   rotate: false
-  xy: 384, 586
+  xy: 1720, 223
   size: 34, 31
   orig: 48, 48
   offset: 7, 9
   index: -1
 sp/Curse
   rotate: false
-  xy: 297, 3
+  xy: 1634, 105
   size: 32, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
 sp/DeadEnd
   rotate: false
-  xy: 262, 731
+  xy: 157, 14
   size: 33, 35
   orig: 48, 48
   offset: 7, 7
   index: -1
 sp/Decay
   rotate: false
-  xy: 90, 29
+  xy: 2, 6
   size: 44, 42
   orig: 48, 48
   offset: 2, 4
   index: -1
 sp/Digest
   rotate: false
-  xy: 262, 70
+  xy: 529, 3
   size: 33, 34
   orig: 48, 48
   offset: 7, 7
   index: -1
+sp/Doubt
+  rotate: false
+  xy: 48, 13
+  size: 35, 35
+  orig: 48, 48
+  offset: 7, 6
+  index: -1
 sp/Drargor
   rotate: false
-  xy: 349, 654
+  xy: 456, 2
   size: 35, 34
   orig: 48, 48
   offset: 6, 7
   index: -1
 sp/Endurance
   rotate: false
-  xy: 349, 618
+  xy: 562, 41
   size: 33, 34
   orig: 48, 48
   offset: 8, 7
   index: -1
 sp/ExoticPoison
   rotate: false
-  xy: 384, 619
+  xy: 1588, 55
   size: 34, 32
   orig: 48, 48
   offset: 7, 8
   index: -1
 sp/Foils
   rotate: false
-  xy: 297, 732
+  xy: 564, 5
   size: 32, 34
   orig: 48, 48
   offset: 8, 7
   index: -1
 sp/Fragile
   rotate: false
-  xy: 379, 213
+  xy: 1761, 41
   size: 31, 30
   orig: 48, 48
   offset: 8, 9
   index: -1
 sp/Frightened
   rotate: false
-  xy: 348, 418
+  xy: 1761, 73
   size: 32, 29
   orig: 48, 48
   offset: 9, 9
   index: -1
 sp/GremlinLeader
   rotate: false
-  xy: 349, 549
+  xy: 1180, 15
   size: 33, 32
   orig: 48, 48
   offset: 7, 7
   index: -1
 sp/Hovering
   rotate: false
-  xy: 347, 247
+  xy: 1556, 54
   size: 30, 33
   orig: 48, 48
   offset: 9, 8
   index: -1
 sp/Inhibition
   rotate: false
-  xy: 331, 3
+  xy: 1659, 71
   size: 32, 32
   orig: 48, 48
   offset: 8, 6
   index: -1
+sp/Locked
+  rotate: false
+  xy: 490, 39
+  size: 34, 34
+  orig: 48, 48
+  offset: 7, 7
+  index: -1
 sp/NoAttack
   rotate: false
-  xy: 345, 384
+  xy: 1686, 37
   size: 32, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
 sp/Petrify
   rotate: false
-  xy: 345, 350
+  xy: 1686, 3
   size: 32, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
 sp/Plague
   rotate: false
-  xy: 136, 37
+  xy: 493, 3
   size: 34, 34
   orig: 48, 48
   offset: 7, 7
   index: -1
 sp/Precision
   rotate: false
-  xy: 382, 414
+  xy: 1668, 105
   size: 32, 31
   orig: 48, 48
   offset: 8, 8
   index: -1
 sp/Puzzled
   rotate: false
-  xy: 349, 517
+  xy: 1662, 173
   size: 33, 30
   orig: 48, 48
   offset: 8, 8
   index: -1
 sp/Rally
   rotate: false
-  xy: 297, 37
+  xy: 1616, 21
   size: 33, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
+sp/Ravel
+  rotate: false
+  xy: 526, 39
+  size: 34, 34
+  orig: 48, 48
+  offset: 7, 7
+  index: -1
 sp/Recollect
   rotate: false
-  xy: 349, 583
+  xy: 1145, 49
   size: 33, 33
   orig: 48, 48
   offset: 7, 7
   index: -1
 sp/Restrained
   rotate: false
-  xy: 348, 483
+  xy: 1624, 55
   size: 33, 32
   orig: 48, 48
   offset: 7, 7
   index: -1
 sp/Retrospect
   rotate: false
-  xy: 348, 449
+  xy: 1651, 21
   size: 33, 32
   orig: 48, 48
   offset: 7, 7
   index: -1
 sp/Saliva
   rotate: false
-  xy: 345, 316
+  xy: 1720, 167
   size: 32, 32
   orig: 48, 48
   offset: 8, 7
   index: -1
 sp/Selfrepair
   rotate: false
-  xy: 384, 957
+  xy: 121, 14
   size: 34, 35
   orig: 48, 48
   offset: 8, 7
   index: -1
 sp/ShadowContact
   rotate: false
-  xy: 262, 35
+  xy: 1145, 14
   size: 33, 33
   orig: 48, 48
   offset: 7, 7
   index: -1
 sp/ShelteringEdge
   rotate: false
-  xy: 345, 282
+  xy: 1754, 138
   size: 32, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
 sp/ShiftingShadow
   rotate: false
-  xy: 379, 380
+  xy: 1693, 71
   size: 32, 32
   orig: 48, 48
   offset: 7, 8
   index: -1
 sp/Silhouette
   rotate: false
-  xy: 384, 513
+  xy: 1720, 201
   size: 34, 20
   orig: 48, 48
   offset: 7, 14
   index: -1
 sp/SorceryHour
   rotate: false
-  xy: 297, 71
+  xy: 1180, 49
   size: 33, 33
   orig: 48, 48
   offset: 7, 7
   index: -1
 sp/Swelling
   rotate: false
-  xy: 297, 697
+  xy: 598, 7
   size: 32, 33
   orig: 48, 48
   offset: 8, 7
   index: -1
 sp/TimeForm
   rotate: false
-  xy: 379, 245
+  xy: 1702, 105
   size: 31, 31
   orig: 48, 48
   offset: 8, 9
   index: -1
 sp/TimeWarper
   rotate: false
-  xy: 379, 346
+  xy: 1668, 139
   size: 32, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
 sp/Topolash
   rotate: false
-  xy: 262, 2
+  xy: 1756, 172
   size: 33, 31
   orig: 48, 48
   offset: 7, 8
   index: -1
 sp/Trap
   rotate: false
-  xy: 384, 558
+  xy: 1756, 228
   size: 34, 26
   orig: 48, 48
   offset: 7, 10
   index: -1
 sp/TwistedEddies
   rotate: false
-  xy: 347, 213
+  xy: 1720, 3
   size: 30, 32
   orig: 48, 48
   offset: 9, 8
   index: -1
 sp/UnseenTerror
   rotate: false
-  xy: 379, 312
+  xy: 1662, 222
   size: 32, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
 sp/Weakness
   rotate: false
-  xy: 379, 278
+  xy: 1735, 104
   size: 32, 32
   orig: 48, 48
   offset: 8, 7
   index: -1
 sp/WickedInstincts
   rotate: false
-  xy: 384, 535
+  xy: 1756, 205
   size: 34, 21
   orig: 48, 48
   offset: 7, 13

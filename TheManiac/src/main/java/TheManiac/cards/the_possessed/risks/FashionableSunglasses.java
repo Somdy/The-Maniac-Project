@@ -32,7 +32,7 @@ public class FashionableSunglasses extends AbstractRisksCard {
         this.counter = 0;
         this.chance = 0.01D;
         this.active = false;
-        this.damage = this.baseDamage = 10;
+        this.damage = this.baseDamage = 8;
     }
 
     @Override
@@ -84,6 +84,12 @@ public class FashionableSunglasses extends AbstractRisksCard {
                 }
             }
         }
+    }
+
+    @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeDamage(level);
     }
 
     @Override

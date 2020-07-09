@@ -2,6 +2,7 @@ package TheManiac.cards.the_possessed.shinies;
 
 import TheManiac.TheManiac;
 import TheManiac.actions.ThePossessedAction.GlyphAction;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -19,13 +20,20 @@ public class PrimordialGlyph extends AbstractShiniesCard {
     
     public PrimordialGlyph() {
         super(ID, IMG_PATH, COST, TYPE, TARGET);
-        this.magicNumber = this.baseMagicNumber = 6;
-        this.maniacExtraMagicNumber = this.maniacBaseExtraMagicNumber = 3;
+        this.magicNumber = this.baseMagicNumber = 4;
+        this.maniacExtraMagicNumber = this.maniacBaseExtraMagicNumber = 2;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new GlyphAction(this.magicNumber, this.maniacExtraMagicNumber, false));
+    }
+
+    @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeMagicNumber(level);
+        if (level > 2) upgradeManiacExtraMagicNumber(MathUtils.ceil(level * 0.5F));
     }
 
     @Override

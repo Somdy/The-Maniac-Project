@@ -1,14 +1,17 @@
 package TheManiac.patches;
 
+import TheManiac.TheManiac;
 import TheManiac.neow.ObtainManuscripts;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.RoomEventDialog;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.neow.NeowReward;
+import com.megacrit.cardcrawl.ui.buttons.LargeDialogOptionButton;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 
 import java.lang.reflect.Field;
@@ -38,13 +41,14 @@ public class NeowEventsPatches {
     public static class ManuscriptsBlessingPatch {
         @SpireInsertPatch(rloc = 12, localvars = {"rewards"})
         public static void Insert(NeowEvent _instance, ArrayList<NeowReward> rewards) { 
-            rewards.add(rewards.size(), new ObtainManuscripts()); 
+            rewards.add(rewards.size(), new ObtainManuscripts());
         }
     }
 
     @SpirePatch( clz = NeowEvent.class, method = "blessing" )
     public static class ManuscriptsOptionPatch {
-        @SpireInsertPatch(rloc = 19, localvars = {"rewards"})
+        
+        @SpireInsertPatch(rloc = 18, localvars = {"rewards"})
         public static void Insert(NeowEvent _instance, ArrayList<NeowReward> rewards) {
             _instance.roomEventText.addDialogOption(rewards.get(rewards.size() - 1).optionLabel);
         }

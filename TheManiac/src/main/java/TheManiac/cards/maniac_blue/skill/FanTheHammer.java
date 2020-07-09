@@ -24,7 +24,7 @@ public class FanTheHammer extends AbstractManiacCard {
     
     public FanTheHammer() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 6;
+        this.maniacExtraMagicNumber = this.maniacBaseExtraMagicNumber = 5;
         this.exhaust = true;
         this.isUnreal = true;
         this.isEnchanter = true;
@@ -32,8 +32,9 @@ public class FanTheHammer extends AbstractManiacCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        for (int i = 0; i < this.magicNumber; i++) {
-            AbstractDungeon.actionManager.addToBottom(new PlayTopCardAction((AbstractDungeon.getCurrRoom()).monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), true));
+        for (int i = 0; i < this.maniacExtraMagicNumber; i++) {
+            this.addToBot(new PlayTopCardAction((AbstractDungeon.getCurrRoom()).monsters.getRandomMonster(
+                    null, true, AbstractDungeon.cardRandomRng), true));
         }
     }
 
@@ -46,7 +47,7 @@ public class FanTheHammer extends AbstractManiacCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(2);
+            this.upgradeManiacExtraMagicNumber(1);
             initializeDescription();
         }
     }

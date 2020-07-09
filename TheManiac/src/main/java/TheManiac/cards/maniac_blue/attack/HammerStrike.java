@@ -34,10 +34,10 @@ public class HammerStrike extends AbstractManiacCard {
     public static final CardColor COLOR = TheManiacCharacter.Enums.MANIAC_BLUE;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
-    private static final int COST = 4;
+    private static final int COST = 3;
     private static final int DAMAGE = 30;
-    private static final int powersToApply = 8;
-    private static final int UPGRADED_COST = 3;
+    private static final int powersToApply = 10;
+    private static final int UPGRADED_COST = 2;
     private List<TooltipInfo> tips;
 
     public HammerStrike() {

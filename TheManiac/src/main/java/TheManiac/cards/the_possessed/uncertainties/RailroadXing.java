@@ -23,6 +23,7 @@ public class RailroadXing extends AbstractUncertaintiesCard {
     public RailroadXing() {
         super(ID, IMG_PATH, COST, TYPE, TARGET);
         this.damage = this.baseDamage = 10;
+        this.maniacExtraMagicNumber = this.maniacBaseExtraMagicNumber = 0;
         this.isMultiDamage = true;
     }
 
@@ -41,8 +42,15 @@ public class RailroadXing extends AbstractUncertaintiesCard {
     public void atEndOfTurn(boolean inHand, boolean inDrawPile) {
         if ((inHand || inDrawPile) && AbstractDungeon.actionManager.cardsPlayedThisTurn.size() > 0) {
             int DMG = AbstractDungeon.actionManager.cardsPlayedThisTurn.size();
+            if (this.maniacExtraMagicNumber > 1) DMG += Math.ceil(this.maniacExtraMagicNumber * 0.5);
             this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(DMG, false, false), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_HEAVY, true));
         }
+    }
+
+    @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeManiacExtraMagicNumber(level);
     }
 
     @Override

@@ -2,6 +2,7 @@ package TheManiac.cards.the_possessed.uncertainties;
 
 import TheManiac.TheManiac;
 import TheManiac.cards.the_possessed.shinies.CorruptingMist;
+import TheManiac.relics.PossessedManuscripts;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 
 public class NatureNourish extends AbstractUncertaintiesCard {
@@ -23,19 +25,35 @@ public class NatureNourish extends AbstractUncertaintiesCard {
     
     public NatureNourish() {
         super(ID, IMG_PATH, COST, TYPE, TARGET);
+        this.magicNumber = this.baseMagicNumber = 14;
         this.isUnreal = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new HealAction(p, p, p.maxHealth, 0.05F));
+        this.addToBot(new HealAction(p, p, this.magicNumber, 0.05F));
         
         if (AbstractDungeon.actionManager.cardsPlayedThisCombat.size() >= 2) {
             if (AbstractDungeon.actionManager.cardsPlayedThisCombat.get
                     (AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 2).cardID.equals(CorruptingMist.ID)) {
                 AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new NatureCorrupt(), (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
             }
+
+            if (AbstractDungeon.player.getRelic(PossessedManuscripts.ID) != null) {
+                for (AbstractRelic relic : AbstractDungeon.player.relics) {
+                    if (relic instanceof PossessedManuscripts && !((PossessedManuscripts) relic).activeEffects.get(4)) {
+                        ((PossessedManuscripts) relic).activeEffects.set(4, true);
+                        ((PossessedManuscripts) relic).updateEffectDescription();
+                    }
+                }
+            }
         }
+    }
+
+    @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeMagicNumber(level);
     }
 
     @Override

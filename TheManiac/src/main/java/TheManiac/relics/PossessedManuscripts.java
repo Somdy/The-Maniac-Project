@@ -14,8 +14,7 @@ import TheManiac.cards.the_possessed.uncertainties.BrokenMagnet;
 import TheManiac.cards.the_possessed.uncertainties.Stellarite;
 import TheManiac.cards.the_possessed.uncertainties.TheTerribleSecret;
 import TheManiac.monsters.possessed_enemies.AbstractPossessedMonster;
-import TheManiac.monsters.possessed_enemies.GlorySpectre;
-import TheManiac.monsters.possessed_enemies.UncertaintySpectre;
+import TheManiac.monsters.possessed_enemies.RiskySpectre;
 import TheManiac.rewards.MixesReward;
 import TheManiac.rewards.PossessionsReward;
 import basemod.abstracts.CustomRelic;
@@ -55,6 +54,7 @@ public class PossessedManuscripts extends CustomRelic implements CustomSavable<A
     public boolean sunglassesEffect;
     public boolean witchEffect;
     public boolean lostSoulEffect;
+    public boolean nourishEffect;
     public double fireflyHeal;
     public double sunglassesChance;
     public double witchNum;
@@ -66,6 +66,7 @@ public class PossessedManuscripts extends CustomRelic implements CustomSavable<A
         this.sunglassesEffect = false;
         this.witchEffect = false;
         this.lostSoulEffect = false;
+        this.nourishEffect = false;
         this.fireflyHeal = 0D;
         this.sunglassesChance = 0D;
         this.witchNum = 0D;
@@ -81,6 +82,7 @@ public class PossessedManuscripts extends CustomRelic implements CustomSavable<A
         this.activeEffects.add(1, sunglassesEffect);
         this.activeEffects.add(2, witchEffect);
         this.activeEffects.add(3, lostSoulEffect);
+        this.activeEffects.add(4, nourishEffect);
         
         for (int i = 0; i < this.activeEffects.size(); i++) {
             this.activeEffects.set(i, false);
@@ -192,7 +194,7 @@ public class PossessedManuscripts extends CustomRelic implements CustomSavable<A
     }
     
     public void summonSpectres(float x, float y) {
-        UncertaintySpectre spectre = new UncertaintySpectre(68, 70, 4, AbstractDungeon.floorNum + 4, x, y);
+        RiskySpectre spectre = new RiskySpectre(68, 70, 4, AbstractDungeon.floorNum + 4, x, y);
         spectre.init();
         spectre.applyPowers();
         spectre.showHealthBar();
@@ -312,6 +314,9 @@ public class PossessedManuscripts extends CustomRelic implements CustomSavable<A
         }
         if (this.activeEffects.get(3) || lostSoulEffect) {
             this.INFO += DESCRIPTIONS[6] + this.activeAmounts.get(3).intValue() + DESCRIPTIONS[7];
+        }
+        if (this.activeEffects.get(4) || nourishEffect) {
+            this.INFO += DESCRIPTIONS[8];
         }
         
         this.tips.clear();

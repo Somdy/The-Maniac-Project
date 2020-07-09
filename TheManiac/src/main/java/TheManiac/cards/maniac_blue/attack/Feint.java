@@ -1,6 +1,7 @@
 package TheManiac.cards.maniac_blue.attack;
 
 import TheManiac.actions.FeintAction;
+import TheManiac.actions.ManiacTalkAction;
 import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.character.TheManiacCharacter;
 import TheManiac.powers.WeaknessPower;
@@ -49,7 +50,7 @@ public class Feint extends AbstractManiacCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new TalkAction(true, TheManiacCharacter.charStrings.TEXT[5], 1.0f, 1.5f));
+        this.addToBot(new ManiacTalkAction(TheManiacCharacter.charStrings.TEXT[5], 1.0F, 1.5F));
         this.addToBot(new FeintAction(p, this.damage, 1, m));
         
         if (enchanted) {

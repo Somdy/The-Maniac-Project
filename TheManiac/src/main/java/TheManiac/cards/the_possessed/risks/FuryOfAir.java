@@ -26,12 +26,11 @@ public class FuryOfAir extends AbstractRisksCard {
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final int COST = 1;
-    private static final TooltipInfo INFO = new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]);
     
     public FuryOfAir() {
-        super(ID, IMG_PATH, COST, TYPE, TARGET, INFO);
-        this.damage = this.baseDamage = 10;
-        this.magicNumber = this.baseMagicNumber = 6;
+        super(ID, IMG_PATH, COST, TYPE, TARGET);
+        this.damage = this.baseDamage = 6;
+        this.magicNumber = this.baseMagicNumber = 4;
     }
 
     @Override
@@ -54,6 +53,13 @@ public class FuryOfAir extends AbstractRisksCard {
     public void triggerOnCardPlayed(AbstractCard card, AbstractCreature target, boolean inHand, boolean inDrawPile) {
         if (target instanceof AbstractMonster && inDrawPile && isThrilled)
             thrill(AbstractDungeon.player, (AbstractMonster) target, false);
+    }
+
+    @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeDamage(level);
+        upgradeMagicNumber(level);
     }
 
     @Override

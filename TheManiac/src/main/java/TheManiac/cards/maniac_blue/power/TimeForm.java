@@ -1,5 +1,6 @@
 package TheManiac.cards.maniac_blue.power;
 
+import TheManiac.actions.ManiacTalkAction;
 import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.character.TheManiacCharacter;
 import TheManiac.powers.TimeFormPower;
@@ -35,9 +36,9 @@ public class TimeForm extends AbstractManiacCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!p.hasPower("maniac:TimeFormPower")) {
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, TheManiacCharacter.charStrings.TEXT[4], 1.0f, 2.0f));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TimeFormPower(this.magicNumber, this.magicNumber)));
+        if (!p.hasPower(TimeFormPower.POWER_ID)) {
+            this.addToBot(new ManiacTalkAction(TheManiacCharacter.charStrings.TEXT[4], 1.0F, 2.0F));
+            this.addToBot(new ApplyPowerAction(p, p, new TimeFormPower(this.magicNumber, this.magicNumber)));
         }
     }
 

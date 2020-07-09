@@ -64,6 +64,13 @@ public abstract class AbstractRisksCard extends ManiacRisksCard {
     }
 
     public abstract void thrill(AbstractPlayer p, AbstractMonster m, boolean onUse);
+    
+    public void becomeThrill() {
+        if (!isThrilled) {
+            isThrilled = true;
+            this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]));
+        }
+    }
 
     @Override
     public void onObtain() {
@@ -73,8 +80,6 @@ public abstract class AbstractRisksCard extends ManiacRisksCard {
 
     @Override
     public List<TooltipInfo> getCustomTooltips() {
-        if (isThrilled)
-            this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]));
         return this.tips;
     }
 

@@ -1,5 +1,6 @@
 package TheManiac.patches;
 
+import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.cards.the_possessed.ManiacRisksCard;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
@@ -43,20 +44,20 @@ public class DamageModifierCardPatch {
         @SpireInsertPatch( rloc = 36, localvars = {"damageAmount"})
         public static void InsertAttacked(AbstractPlayer _instance, DamageInfo info, @ByRef int[] damageAmount) {
             for (AbstractCard card : AbstractDungeon.player.hand.group) {
-                if (card instanceof ManiacRisksCard) {
-                    damageAmount[0] = ((ManiacRisksCard) card).onAttackedToModifyDamage(info, damageAmount[0], true);
+                if (card instanceof AbstractManiacCard) {
+                    damageAmount[0] = ((AbstractManiacCard) card).onAttackedToModifyDamage(info, damageAmount[0], true);
                 }
             }
 
             for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
-                if (card instanceof ManiacRisksCard) {
-                    damageAmount[0] = ((ManiacRisksCard) card).onAttackedToModifyDamage(info, damageAmount[0], false);
+                if (card instanceof AbstractManiacCard) {
+                    damageAmount[0] = ((AbstractManiacCard) card).onAttackedToModifyDamage(info, damageAmount[0], false);
                 }
             }
 
             for (AbstractCard card : AbstractDungeon.player.discardPile.group) {
-                if (card instanceof ManiacRisksCard) {
-                    damageAmount[0] = ((ManiacRisksCard) card).onAttackedToModifyDamage(info, damageAmount[0], false);
+                if (card instanceof AbstractManiacCard) {
+                    damageAmount[0] = ((AbstractManiacCard) card).onAttackedToModifyDamage(info, damageAmount[0], false);
                 }
             }
         }

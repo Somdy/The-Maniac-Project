@@ -4,7 +4,9 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class MakerPen extends AbstractManiacRelic {
@@ -18,11 +20,6 @@ public class MakerPen extends AbstractManiacRelic {
     }
 
     @Override
-    public void onRightClick(AbstractCreature source, AbstractCreature target) {
-        this.addToBot(new DamageAction(target, new DamageInfo(source, 10, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-    }
-
-    @Override
     public String getUpdatedDescription() {
         return DESCRIPTIONS[0];
     }
@@ -30,5 +27,12 @@ public class MakerPen extends AbstractManiacRelic {
     @Override
     public AbstractRelic makeCopy() {
         return new MakerPen();
+    }
+
+    @Override
+    public void receivePostTargeted(AbstractCreature source, AbstractCreature target) {
+        this.addToBot(new DamageAction(target, new DamageInfo(source, 10, DamageInfo.DamageType.THORNS),
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        this.canUse = false;
     }
 }

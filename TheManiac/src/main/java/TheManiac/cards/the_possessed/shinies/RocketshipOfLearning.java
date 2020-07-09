@@ -52,6 +52,12 @@ public class RocketshipOfLearning extends AbstractShiniesCard {
     }
 
     @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeDamage(level);
+    }
+
+    @Override
     public void triggerOnGlowCheck() {
         if (busInHand()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();

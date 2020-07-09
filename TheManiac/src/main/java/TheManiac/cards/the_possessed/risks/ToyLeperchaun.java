@@ -25,7 +25,7 @@ public class ToyLeperchaun extends AbstractRisksCard {
     
     public ToyLeperchaun() {
         super(ID, IMG_PATH, COST, TYPE, TARGET, INFO);
-        this.magicNumber = this.baseMagicNumber = 5;
+        this.magicNumber = this.baseMagicNumber = 6;
     }
 
     @Override
@@ -48,7 +48,13 @@ public class ToyLeperchaun extends AbstractRisksCard {
     @Override
     public void triggerWhenDrawn() {
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, 
-                new PlaguePower(AbstractDungeon.player, AbstractDungeon.player, this.magicNumber), this.magicNumber));
+                new PlaguePower(AbstractDungeon.player, AbstractDungeon.player, this.magicNumber / 2), this.magicNumber / 2));
+    }
+
+    @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeMagicNumber(level);
     }
 
     @Override

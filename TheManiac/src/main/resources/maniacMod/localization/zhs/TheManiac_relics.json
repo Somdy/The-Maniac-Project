@@ -46,6 +46,7 @@
             " 张牌。",
             " NL #r冤魂 ：你已囚禁 #b",
             " 个 #r冤魂 。",
+            " NL #p腐败甘露 ：你污染了 #p甘露 。",
             ""
         ]
     },
@@ -70,7 +71,7 @@
         "NAME": "真视之眼",
         "FLAVOR": "它一直在看着我们看不见的地方。",
         "DESCRIPTIONS": [
-            "允许你 #ymaniac:侦测 或者 #ymaniac:闪回 #ymaniac:虚幻 的牌。"
+            "允许你 #ymaniac:侦测 或者 #ymaniac:闪回 具有 #ymaniac:虚幻 的牌。"
         ]
     },
 
@@ -79,6 +80,23 @@
         "FLAVOR": "即使是深思也无法弄明白这东西的工作原理。",
         "DESCRIPTIONS": [
             "你不会再 #ymaniac:侦测 到 #r诅咒 或是 #y状态 牌。"
+        ]
+    },
+
+    "maniac:EnigmaticDecoder": {
+        "NAME": "神秘解码器",
+        "FLAVOR": "虽然神秘解码器在标准测试中表现平平，但目标的战斗路径越不规则，该编码器预测算法的准确度似乎就越高。",
+        "DESCRIPTIONS": [
+            "#ymaniac:限定 ， #ymaniac:激活 ：给予一名敌人 #b1 层 #ymaniac:锁定 。"
+        ]
+    },
+
+    "maniac:EnigmaticEncoder": {
+        "NAME": "神秘编码器",
+        "FLAVOR": "神秘编码器在将战斗路径数据返回舰队指挥中心前，会根据某种未知的法则对数据进行加密。",
+        "DESCRIPTIONS": [
+            "#y限定 ， #y激活 ：获得 #b",
+            " 点 #y格挡 。每场战斗的前三次使用将会使获得的格挡值增加 #b2 点。"
         ]
     }
 }

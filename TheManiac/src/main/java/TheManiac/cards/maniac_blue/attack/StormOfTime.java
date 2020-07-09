@@ -30,11 +30,16 @@ public class StormOfTime extends AbstractManiacCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = baseDmg;
         this.magicNumber = this.baseMagicNumber = powers;
+        
+        this.isMultiDamage = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new TimeStormAction(this.magicNumber, this.damage));
+        int times = AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 1;
+        for (int i = 0; i < this.multiDamage.length; i++)
+            this.multiDamage[i] *= times;
+        this.addToBot(new TimeStormAction(this.magicNumber, this.multiDamage));
     }
 
     @Override

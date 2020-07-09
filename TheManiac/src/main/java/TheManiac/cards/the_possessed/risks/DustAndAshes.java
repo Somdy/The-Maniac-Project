@@ -25,11 +25,10 @@ public class DustAndAshes extends AbstractRisksCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final int COST = 0;
-    private static final TooltipInfo INFO = new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]);
     private int leastCards;
     
     public DustAndAshes() {
-        super(ID, IMG_PATH, COST, TYPE, TARGET, INFO);
+        super(ID, IMG_PATH, COST, TYPE, TARGET);
         this.combatCounter = 0;
         this.counter = 0;
         leastCards = 0;

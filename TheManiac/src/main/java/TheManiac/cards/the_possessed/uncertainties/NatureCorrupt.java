@@ -21,7 +21,7 @@ public class NatureCorrupt extends AbstractUncertaintiesCard {
     
     public NatureCorrupt() {
         super(ID, IMG_PATH, COST, TYPE, TARGET);
-        this.magicNumber = this.baseMagicNumber = 6;
+        this.magicNumber = this.baseMagicNumber = 4;
     }
 
     @Override
@@ -37,6 +37,13 @@ public class NatureCorrupt extends AbstractUncertaintiesCard {
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         return false;
+    }
+
+    @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeMagicNumber(level / 2);
+        initializeDescription();
     }
 
     @Override

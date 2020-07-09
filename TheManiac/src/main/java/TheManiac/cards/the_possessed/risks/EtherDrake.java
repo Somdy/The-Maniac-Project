@@ -4,6 +4,7 @@ import TheManiac.TheManiac;
 import TheManiac.actions.ThePossessedAction.RiskUniversalThrillActions;
 import TheManiac.powers.DrargorPower;
 import TheManiac.vfx.EtherDrakeFireEffect;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -29,8 +30,8 @@ public class EtherDrake extends AbstractRisksCard {
     
     public EtherDrake() {
         super(ID, IMG_PATH, COST, TYPE, TARGET);
-        this.magicNumber = this.baseMagicNumber = 4;
-        this.damage = this.baseDamage = 20;
+        this.magicNumber = this.baseMagicNumber = 2;
+        this.damage = this.baseDamage = 14;
         this.isMultiDamage = true;
     }
 
@@ -38,7 +39,7 @@ public class EtherDrake extends AbstractRisksCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         super.use(p, m);
         this.addToBot(new VFXAction(new EtherDrakeFireEffect(), 0.25F));
-        this.addToBot(new DamageAction(p, new DamageInfo(p,this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.FIRE, true));
+        this.addToBot(new DamageAction(p, new DamageInfo(p,this.baseDamage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE, true));
         this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
         this.addToBot(new ApplyPowerAction(p, p, new DrargorPower(p, this.magicNumber), this.magicNumber));
     }
@@ -55,6 +56,13 @@ public class EtherDrake extends AbstractRisksCard {
     public void onMonsterDeath(AbstractMonster m, boolean inHand, boolean inDrawPile) {
         if ((inHand || inDrawPile) && isThrilled)
             thrill(AbstractDungeon.player, AbstractDungeon.getMonsters().getRandomMonster(true), false);
+    }
+
+    @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeDamage(MathUtils.ceil(level * 1.25F));
+        upgradeMagicNumber(MathUtils.ceil(level * 0.5F));
     }
 
     @Override

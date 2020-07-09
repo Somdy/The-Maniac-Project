@@ -536,5 +536,33 @@
             "At the start of the turn, gain #b",
             " #yblock and then reduce this by #b1"
         ]
+    },
+
+    "maniac:LockedPower": {
+        "NAME": "Locked",
+        "DESCRIPTIONS": [
+            "Receive #b",
+            "% more unblocked #yAttack damage."
+        ]
+    },
+
+    "maniac:RavelPower": {
+        "NAME": "Unravel the ",
+        "DESCRIPTIONS": [
+            "At the start of your turn, play #b",
+            " copy of #y",
+            " copies of #y",
+            " at random targets if allowed",
+            " and remove this."
+        ]
+    },
+
+    "maniac:PerceptionPower": {
+        "NAME": "Perception",
+        "DESCRIPTIONS": [
+            "At the end of your turn, if you haven't #pUnravelled any card, shuffle #b",
+            " #yUnravel into your discard pile.",
+            " #yUnravel+ into your discard pile."
+        ]
     }
 }

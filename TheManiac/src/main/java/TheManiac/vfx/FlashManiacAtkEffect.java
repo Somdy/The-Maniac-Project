@@ -93,7 +93,6 @@ public class FlashManiacAtkEffect extends AbstractGameEffect {
             sb.setColor(this.color);
             sb.draw(this.img, this.x, this.y, (float)this.img.packedWidth / 2.0F, (float)this.img.packedHeight / 2.0F, 
                     (float)this.img.packedWidth, (float)this.img.packedHeight, this.scale, this.scale, this.rotation);
-            logger.info("Succeeded in updating " + this.effect + " attack effects!");
         }
     }
 

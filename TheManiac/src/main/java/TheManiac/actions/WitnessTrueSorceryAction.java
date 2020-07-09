@@ -42,7 +42,6 @@ public class WitnessTrueSorceryAction extends AbstractGameAction {
 
         if (this.duration == Settings.ACTION_DUR_FAST) {
             AbstractDungeon.cardRewardScreen.customCombatOpen(generateCards, CardRewardScreen.TEXT[1], this.cardType != null);
-            this.tickDuration();
         }
         else {
             if (!this.retrieveCard) {
@@ -92,21 +91,19 @@ public class WitnessTrueSorceryAction extends AbstractGameAction {
                 this.retrieveCard = true;
             }
 
-            this.tickDuration();
         }
+        this.tickDuration();
     }
 
-    private ArrayList gnrColorlessCardsChoices() {
-        ArrayList choice = new ArrayList();
+    private ArrayList<AbstractCard> gnrColorlessCardsChoices() {
+        ArrayList<AbstractCard> choice = new ArrayList<>();
 
         while (choice.size() != this.numCards) {
             boolean dupe = false;
             AbstractCard tmpCard = AbstractDungeon.returnTrulyRandomColorlessCardInCombat();
-            Iterator var1 = choice.iterator();
 
-            while (var1.hasNext()) {
-                AbstractCard card = (AbstractCard)var1.next();
-                if (card.cardID.equals(tmpCard.cardID)) {
+            for (AbstractCard c : choice) {
+                if (c.cardID.equals(tmpCard.cardID)) {
                     dupe = true;
                     break;
                 }
@@ -120,8 +117,8 @@ public class WitnessTrueSorceryAction extends AbstractGameAction {
         return choice;
     }
 
-    private ArrayList gnrCardsChoices(AbstractCard.CardType cardType) {
-        ArrayList choice = new ArrayList();
+    private ArrayList<AbstractCard> gnrCardsChoices(AbstractCard.CardType cardType) {
+        ArrayList<AbstractCard> choice = new ArrayList<>();
 
         while(choice.size() != this.numCards) {
             boolean dupe = false;
@@ -132,10 +129,7 @@ public class WitnessTrueSorceryAction extends AbstractGameAction {
                 tmpCard = AbstractDungeon.returnTrulyRandomCardInCombat(cardType);
             }
 
-            Iterator var2 = choice.iterator();
-
-            while(var2.hasNext()) {
-                AbstractCard c = (AbstractCard)var2.next();
+            for (AbstractCard c : choice) {
                 if (c.cardID.equals(tmpCard.cardID)) {
                     dupe = true;
                     break;

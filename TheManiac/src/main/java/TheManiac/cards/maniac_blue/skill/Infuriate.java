@@ -1,6 +1,7 @@
 package TheManiac.cards.maniac_blue.skill;
 
 import TheManiac.TheManiac;
+import TheManiac.actions.ManiacTalkAction;
 import TheManiac.cards.maniac_blue.AbstractManiacCard;
 import TheManiac.character.TheManiacCharacter;
 import TheManiac.stances.LimboStance;
@@ -52,12 +53,12 @@ public class Infuriate extends AbstractManiacCard {
             this.magicNumber += 1;
         }
         logger.info("Infuriate current strengths to apply: " + this.magicNumber);
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("MONSTER_CHAMP_CHARGE"));
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(true, TheManiacCharacter.charStrings.TEXT[6], 1.0f, 2.0f));
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new InflameEffect(p), 0.25F));
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new InflameEffect(p), 0.25F));
+        this.addToBot(new SFXAction("MONSTER_CHAMP_CHARGE"));
+        this.addToBot(new ManiacTalkAction(TheManiacCharacter.charStrings.TEXT[6], 1.0F, 2.0F));
+        this.addToBot(new VFXAction(p, new InflameEffect(p), 0.25F));
+        this.addToBot(new VFXAction(p, new InflameEffect(p), 0.25F));
         for (int i = 0; i < totalStr; i++) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
+            this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
         }
     }
 

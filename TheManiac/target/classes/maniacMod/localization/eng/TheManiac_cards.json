@@ -26,13 +26,11 @@
 
     "maniac:BurnBlood": {
         "NAME": "Burn Blood",
-        "DESCRIPTION": "Lose !M! HP. NL Next card you play this turn costs 0.",
-        "UPGRADE_DESCRIPTION": "Next card you play this turn costs 0.",
+        "DESCRIPTION": "Lose !M! HP. NL Next card you play this turn costs 0. NL Exhaust.",
+        "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Next card you play this turn costs 0. NL Exhaust. maniac:Shroud.",
         "EXTENDED_DESCRIPTION": [
-            " NL *Twisted: !Enchants!",
-            " NL *Warped: !Enchants!",
-            "Enchantments:",
-            "Twisted: Heal X HP. NL Warped: Gain extra free-to-play effects with losing X HP."
+            "maniac:Shrouded: Remove all blocks from an enemy and deal !D! damage to it. Deal damage to ALL other enemies equal to the unblocked damage. NL Exhaust.",
+            "Shatter"
         ]
     },
 
@@ -153,8 +151,8 @@
 
     "maniac:Refine": {
         "NAME": "Refine",
-        "DESCRIPTION": "maniac:Enchant a card in your hand this combat. NL maniac:Unreal.",
-        "UPGRADE_DESCRIPTION": "maniac:Enchant two cards in your hand this combat. NL maniac:Unreal."
+        "DESCRIPTION": "maniac:Enchant !M! card in your hand this combat. NL maniac:Unreal.",
+        "UPGRADE_DESCRIPTION": "maniac:Enchant !M! cards in your hand this combat. NL maniac:Unreal."
     },
 
     "maniac:BladeShoot": {
@@ -286,6 +284,15 @@
         ]
     },
 
+    "maniac:Lacerate": {
+        "NAME": "Lacerate",
+        "DESCRIPTION": "Remove a random card in exhaust pile and deal !D! damage to a random enemy. Repeat this if exhaust pile isn't empty. NL maniac:Shroud.",
+        "EXTENDED_DESCRIPTION": [
+            "maniac:Shrouded: When you draw this card, apply !M! maniac:Bleeding to ALL enemies. Deal !D! damage and apply !ExtraNumber! maniac:Weakness.",
+            "Dissever"
+        ]
+    },
+
     "maniac:Whirlscythe": {
         "NAME": "Whirlscythe",
         "DESCRIPTION": "Random enemies lose 2X HP X times. NL maniac:Limbo: Enemies lose HP once more for each Strength you have.",
@@ -360,13 +367,12 @@
 
     "maniac:SecretBackups": {
         "NAME": "Secret Backups",
-        "DESCRIPTION": "Unplayable. NL When maniac:detected, draw !M! cards and gain [E]",
+        "DESCRIPTION": "Unplayable. NL When you draw this card, draw !M! card. NL maniac:Shroud.",
+        "UPGRADE_DESCRIPTION": "Unplayable. maniac:Shroud. NL When you draw this card, draw !M! card and gain [E]. NL maniac:Shroud.",
         "EXTENDED_DESCRIPTION": [
             "I can't play this card.",
-            " NL *Healer: !Enchants!",
-            " NL *Survivor: !Enchants!",
-            "Enchantments:",
-            "Healer: Heal X HP when detected. NL Survivor: Apply X Weak to a random enemy when exhausted."
+            "Unplayable. maniac:Shrouded: While in hand, gain !ExtraNumber! maniac:Foils whenever you draw an Attack that costs 1 or more.",
+            "Emergency Protection"
         ]
     },
 
@@ -439,8 +445,8 @@
 
     "maniac:Hasten": {
         "NAME": "Hasten",
-        "DESCRIPTION": "Discard a card. Gain [E] equal to its costs. NL maniac:Limbo: Draw a card.",
-        "UPGRADE_DESCRIPTION": "Discard a card. Gain [E] double to its costs. NL maniac:Limbo: Draw a cards.",
+        "DESCRIPTION": "Discard a card. Gain [E] equal to its costs. NL maniac:Limbo: Draw !M! card.",
+        "UPGRADE_DESCRIPTION": "Discard a card. Gain [E] equal to its costs. NL maniac:Limbo: Draw !M! cards.",
         "EXTENDED_DESCRIPTION": [
             " NL *Flames: !Enchants!",
             " NL *Lightning: !Enchants!",
@@ -535,7 +541,7 @@
 
     "maniac:FanTheHammer": {
         "NAME": "Fan the Hammer",
-        "DESCRIPTION": "Play top !M! cards in your draw pile and exhaust them. NL Exhaust. maniac:Unreal."
+        "DESCRIPTION": "Play top !ExtraNumber! cards in your draw pile and exhaust them. NL Exhaust. maniac:Unreal."
     },
 
     "maniac:Traceback": {
@@ -592,7 +598,7 @@
 
     "maniac:SpectralFlash": {
         "NAME": "Spectral Flash",
-        "DESCRIPTION": "Deal !D! damage. Shuffle a *Spectral *Flash that deals !M! additional damage into your draw pile. NL maniac:Limbo: Draw a card.",
+        "DESCRIPTION": "Deal !D! damage. Shuffle a *Spectral *Flash that deals !M! additional damage into your discard pile. NL maniac:Limbo: Draw a card.",
         "EXTENDED_DESCRIPTION": [
             " NL *Spooky: !Enchants!",
             " NL *Terror: !Enchants!",
@@ -629,6 +635,15 @@
             " NL *Endurance: !Enchants!",
             "Enchantments:",
             "Death: Enter Limbo, gain X Strength and lose X Dexterity. NL Reckless: Apply X Weakness and gain X Bleeding: NL Endurance: Exit Limbo and gain X Plated Armor."
+        ]
+    },
+
+    "maniac:Assassinate": {
+        "NAME": "Assassinate",
+        "DESCRIPTION": "Ethereal. NL Random enemy takes damage equal to half of its max HP. maniac:Limbo: Target loses !M! Strength if it's still alive. NL maniac:Shroud.",
+        "EXTENDED_DESCRIPTION": [
+            "Unplayable. NL maniac:Shrouded: Take 35% less attack damage from enemies. When you draw this card, random enemy gains !M! Strength.",
+            "Conceal"
         ]
     },
 
@@ -670,7 +685,11 @@
 
     "maniac:TorturousScreams": {
         "NAME": "Torturous Screams",
-        "DESCRIPTION": "Deal !D! damage to ALL enemies. Shuffle a *Torture into your draw pile. NL maniac:Limbo: Shuffle that *Torture into your discard pile rather than draw pile."
+        "DESCRIPTION": "Remove all cards with maniac:Shroud in exhaust pile. Each deals !D! to ALL enemies. NL Exhaust. maniac:Shroud.",
+        "EXTENDED_DESCRIPTION": [
+            "maniac:Shrouded: Exhaust all maniac:Shrouded cards in hand, draw pile and discard pile. Each deals !D! damage to a random enemy. NL Exhaust.",
+            "Shroud Scythes"
+        ]
     },
 
     "maniac:Collecting": {
@@ -682,6 +701,16 @@
         "NAME": "Wicked Instincts",
         "DESCRIPTION": "Ethereal. NL At the start of your turn, if the top card of your draw pile is an Attack, play it. If it is a Skill, draw a card.",
         "UPGRADE_DESCRIPTION": "At the start of your turn, if the top card of your draw pile is an Attack, play it. If it is a Skill, draw a card."
+    },
+
+    "maniac:UniversalPerception": {
+        "NAME": "Universal Perception",
+        "DESCRIPTION": "Ethereal. NL At the end of each turn, shuffle 1 *Unravel into your discard pile if you haven't unravelled any card. NL maniac:Shroud.",
+        "UPGRADE_DESCRIPTION": "Ethereal. NL At the end of each turn, shuffle 1 *Unravel+ into your discard pile if you haven't unravelled any card. NL maniac:Shroud.",
+        "EXTENDED_DESCRIPTION": [
+            "maniac:Shrouded: While in hand, unable to play this card or any card that is the same cost as this.",
+            "Ravelled"
+        ]
     },
 
     "maniac:TwistedEddies": {
@@ -775,6 +804,12 @@
             "Deal !D! damage to ALL enemies ",
             " times. NL Exhaust."
         ]
+    },
+
+    "maniac:Unravel": {
+        "NAME": "Unravel",
+        "DESCRIPTION": "Exhaust a card. NL At the start of each turn, play a copy of the exhausted card if possible. NL Exhaust.",
+        "UPGRADE_DESCRIPTION": "Exhaust a card. NL At the start of each turn, play a copy of the exhausted card if possible. NL Exhaust."
     },
 
     "maniac:DeusExMe": {
@@ -928,21 +963,21 @@
         "NAME": "Toy Exterminator",
         "DESCRIPTION": "Retain. NL Exhaust ALL that cost 1 or more in hand. Deal damage double to the sum of their costs.",
         "EXTENDED_DESCRIPTION": [
-            "Gifts:",
-            "One of four gifts to your best friend. It exterminates almost all kinds of bugs."
+            "Toy Exterminator:",
+            "It exterminates almost all kinds of bugs except the fireflies."
         ]
     },
 
     "maniac:Scavenger": {
         "NAME": "Scavenger Bot",
-        "DESCRIPTION": "maniac:Track your discard pile."
+        "DESCRIPTION": "maniac:Track !M! cards your discard pile."
     },
 
     "maniac:CreationScience": {
         "NAME": "Creation Science",
         "DESCRIPTION": "Shuffle a 0-cost copy of each *Glory in your deck into your draw pile.",
         "EXTENDED_DESCRIPTION": [
-            "Book Club:",
+            "Creation Science:",
             "Nonbelievers were pushed off the edge of the world...unless the ones who believe in dark magics."
         ]
     },
@@ -951,7 +986,7 @@
         "NAME": "Jar of Fireflies",
         "DESCRIPTION": "Heal 1 HP whenever you play a Skill that costs 2 or more for the rest of the run.",
         "EXTENDED_DESCRIPTION": [
-            "Gift:",
+            "Jar of Fireflies:",
             "Break this jar to let the fireflies fly away!"
         ]
     },
@@ -967,8 +1002,8 @@
         "NAME": "Corrupting Mist",
         "DESCRIPTION": "ALL enemies gain !M! maniac:Decay.",
         "EXTENDED_DESCRIPTION": [
-            "Corrupt:",
-            "Will this ever corrupt the water source as well?"
+            "Corrupt Mist:",
+            "Not recommended to poison from water system."
         ]
     },
 
@@ -985,6 +1020,21 @@
         "EXTENDED_DESCRIPTION": [
         ]
     },
+
+    "maniac:PebbleInTheSky": {
+        "NAME": "Pebble in the Sky",
+        "DESCRIPTION": "Deal !D! damage to ALL enemies. NL ",
+        "EXTENDED_DESCRIPTION": [
+            "Whenever this is drawn, gains a bonus effect.",
+            "Gain !M! Strength and Dexterity.",
+            "Gain !B! Block and !M! *Plated *Armor.",
+            "Gain !B! Block and apply !M! maniac:Fragile to ALL enemies.",
+            "Draw two additional cards and gain [E] [E] next turn.",
+            "Gain an Intangible.",
+            "Exhaust up to !M! cards in hand and draw that many cards.",
+            ""
+        ]
+    },
     
 
     "maniac:UncertaintiesCard": {
@@ -996,8 +1046,6 @@
         "NAME": "Mystery Seasoning",
         "DESCRIPTION": "Apply !M! maniac:Plague to ALL enemies X times where X is the times this card has been played in this combat.",
         "EXTENDED_DESCRIPTION": [
-            "Introduction:",
-            "Season the hors d'oeuvres at your next three masked balls."
         ]
     },
 
@@ -1015,8 +1063,8 @@
         "NAME": "The Terrible Secret",
         "DESCRIPTION": "Apply a random debuff at 2 amounts to ALL enemies X times where X is the number of enemies in combat.",
         "EXTENDED_DESCRIPTION": [
-            "Book Club:",
-            "The smoldering first book of a terrible trilogy that includes a terrible secret about Artifact!"
+            "The Terrible Secret:",
+            "The first book of a terrible trilogy that includes a terrible secret about Artifact!"
         ]
     },
 
@@ -1024,8 +1072,6 @@
         "NAME": "Gateway",
         "DESCRIPTION": "Add a 0-cost temp copy of a random card in your deck to your hand for each card you play in the rest of the turn.",
         "EXTENDED_DESCRIPTION": [
-            "Hint:",
-            "What lies behind the gateway is unknown but could well be hostile to you - remember not to discover too much."
         ]
     },
 
@@ -1033,7 +1079,7 @@
         "NAME": "Broken Magnet",
         "DESCRIPTION": "Add a 0-cost copy of a random card to your hand. If it's not Curse, upgrade it.",
         "EXTENDED_DESCRIPTION": [
-            "Gifts:",
+            "Broken Magnet:",
             "Surprisingly, this magnet attracts glass."
         ]
     },
@@ -1049,7 +1095,7 @@
         "NAME": "Stellarite",
         "DESCRIPTION": "Unplayable. NL Start each combat with !M! Strength and Dexterity. NL Your Attacks exhaust when played if this is in hand.",
         "EXTENDED_DESCRIPTION": [
-            "Leviathans:",
+            "Stellarite:",
             "It should stand the hottest breath from the old drakes."
         ]
     },
@@ -1070,10 +1116,45 @@
 
     "maniac:ShadowVisions": {
         "NAME": "Shadow Visions",
-        "DESCRIPTION": "maniac:Track your draw pile.",
+        "DESCRIPTION": "maniac:Track !M! cards in your draw pile.",
         "EXTENDED_DESCRIPTION": [
-            "Hint:",
-            "They could hide everything in the darkness if you gather too many shadows."
+            "Shadow Visions:",
+            "None can see through the shadows by Shadow Visions, especially those brought by the Visions."
+        ]
+    },
+
+    "maniac:EnigmaticFortress": {
+        "NAME": "Enigmatic Fortress",
+        "DESCRIPTION": "Explore *Enigmatic *Fortress and claim your reward.",
+        "EXTENDED_DESCRIPTION": [
+        ]
+    },
+
+    "maniac:FortressExpedition": {
+        "NAME": "Fortress Expedition",
+        "DESCRIPTION": "Explore *Enigmatic *Fortress and claim your reward.",
+        "EXTENDED_DESCRIPTION": [
+            "Rearrange the metal tori on the poles.",
+            "Search for torus-shaped indentations on the bulkhead.",
+            "Remove center and rightmost poles from the pedestal.",
+            "End the expedition."
+        ]
+    },
+
+    "maniac:FortressExpedition2": {
+        "NAME": "Fortress Expedition",
+        "DESCRIPTION": "Explore *Enigmatic *Fortress and claim your reward.",
+        "EXTENDED_DESCRIPTION": [
+            "Supply Dark Matter.",
+            "Use Force.",
+            "End the expedition."
+        ]
+    },
+
+    "maniac:DarkMatter": {
+        "NAME": "Dark Matter",
+        "DESCRIPTION": "If you have exhausted all *Dark *Matters , obtain 2 special relics.",
+        "EXTENDED_DESCRIPTION": [
         ]
     },
 
@@ -1091,8 +1172,8 @@
         "NAME": "Book of Darkness",
         "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deal additional damage equal to the number of *Risks in your deck.",
         "EXTENDED_DESCRIPTION": [
-            "Warning:",
-            "If the unblocked damage this card deals is not enough, you will encounter a strong backlash."
+            "Book of Darkness:",
+            "The oldest dark arts, contains only Death - no any redundant spells."
         ]
     },
 
@@ -1100,8 +1181,8 @@
         "NAME": "Psychic Nightmare",
         "DESCRIPTION": "Deal damage equal to the number of the cards in your draw pile. NL Gain [E] for every 4 of them.",
         "EXTENDED_DESCRIPTION": [
-            "Warning:",
-            "If this card isn't unleashed at the end of turn, it will bring you a potential loss of energy.",
+            "Psychic Nightmare:",
+            "They were stuck in their deepest thoughts, where they encountered unspeakable enemies from a higher dimension.",
             " NL (Deal !D! damage)"
         ]
     },
@@ -1110,8 +1191,6 @@
         "NAME": "Dust and Ashes",
         "DESCRIPTION": "The enemy loses HP double to the number of the cards you've played this turn.",
         "EXTENDED_DESCRIPTION": [
-            "Warning:",
-            "If you don't have enough energy to master this power, you'd better not use it."
         ]
     },
 
@@ -1119,8 +1198,6 @@
         "NAME": "Evil Entity",
         "DESCRIPTION": "Gain Strength equal to the number of *Risks in your deck.",
         "EXTENDED_DESCRIPTION": [
-            "Warning:",
-            "If you can't take a high risk to use this card, just leave it behind."
         ]
     },
 
@@ -1128,8 +1205,8 @@
         "NAME": "Toy Leperchaun",
         "DESCRIPTION": "Apply !M! maniac:Plague and !M! Weak to ALL enemies.",
         "EXTENDED_DESCRIPTION": [
-            "Warning:",
-            "This toy carries the deadly plague, do remember not to touch it."
+            "Toy Leperchaun:",
+            "It looks pretty good, but just do not touch it."
         ]
     },
 
@@ -1137,7 +1214,7 @@
         "NAME": "Fashionable Sunglasses",
         "DESCRIPTION": "Draw a card. If it's a Skill, deal !D! damage to a random enemy and repeat this.",
         "EXTENDED_DESCRIPTION": [
-            "Warning:",
+            "Fashionable Sunglasses:",
             "It could blind you and you can't resist wearing it."
         ]
     },
@@ -1153,8 +1230,6 @@
         "NAME": "Fury of Lightning",
         "DESCRIPTION": "Deal !D! damage to an enemy and ALL enemies behind it. NL Apply !M! maniac:Fragile.",
         "EXTENDED_DESCRIPTION": [
-            "Warning:",
-            "Block may bounce the lightning back."
         ]
     },
 
@@ -1167,7 +1242,7 @@
 
     "maniac:UnwillingSacrifice": {
         "NAME": "Unwilling Sacrifice",
-        "DESCRIPTION": "Exhaust a card in hand. NL Increase your max health equal to its costs.",
+        "DESCRIPTION": "Exhaust a card in hand. NL Improve a random *Risk or *Uncertainty in your deck by its costs.",
         "EXTENDED_DESCRIPTION": [
         ]
     },

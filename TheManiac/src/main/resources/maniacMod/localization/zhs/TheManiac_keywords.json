@@ -188,6 +188,46 @@
             "箔甲"
         ],
         "DESCRIPTION": "具有箔甲的生物在其回合开始时获得护甲。"
+    },
+
+    "maniac:Locked": {
+        "PROPER_NAME": "锁定",
+        "NAMES": [
+            "锁定"
+        ],
+        "DESCRIPTION": "被锁定的生物会受到额外的未被格挡的伤害。"
+    },
+
+    "maniac:Limited": {
+        "PROPER_NAME": "限定",
+        "NAMES": [
+            "限定"
+        ],
+        "DESCRIPTION": "每回合只能使用一次。"
+    },
+
+    "maniac:Activate": {
+        "PROPER_NAME": "激活",
+        "NAMES": [
+            "激活"
+        ],
+        "DESCRIPTION": "鼠标右击来使用该遗物。"
+    },
+
+    "maniac:Shroud": {
+        "PROPER_NAME": "亡帷",
+        "NAMES": [
+            "亡帷"
+        ],
+        "DESCRIPTION": "消耗时一定会进入消耗堆并将一张对应的帷幕卡置入手牌。"
+    },
+
+    "maniac:Shrouded": {
+        "PROPER_NAME": "帷幕",
+        "NAMES": [
+            "帷幕",
+            "帷幕:"
+        ],
+        "DESCRIPTION": "只有当消耗堆中有对应的亡帷卡时才能被打出或者触发。消耗时直接移出战斗。"
     }
-    
 }

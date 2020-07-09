@@ -20,14 +20,13 @@ public class MysterySeasoning extends AbstractUncertaintiesCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final int COST = 1;
-    private static final TooltipInfo INFO = new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]);
     
     public MysterySeasoning() {
-        super(ID, IMG_PATH, COST, TYPE, TARGET, INFO);
+        super(ID, IMG_PATH, COST, TYPE, TARGET);
         this.combatCounter = 0;
         this.counter = 0;
         
-        this.magicNumber = this.baseMagicNumber = 3;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     @Override
@@ -48,6 +47,13 @@ public class MysterySeasoning extends AbstractUncertaintiesCard {
         }
         
         this.combatCounter++;
+    }
+
+    @Override
+    public void smith(int level) {
+        super.smith(level);
+        upgradeMagicNumber(level);
+        initializeDescription();
     }
 
     @Override
